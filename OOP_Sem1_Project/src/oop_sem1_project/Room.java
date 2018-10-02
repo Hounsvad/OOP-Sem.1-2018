@@ -2,48 +2,39 @@ package oop_sem1_project;
 
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Map;
 
+public class Room {
 
-public class Room 
-{
-    private String description;
-    private HashMap<String, Room> exits;
+    private final Map<String, Room> exits = new HashMap<>();
+    private final String description;
 
-    public Room(String description) 
-    {
+    public Room(String description) {
         this.description = description;
-        exits = new HashMap<String, Room>();
     }
 
-    public void setExit(String direction, Room neighbor) 
-    {
-        exits.put(direction, neighbor);
+    public void setExit(String direction, Room neighbor) {
+        this.exits.put(direction, neighbor);
     }
 
-    public String getShortDescription()
-    {
-        return description;
+    public String getShortDescription() {
+        return this.description;
     }
 
-    public String getLongDescription()
-    {
-        return "You are " + description + ".\n" + getExitString();
+    public String getLongDescription() {
+        return "You are " + this.description + ".\n" + getExitString();
     }
 
-    private String getExitString()
-    {
+    private String getExitString() {
         String returnString = "Exits:";
-        Set<String> keys = exits.keySet();
-        for(String exit : keys) {
+        Set<String> keys = this.exits.keySet();
+        for (String exit : keys) {
             returnString += " " + exit;
         }
         return returnString;
     }
 
-    public Room getExit(String direction) 
-    {
-        return exits.get(direction);
+    public Room getExit(String direction) {
+        return this.exits.get(direction);
     }
 }
-
