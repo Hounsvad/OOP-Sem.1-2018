@@ -1,40 +1,31 @@
 package oop_sem1_project;
+
 import java.util.HashMap;
+import java.util.Map;
 
+public class CommandWords {
 
-public class CommandWords
-{
-    private HashMap<String, CommandWord> validCommands;
+    private final Map<String, CommandWord> validCommands = new HashMap<>();
 
-    public CommandWords()
-    {
-        validCommands = new HashMap<String, CommandWord>();
-        for(CommandWord command : CommandWord.values()) {
-            if(command != CommandWord.UNKNOWN) {
-                validCommands.put(command.toString(), command);
+    public CommandWords() {
+        for (CommandWord command : CommandWord.values()) {
+            if (command != CommandWord.UNKNOWN) {
+                this.validCommands.put(command.toString(), command);
             }
         }
     }
 
-    public CommandWord getCommandWord(String commandWord)
-    {
-        CommandWord command = validCommands.get(commandWord);
-        if(command != null) {
-            return command;
-        }
-        else {
-            return CommandWord.UNKNOWN;
-        }
-    }
-    
-    public boolean isCommand(String aString)
-    {
-        return validCommands.containsKey(aString);
+    public CommandWord getCommandWord(String commandWord) {
+        CommandWord command = this.validCommands.get(commandWord);
+        return command != null ? command : CommandWord.UNKNOWN;
     }
 
-    public void showAll() 
-    {
-        for(String command : validCommands.keySet()) {
+    public boolean isCommand(String command) {
+        return this.validCommands.containsKey(command);
+    }
+
+    public void showAll() {
+        for (String command : this.validCommands.keySet()) {
             System.out.print(command + "  ");
         }
         System.out.println();

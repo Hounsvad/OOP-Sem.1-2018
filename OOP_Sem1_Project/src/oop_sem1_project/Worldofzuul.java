@@ -7,15 +7,15 @@ package oop_sem1_project;
 
 /**
  *
- * @author Pinnacle F
+ * @author Benjamin Staugaard | Benz56
  */
-public class mainClass {
+public class Worldofzuul {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new Game().play();
     }
     
 }
