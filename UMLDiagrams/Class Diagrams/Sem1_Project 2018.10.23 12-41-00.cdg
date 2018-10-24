@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Sem1_Project">
+  <ClassDiagramComponents>
+    <Class name="Command" package="oop_sem1_project" visibility="public" xPosition="59.0" yPosition="301.0">
+      <Fields>
+        <Field name="commandWord" type="CommandWord" visibility="private" isFinal="true"/>
+        <Field name="secondWord" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="CommandWord" name="commandWord"/>
+          <Argument type="String" name="secondWord"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCommandWord" returnType="CommandWord" visibility="public"/>
+        <Method name="getSecondWord" returnType="String" visibility="public"/>
+        <Method name="isUnknown" returnType="boolean" visibility="public"/>
+        <Method name="hasSecondWord" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CommandWords" package="oop_sem1_project" visibility="public" xPosition="605.0" yPosition="237.0">
+      <Fields>
+        <Field name="validCommands" type="Map&lt;String, CommandWord&gt;" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCommandWord" returnType="CommandWord" visibility="public">
+          <Argument type="String" name="commandWord"/>
+        </Method>
+        <Method name="isCommand" returnType="boolean" visibility="public">
+          <Argument type="String" name="command"/>
+        </Method>
+        <Method name="showAll" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Game" package="oop_sem1_project" visibility="public" xPosition="135.0" yPosition="657.0">
+      <Fields>
+        <Field name="parser" type="Parser" visibility="private" isFinal="true"/>
+        <Field name="currentRoom" type="Room" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createRooms" returnType="void" visibility="private"/>
+        <Method name="play" returnType="void" visibility="public"/>
+        <Method name="printWelcome" returnType="void" visibility="private"/>
+        <Method name="processCommand" returnType="boolean" visibility="private">
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="printHelp" returnType="void" visibility="private"/>
+        <Method name="goRoom" returnType="void" visibility="private">
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="quit" returnType="boolean" visibility="private">
+          <Argument type="Command" name="command"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Parser" package="oop_sem1_project" visibility="public" xPosition="687.0" yPosition="534.0">
+      <Fields>
+        <Field name="commands" type="CommandWords" visibility="private" isFinal="true"/>
+        <Field name="reader" type="Scanner" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCommand" returnType="Command" visibility="public"/>
+        <Method name="showCommands" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Room" package="oop_sem1_project" visibility="public" xPosition="687.0" yPosition="727.0">
+      <Fields>
+        <Field name="exits" type="Map&lt;String, Room&gt;" visibility="private" isFinal="true"/>
+        <Field name="description" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setExit" returnType="void" visibility="public">
+          <Argument type="String" name="direction"/>
+          <Argument type="Room" name="neighbor"/>
+        </Method>
+        <Method name="getShortDescription" returnType="String" visibility="public"/>
+        <Method name="getLongDescription" returnType="String" visibility="public"/>
+        <Method name="getExitString" returnType="String" visibility="private"/>
+        <Method name="getExit" returnType="Room" visibility="public">
+          <Argument type="String" name="direction"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Worldofzuul" package="oop_sem1_project" visibility="public" xPosition="59.0" yPosition="7.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="CommandWord" package="oop_sem1_project" visibility="public" xPosition="447.0" yPosition="7.0">
+      <Literals>
+        <Literal name="GO"/>
+        <Literal name="QUIT"/>
+        <Literal name="HELP"/>
+        <Literal name="UNKNOWN"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="exits" source="oop_sem1_project.Room" target="oop_sem1_project.Room" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, Room&gt;"/>
+    <HasRelation name="commandWord" source="oop_sem1_project.Command" target="oop_sem1_project.CommandWord" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="oop_sem1_project.CommandWords" target="oop_sem1_project.CommandWord" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="validCommands" source="oop_sem1_project.CommandWords" target="oop_sem1_project.CommandWord" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, CommandWord&gt;"/>
+    <UseRelation source="oop_sem1_project.Room" target="oop_sem1_project.Room" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="parser" source="oop_sem1_project.Game" target="oop_sem1_project.Parser" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="oop_sem1_project.Command" target="oop_sem1_project.CommandWord" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="commands" source="oop_sem1_project.Parser" target="oop_sem1_project.CommandWords" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="currentRoom" source="oop_sem1_project.Game" target="oop_sem1_project.Room" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="oop_sem1_project.Parser" target="oop_sem1_project.Command" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="oop_sem1_project.Game" target="oop_sem1_project.Command" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
