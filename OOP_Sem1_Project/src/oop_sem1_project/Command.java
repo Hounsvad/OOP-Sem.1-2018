@@ -20,26 +20,63 @@ package oop_sem1_project;
 
 public class Command {
 
+    /**
+     * This commands {@link CommandWord}
+     */
     private final CommandWord commandWord;
+
+    /**
+     * An optional second argument/word for the command.
+     */
     private final String secondWord;
 
+    /**
+     * Constructs a Command Object with only one word.
+     *
+     * @param commandWord The commandWord.
+     */
+    public Command(CommandWord commandWord) {
+        this(commandWord, "");
+    }
+
+    /**
+     * Construct a Command Object with potentially two words.
+     *
+     * @param commandWord The command word.
+     * @param secondWord The second command word.
+     */
     public Command(CommandWord commandWord, String secondWord) {
         this.commandWord = commandWord;
         this.secondWord = secondWord;
     }
 
+    /**
+     * @return the commandWord.
+     */
     public CommandWord getCommandWord() {
-        return this.commandWord;
+        return commandWord;
     }
 
+    /**
+     * @return the secondWord.
+     */
     public String getSecondWord() {
         return this.secondWord;
     }
 
+    /**
+     * @return whether or not the commandWord is unknown.
+     */
     public boolean isUnknown() {
-        return this.commandWord == CommandWord.UNKNOWN;
+        return this.getCommandWord() == CommandWord.UNKNOWN;
     }
 
+    /**
+     * Evaluates if this command has a second word by checking if the second
+     * word is either null or the String is empty.
+     *
+     * @return whether or not this command has a second word.
+     */
     public boolean hasSecondWord() {
         return this.secondWord != null && !this.secondWord.isEmpty();
     }
