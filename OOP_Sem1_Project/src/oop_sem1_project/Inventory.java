@@ -31,7 +31,7 @@ public class Inventory {
                 return item;
             }
         }
-        throw new IllegalArgumentException("The item was not found in the list");
+        return null;
     }
     
     /**
