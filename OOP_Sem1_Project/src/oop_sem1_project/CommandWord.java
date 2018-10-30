@@ -15,6 +15,35 @@ public enum CommandWord {
      */
     HELP("help"),
     /**
+     * Grab command.
+     */
+    GRAB("grab"),
+    /**
+     * Use command.
+     */
+    USE("use"),
+    /**
+     * Look command.
+     */    
+    LOOK("look"),
+    /**
+     * Inventory.
+     */
+    INVENTORY("inventory"),
+    /**
+     * Do command
+     */
+    DO("do"),
+    /**
+     * Listen command
+     */
+    LISTEN("listen"),
+    /**
+     * Why command
+     * This command is an easter egg and is not shown
+     */
+    WHY("why"),
+    /**
      * Unknown command.
      */
     UNKNOWN("?");
