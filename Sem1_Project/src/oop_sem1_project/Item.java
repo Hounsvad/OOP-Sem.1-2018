@@ -5,6 +5,8 @@
  */
 package oop_sem1_project;
 
+import java.util.Objects;
+
 /**
  *
  * @author Hounsvad
@@ -14,12 +16,12 @@ public class Item {
      * The name of the item
      * <p>Should only be one line
      */
-    private String itemName;
+    private final String itemName;
     /**
      * A description of the item
      * <p>Can be multiple lines 
      */
-    private String itemDescription;
+    private final String itemDescription;
     
     public Item(String itemName, String itemDescription){
         if(itemName != null){
@@ -55,4 +57,19 @@ public class Item {
         return itemDescription;
     }
     
+    @Override
+    public boolean equals(Object input){
+        if(input instanceof Item){
+            return ((Item) input).itemName.equals(this.itemName);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.itemName);
+        hash = 79 * hash + Objects.hashCode(this.itemDescription);
+        return hash;
+    }
 }
