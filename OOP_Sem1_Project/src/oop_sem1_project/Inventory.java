@@ -6,6 +6,7 @@
 package oop_sem1_project;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Inventory {
     /**
      * Database to store inventory
      */
-    private ArrayList<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
     
     /**
      * Returns an item based on the item name
