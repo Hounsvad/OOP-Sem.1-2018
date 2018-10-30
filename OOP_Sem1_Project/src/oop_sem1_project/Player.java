@@ -11,59 +11,66 @@ package oop_sem1_project;
  */
 public class Player {
     
-    private String name;
+    /**
+     * Player name.
+     */
+    private final String name;
+    
+    /**
+     * The player's inventory.
+     */
     private final Inventory inventory = new Inventory();
     
     /**
+     * Constructs a new Player Object. 
      *
-     * @param name
+     * @param name of the player.
      */
     public Player(String name) {
         this.name = name;
     }
     
     /**
-     *
-     * @return The name of the player
+     * @return the name of the player.
      */
     public String getName(){
         return name;
     }
     
     /**
+     * Adds an {@link Item item}.
      *
-     * @param item
-     * Adds said item
+     * @param item to be added.
      */
     public void addItem(Item item){
-        inventory.addItem(item);
+        this.inventory.addItem(item);
     }
     
     /**
+     * Removes an {@link Item item}.
      *
-     * @param itemName
-     * Removes said item
+     * @param itemName is the name of the Item.
      */
     public void removeItem(String itemName){
-        inventory.removeItem(itemName);
+        this.inventory.removeItem(itemName);
     }
     
     /**
-     *
-     * @param itemName
-     * @return Item with that name
+     * @param itemName the name of the item to be retrieved.
+     * @return the item with name passed as the argument or null if it does not not exist. 
      */
     public Item getItem(String itemName){
-        return inventory.getItem(itemName);
+        return this.inventory.getItem(itemName);
     }
     
     /**
+     * Checks if the item with the given name exist in the {@link Inventory inventory}.
      *
-     * @param itemName
-     * @return Whether it has that item as a boolean
+     * @param itemName the item name being checked for.
+     * @return whether it has that item.
      */
     public boolean hasItem(String itemName){
-        return inventory.hasItem(itemName);
+        return this.inventory.hasItem(itemName);
     }
     
 }
