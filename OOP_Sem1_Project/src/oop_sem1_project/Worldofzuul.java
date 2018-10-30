@@ -15,7 +15,7 @@ public class Worldofzuul {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // Starts the game.
         new Game().play();
     }
-    
 }

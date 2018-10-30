@@ -4,9 +4,19 @@ import java.util.Scanner;
 
 public class Parser {
 
+    /**
+     * The registered {@link CommandWords}.
+     */
     private final CommandWords commands = new CommandWords();
+
+    /**
+     * The Scanner taking user input from the console/terminal.
+     */
     private final Scanner reader = new Scanner(System.in);
 
+    /**
+     * @return the next {@link Command} the user calls.
+     */
     public Command getCommand() {
         String inputLine;
         String word1 = null;
@@ -27,6 +37,9 @@ public class Parser {
         return new Command(this.commands.getCommandWord(word1), word2);
     }
 
+    /**
+     * Prints a message containing all registered commands.
+     */
     public void showCommands() {
         this.commands.showAll();
     }
