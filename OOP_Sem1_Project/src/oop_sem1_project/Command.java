@@ -54,7 +54,7 @@ public class Command {
      * @return the commandWord.
      */
     public CommandWord getCommandWord() {
-        return commandWord;
+        return this.commandWord;
     }
 
     /**
@@ -68,7 +68,7 @@ public class Command {
      * @return whether or not the commandWord is unknown.
      */
     public boolean isUnknown() {
-        return this.getCommandWord() == CommandWord.UNKNOWN;
+        return this.commandWord == CommandWord.UNKNOWN;
     }
 
     /**
