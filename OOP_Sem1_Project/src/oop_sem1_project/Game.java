@@ -103,6 +103,28 @@ public class Game {
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case GRAB:
+                //To be implementerd
+                break;
+            case USE:
+                //To be implementerd
+                break;
+            case LOOK:
+                //To be implementerd
+                break;
+            case INVENTORY:
+                //To be implementerd
+                break;
+            case DO:
+                //To be implementerd
+                break;
+            case LISTEN:
+                //To be implementerd
+                break;
+            case WHY:
+                //To be implementerd
+                break;
+            
             default:
                 break;
         }

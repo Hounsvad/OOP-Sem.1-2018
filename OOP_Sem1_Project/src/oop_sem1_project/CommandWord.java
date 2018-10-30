@@ -24,7 +24,7 @@ public enum CommandWord {
     USE("use"),
     /**
      * Look command.
-     */    
+     */
     LOOK("look"),
     /**
      * Inventory.
