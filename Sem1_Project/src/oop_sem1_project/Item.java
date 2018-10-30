@@ -60,7 +60,7 @@ public class Item {
     @Override
     public boolean equals(Object input){
         if(input instanceof Item){
-            return ((Item) input).itemName.equals(this.itemName);
+            return ((Item) input).itemName.equalsIgnoreCase(this.itemName);
         }
         return false;
     }

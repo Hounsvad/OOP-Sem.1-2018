@@ -64,7 +64,7 @@ public class Inventory {
      * @return true upon success
      */
     public boolean removeItem(String itemName){
-        return items.removeIf(n -> (n.getItemName().equals(itemName)));
+        return items.remove(getItem(itemName));
     }
     
 }
