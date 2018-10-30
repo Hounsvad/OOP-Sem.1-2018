@@ -21,13 +21,12 @@ public class Inventory {
     
     /**
      * Returns an item based on the item name
-     * 
-     * Throws IllegalArgumentException if the item is not found
+     *
      * @param itemName as string to be retrieved
-     * @return requested item
+     * @return requested item or null
      */
     public Item getItem(String itemName){
-        for(Item item: items){
+        for(Item item : this.items){
             if(item.getItemName().equalsIgnoreCase(itemName)){
                 return item;
             }
@@ -37,35 +36,35 @@ public class Inventory {
     
     /**
      * Attempts to add an item to the inventory
+     *
      * @param item to be added
      * @return true upon success
      */
     public boolean addItem(Item item){
-        if(!items.contains(item)){
-            return items.add(item);
+        if(!this.items.contains(item)){
+            return this.items.add(item);
         }
         return false;
     }
     
     /**
      * Check to see of the inventory contains a specified item
+     *
      * @param itemName to be checked for as string
      * @return true upon success
      */
     public boolean hasItem(String itemName){
-        if(items.contains(new Item(itemName, ""))){
-            return true;
-        }
-        return false;
+        return getItem(itemName) != null;
     }
     
     /**
      * Removes an item based on the item name
+     *
      * @param itemName to be removed
      * @return true upon success
      */
     public boolean removeItem(String itemName){
-        return items.remove(getItem(itemName));
+        return this.items.remove(getItem(itemName));
     }
     
 }
