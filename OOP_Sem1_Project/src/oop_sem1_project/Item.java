@@ -33,9 +33,8 @@ public class Item {
      * @param itemDescription is the description of the item
      * @throws IllegalArgumentException if the itemName is ""
      * @throws NullPointerException if the 
-     */
-    public Item(String itemName, String itemDescription){
-        
+     */ 
+    public Item(String itemName, String itemDescription) {
         if (itemName == null) {
             throw new NullPointerException("The input for itemName must be somthing other than null");
         } else if (itemName.isEmpty()) {
