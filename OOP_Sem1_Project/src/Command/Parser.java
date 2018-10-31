@@ -1,4 +1,4 @@
-package oop_sem1_project;
+package Command;
 
 import Command.Command;
 import Command.CommandWords;
