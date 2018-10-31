@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package oop_sem1_project;
+
 /**
- *
+ * Item is an item to be used in the game
  * 
  */
-
 public class Item {
     
     /**

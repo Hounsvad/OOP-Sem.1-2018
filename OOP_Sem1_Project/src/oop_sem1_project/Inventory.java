@@ -5,9 +5,6 @@
  */
 package oop_sem1_project;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Hounsvad
@@ -15,36 +12,41 @@ import java.util.List;
 public class Inventory {
     
     /**
-     * Database to store inventory
+     * The inventory
      */
-    private List<Item> items = new ArrayList<>();
+    private Item item;
+
+    /**
+     * Creates an inventory based on a {@link java.util.List List} of {@link Item Item}
+     * @param item the item to be added 
+     */
+    public Inventory(Item item) {
+        this.item = item;
+    }
+    
+    /**
+     * Creates an empty inventory
+     */
+    public Inventory(){
+        this.item = null;
+    }
     
     /**
      * Returns an item based on the item name
      *
-     * @param itemName as string to be retrieved
      * @return requested item or null
      */
-    public Item getItem(String itemName){
-        for(Item item : this.items){
-            if(item.getItemName().equalsIgnoreCase(itemName)){
-                return item;
-            }
-        }
-        return null;
+    public Item getItem(){
+        return item;
     }
     
     /**
      * Attempts to add an item to the inventory
      *
      * @param item to be added
-     * @return true upon success
      */
-    public boolean addItem(Item item){
-        if(!this.items.contains(item)){
-            return this.items.add(item);
-        }
-        return false;
+    public void addItem(Item item){
+        this.item = item == null ? this.item : item;
     }
     
     /**
@@ -54,17 +56,13 @@ public class Inventory {
      * @return true upon success
      */
     public boolean hasItem(String itemName){
-        return getItem(itemName) != null;
+        return getItem().getItemName().equals(itemName);
     }
     
     /**
-     * Removes an item based on the item name
-     *
-     * @param itemName to be removed
-     * @return true upon success
+     * Removes the item from the inventory
      */
-    public boolean removeItem(String itemName){
-        return this.items.remove(getItem(itemName));
+    public void removeItem(){
+        this.item = null;
     }
-    
 }
