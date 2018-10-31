@@ -81,7 +81,7 @@ public class Game {
      *
      * @param command The called {@link Command}.
      * @return True if the Player has called {@link CommandWord#QUIT}. False if
-     * any other {@link Command} has been called.
+     *         any other {@link Command} has been called.
      */
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
@@ -124,7 +124,7 @@ public class Game {
             case WHY:
                 //To be implementerd
                 break;
-            
+
             default:
                 break;
         }

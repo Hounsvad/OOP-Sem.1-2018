@@ -30,7 +30,7 @@ public class Room {
      * Add a new exit to this room.
      *
      * @param direction The relative direction in which the neighbor is located.
-     * @param neighbor The neighboring room.
+     * @param neighbor  The neighboring room.
      */
     public void setExit(String direction, Room neighbor) {
         this.exits.put(direction, neighbor);
@@ -67,7 +67,7 @@ public class Room {
      *
      * @param direction The direction in which an exit room is to be retrieved.
      * @return A Room in the given direction or null if no Room is located in
-     * the given direction i.e. no key exists for the parameter.
+     *         the given direction i.e. no key exists for the parameter.
      */
     public Room getExit(String direction) {
         return this.exits.get(direction);
