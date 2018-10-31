@@ -40,7 +40,7 @@ public class Inventory {
      * @param item to be added
      * @return true upon success
      */
-    public boolean setItem(Item item){
+    public boolean addItem(Item item){
         if(!this.items.contains(item)){
             return this.items.add(item);
         }
