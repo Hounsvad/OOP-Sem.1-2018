@@ -40,7 +40,7 @@ public class Game {
         hall.setExit("south", entrance);
         hall.setExit("north", hallway);
         hall.setExit("east", workshop);
-        hall.setExit("west", U55);
+        hall.setExit("west", u55);
 
         hallway.setExit("east", lab);
         hallway.setExit("west", robtek);
