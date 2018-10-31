@@ -3,6 +3,10 @@ package oop_sem1_project;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ * 
+ */
 public class CommandWords {
 
     /**

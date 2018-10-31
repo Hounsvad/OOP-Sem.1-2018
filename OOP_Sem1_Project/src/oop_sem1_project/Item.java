@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package oop_sem1_project;
-
-import java.util.Objects;
-
 /**
  *
- * @author Hounsvad
+ * 
  */
 
 public class Item {
@@ -66,6 +63,7 @@ public class Item {
     
     /**
      * Checks if the itemName is equal
+     * @param input
      * @return true upon equality
      */
     @Override

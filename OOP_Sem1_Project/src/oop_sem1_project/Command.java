@@ -18,6 +18,10 @@
  */
 package oop_sem1_project;
 
+/**
+ *
+ * 
+ */
 public class Command {
 
     /**
