@@ -22,6 +22,11 @@ public class Player {
     private final Inventory inventory = new Inventory();
     
     /**
+     * Player score
+     */
+    private int score;
+    
+    /**
      * Constructs a new Player Object. 
      *
      * @param name of the player.
@@ -73,4 +78,17 @@ public class Player {
         return this.inventory.hasItem(itemName);
     }
     
+    /**
+     * @return the player's score
+     */
+    public int getScore(){
+        return this.score;
+    }
+    
+    /**
+     * @param points the points that get added to the player's score
+     */
+    public void addScore(int points){
+        this.score += points;
+    }
 }
