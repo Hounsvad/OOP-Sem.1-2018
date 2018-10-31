@@ -6,6 +6,16 @@ public class Game {
      * The command {@link Parser}.
      */
     private final Parser parser = new Parser();
+    
+    /**
+     * The player name - currently hardcoded - change to user input
+     */
+    private final String playerName = "Player1";
+    
+    /**
+     * The player
+     */
+    private final Player player = new Player(playerName);
 
     /**
      * The current {@link Room}.
@@ -24,7 +34,7 @@ public class Game {
      */
     private void createRooms() {
         Room outside, theatre, pub, lab, office;
-
+        /*
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
@@ -43,8 +53,8 @@ public class Game {
         lab.setExit("east", office);
 
         office.setExit("west", lab);
-
-        this.currentRoom = outside;
+        
+        this.currentRoom = outside;*/
     }
 
     /**
