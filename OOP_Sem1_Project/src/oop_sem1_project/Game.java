@@ -23,7 +23,7 @@ public class Game {
      * Creates all the rooms in the game.
      */
     private void createRooms() {
-        Room entrance, hall, hallway, workshop, lab, robtek, U55, rally;
+        Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
 
         entrance = new Room("The entrance to the TEK building");
         hall = new Room("The main hall");
@@ -31,7 +31,7 @@ public class Game {
         workshop = new Room("A workshop for the mechanical engineering students");
         lab = new Room("A lab for the chemical enginneers");
         robtek = new Room("A room where the robottechnology enginneers reside");
-        U55 = new Room("A lecture hall");
+        u55 = new Room("A lecture hall");
         rally = new Room("A rally point incase of emergencies");
 
         entrance.setExit("north", hall);
@@ -50,7 +50,7 @@ public class Game {
         
         robtek.setExit("east", hallway);
         
-        U55.setExit("east", hall);
+        u55.setExit("east", hall);
         
         workshop.setExit("west", hall);
         
