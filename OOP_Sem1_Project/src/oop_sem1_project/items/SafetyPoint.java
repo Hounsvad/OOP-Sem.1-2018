@@ -17,7 +17,25 @@ public class SafetyPoint {
     private static final Map<String, Item> CONTENTS = new HashMap<>();
 
     static {
-        CONTENTS.put("map", new Item("Map", "An e-Map", "Your eyesight seems bad"));
+        CONTENTS.put("map", new Item("Map", "An e-Map", "####################################################\n"
+                + "#             World of Fire Safety Map             #\n"
+                + "####################################################\n"
+                + "#               #                #                 #\n"
+                + "#    Rob-Tek    #    Hallway     #      Chem       #\n"
+                + "#               #                #                 #\n"
+                + "####################################################\n"
+                + "#               #                #                 #\n"
+                + "#      U55      #      Hall      #    Workshop     #\n"
+                + "#               #                #                 #\n"
+                + "####################################################\n"
+                + "                 #               #\n"
+                + "                 #   Entrance    #\n"
+                + "                 #               #\n"
+                + "                 #################\n"
+                + "                 #               #\n"
+                + "                 #  Rally Point  #\n"
+                + "                 #               #\n"
+                + "                 #################"));
         CONTENTS.put("fire-extinguisher", new Item("Fire-extinguisher", "A CO2 filled vessel with a release handle", "*SPWOOOOOOSH!* Goes the fire-extinguisher"));
         CONTENTS.put("eyewash", new Item("Eyewash", "A saline solution in a handy container", "*SPLASH* Goes the eyewash"));
         CONTENTS.put("defibrilator", new Item("Defibrilator", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", "*BZZZZZT* Goes the fancy tazer"));
