@@ -9,6 +9,6 @@ package Items;
  *
  * @author Pinnacle F
  */
-public class saftyPoint {
+public class SafetyPoint {
     
 }
