@@ -2,7 +2,7 @@ package oop_sem1_project.command;
 
 /**
  *
- * 
+ *
  */
 public enum CommandWord {
 
@@ -35,16 +35,7 @@ public enum CommandWord {
      */
     INVENTORY("inventory"),
     /**
-     * Do command
-     */
-    DO("do"),
-    /**
-     * Listen command
-     */
-    LISTEN("listen"),
-    /**
-     * Why command
-     * This command is an easter egg and is not shown
+     * Why command This command is an easter egg and is not shown
      */
     WHY("why"),
     /**

@@ -91,4 +91,13 @@ public class Item {
     public boolean equals(Object input){
         return input instanceof Item && ((Item) input).itemName.equalsIgnoreCase(this.itemName);
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    @Override
+    public String toString(){
+        return this.itemName + "\n" + this.itemDescription;
+    }
 }

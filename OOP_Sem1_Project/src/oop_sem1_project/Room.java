@@ -35,7 +35,7 @@ public class Room {
     /**
      * The messages to be displayed in the room.
      */
-    private final List<String> messages;
+    private final String[] messages;
 
     /**
      * The message to be displayed when the player's progress is lower than the
@@ -56,8 +56,9 @@ public class Room {
      * @param messages The messages to be displayed in the room.
      * @param deniedMessage The message to be displayed when the player's
      * progress is lower than the desired progress
+     * @param why
      */
-    public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why) {
+    public Room(String description, int desiredProgress, String[] messages, String deniedMessage, String why) {
         this.description = description;
         this.desiredProgress = desiredProgress;
         this.messages = messages;
@@ -125,17 +126,16 @@ public class Room {
     /**
      * Get the current message
      *
-     * @param Player p
+     * @param p the player.
      * @return The current message to be displayed
      */
     public String getMessage(Player p) {
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
-        } else {
-            int roomProgress = p.getProgress() - desiredProgress;
-            p.increaseProgress();
-            return messages.get(roomProgress);
         }
+        int roomProgress = p.getProgress() - desiredProgress;
+        p.increaseProgress();
+        return messages[roomProgress];
     }
 
     public String hasItem(Item item) {
