@@ -1,7 +1,13 @@
-package oop_sem1_project;
+package Command;
 
+import Command.Command;
+import Command.CommandWords;
 import java.util.Scanner;
 
+/**
+ *
+ * 
+ */
 public class Parser {
 
     /**

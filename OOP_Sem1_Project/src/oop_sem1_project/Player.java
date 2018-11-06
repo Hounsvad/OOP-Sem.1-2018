@@ -5,6 +5,9 @@
  */
 package oop_sem1_project;
 
+import Items.Inventory;
+import Items.Item;
+
 /**
  *
  * @author Oliver
@@ -20,6 +23,11 @@ public class Player {
      * The player's inventory.
      */
     private final Inventory inventory = new Inventory();
+    
+    /**
+     * Player score
+     */
+    private int score;
     
     /**
      * Constructs a new Player Object. 
@@ -73,4 +81,17 @@ public class Player {
         return this.inventory.hasItem(itemName);
     }
     
+    /**
+     * @return the player's score
+     */
+    public int getScore(){
+        return this.score;
+    }
+    
+    /**
+     * @param points the points that get added to the player's score
+     */
+    public void addScore(int points){
+        this.score += points;
+    }
 }

@@ -1,5 +1,9 @@
-package oop_sem1_project;
+package Command;
 
+/**
+ *
+ * 
+ */
 public enum CommandWord {
 
     /**
@@ -15,6 +19,35 @@ public enum CommandWord {
      */
     HELP("help"),
     /**
+     * Grab command.
+     */
+    GRAB("grab"),
+    /**
+     * Use command.
+     */
+    USE("use"),
+    /**
+     * Look command.
+     */
+    LOOK("look"),
+    /**
+     * Inventory.
+     */
+    INVENTORY("inventory"),
+    /**
+     * Do command
+     */
+    DO("do"),
+    /**
+     * Listen command
+     */
+    LISTEN("listen"),
+    /**
+     * Why command
+     * This command is an easter egg and is not shown
+     */
+    WHY("why"),
+    /**
      * Unknown command.
      */
     UNKNOWN("?");
@@ -29,7 +62,7 @@ public enum CommandWord {
      *
      * @param commandString The enum types defined String value.
      */
-    CommandWord(String commandString) {
+    public CommandWord(String commandString) {
         this.commandString = commandString;
     }
 
