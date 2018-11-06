@@ -62,7 +62,7 @@ public enum CommandWord {
      *
      * @param commandString The enum types defined String value.
      */
-    CommandWord(String commandString) {
+    public CommandWord(String commandString) {
         this.commandString = commandString;
     }
 
