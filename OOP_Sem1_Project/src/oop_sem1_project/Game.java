@@ -1,5 +1,6 @@
 package oop_sem1_project;
 
+import java.util.Arrays;
 import oop_sem1_project.command.Parser;
 import oop_sem1_project.command.CommandWord;
 import oop_sem1_project.command.Command;
@@ -42,15 +43,15 @@ public class Game {
      */
     private void createRooms() {
         Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
-
-        entrance = new Room("The entrance to the TEK building");
-        hall = new Room("The main hall");
-        hallway = new Room("A hallway adjacent to the main hall");
-        workshop = new Room("A workshop for the mechanical engineering students");
-        lab = new Room("A lab for the chemical enginneers");
-        robtek = new Room("A room where the robottechnology enginneers reside");
-        u55 = new Room("A lecture hall");
-        rally = new Room("A rally point incase of emergencies");
+        //public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why)
+        entrance = new Room("The entrance to the TEK building", 0, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        hall = new Room("The main hall", 1, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        hallway = new Room("A hallway adjacent to the main hall", 2, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        workshop = new Room("A workshop for the mechanical engineering students", 3, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        lab = new Room("A lab for the chemical enginneers", 4, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        robtek = new Room("A room where the robottechnology enginneers reside", 5, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        u55 = new Room("A lecture hall", 6, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        rally = new Room("A rally point incase of emergencies", 7, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
 
         entrance.setExit("north", hall);
         entrance.setExit("south", rally);
