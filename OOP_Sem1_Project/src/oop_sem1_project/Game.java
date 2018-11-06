@@ -4,6 +4,7 @@ import java.util.Arrays;
 import oop_sem1_project.command.Parser;
 import oop_sem1_project.command.CommandWord;
 import oop_sem1_project.command.Command;
+import oop_sem1_project.items.SafetyPoint;
 
 /**
  *
@@ -44,14 +45,14 @@ public class Game {
     private void createRooms() {
         Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
         //public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why)
-        entrance = new Room("The entrance to the TEK building", 0, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        hall = new Room("The main hall", 1, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        hallway = new Room("A hallway adjacent to the main hall", 2, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        workshop = new Room("A workshop for the mechanical engineering students", 3, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        lab = new Room("A lab for the chemical enginneers", 4, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        robtek = new Room("A room where the robottechnology enginneers reside", 5, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        u55 = new Room("A lecture hall", 6, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
-        rally = new Room("A rally point incase of emergencies", 7, new String[]{"Welcome" ," ", ""}, "You are not welcome", "Who knows");
+        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        hall = new Room("in the main hall", 1, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        workshop = new Room("at a workshop for the mechanical engineering students", 3, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        lab = new Room("at a lab for the chemical enginneers", 4, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        robtek = new Room("at the room where the robottechnology enginneers reside", 5, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        u55 = new Room("at the lecture hall", 6, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        rally = new Room("at the rally point incase of emergencies", 7, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
 
         entrance.setExit("north", hall);
         entrance.setExit("south", rally);
@@ -135,25 +136,21 @@ public class Game {
                 wantToQuit = quit(command);
                 break;
             case GRAB:
-                //To be implementerd
+                grabItem(command);
                 break;
             case USE:
                 //To be implementerd
                 break;
             case LOOK:
-                //To be implementerd
+                //To implement getting items 
                 break;
             case INVENTORY:
                 //To be implementerd
-                break;
-            case DO:
-                //To be implementerd
-                break;
-            case LISTEN:
-                //To be implementerd
+                System.out.println(this.player.getInventory().getItem().toString());
                 break;
             case WHY:
                 //To be implementerd
+                System.out.println(this.currentRoom.getWhy());
                 break;
 
             default:
@@ -172,6 +169,12 @@ public class Game {
         System.out.println();
         System.out.println("Your command words are:");
         this.parser.showCommands();
+    }
+
+    private void grabItem(Command command) {
+        if(this.currentRoom.getShortDescription().equals("in the main hall")){
+            player.getInventory().addItem(SafetyPoint.getItem(command.getSecondWord()));
+        }
     }
 
     /**
@@ -195,6 +198,7 @@ public class Game {
         } else {
             this.currentRoom = nextRoom;
             System.out.println(this.currentRoom.getLongDescription());
+            System.out.println(this.currentRoom.getMessage(player));
         }
     }
 

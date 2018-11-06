@@ -126,17 +126,16 @@ public class Room {
     /**
      * Get the current message
      *
-     * @param Player p
+     * @param p the player.
      * @return The current message to be displayed
      */
     public String getMessage(Player p) {
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
-        } else {
-            int roomProgress = p.getProgress() - desiredProgress;
-            p.increaseProgress();
-            return messages[roomProgress];
         }
+        int roomProgress = p.getProgress() - desiredProgress;
+        p.increaseProgress();
+        return messages[roomProgress];
     }
 
     public String hasItem(Item item) {
