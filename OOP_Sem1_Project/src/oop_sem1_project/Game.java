@@ -1,8 +1,8 @@
 package oop_sem1_project;
 
-import Command.Parser;
-import Command.CommandWord;
-import Command.Command;
+import oop_sem1_project.command.Parser;
+import oop_sem1_project.command.CommandWord;
+import oop_sem1_project.command.Command;
 
 /**
  *

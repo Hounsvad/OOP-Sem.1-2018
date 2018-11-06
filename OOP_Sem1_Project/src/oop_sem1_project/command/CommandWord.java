@@ -1,4 +1,4 @@
-package Command;
+package oop_sem1_project.command;
 
 /**
  *
@@ -62,7 +62,7 @@ public enum CommandWord {
      *
      * @param commandString The enum types defined String value.
      */
-    public CommandWord(String commandString) {
+    CommandWord(String commandString) {
         this.commandString = commandString;
     }
 

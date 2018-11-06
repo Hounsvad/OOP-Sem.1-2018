@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.List;
-import Items.Inventory;
-import Items.Item;
-import Items.SafetyPoint;
+import oop_sem1_project.items.Inventory;
+import oop_sem1_project.items.Item;
+import oop_sem1_project.items.SafetyPoint;
 
 /**
  *

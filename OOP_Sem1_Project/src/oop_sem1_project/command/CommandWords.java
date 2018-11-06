@@ -1,4 +1,4 @@
-package Command;
+package oop_sem1_project.command;
 
 import java.util.HashMap;
 import java.util.Map;

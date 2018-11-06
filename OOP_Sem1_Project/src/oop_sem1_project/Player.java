@@ -5,7 +5,7 @@
  */
 package oop_sem1_project;
 
-import Items.Inventory;
+import oop_sem1_project.items.Inventory;
 
 /**
  *

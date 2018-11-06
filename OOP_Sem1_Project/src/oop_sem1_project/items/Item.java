@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Items;
+package oop_sem1_project.items;
 
 /**
  * Item is an item to be used in the game
