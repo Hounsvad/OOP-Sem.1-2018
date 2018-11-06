@@ -56,7 +56,7 @@ public class Inventory {
      * @return true upon success
      */
     public boolean hasItem(String itemName){
-        return getItem().getItemName().equals(itemName);
+        return this.item != null && this.item.getItemName().equalsIgnoreCase(itemName);
     }
     
     /**
