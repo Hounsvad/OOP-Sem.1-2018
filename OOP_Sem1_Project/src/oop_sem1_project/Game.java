@@ -31,28 +31,40 @@ public class Game {
      * Creates all the rooms in the game.
      */
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
+        Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
 
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        entrance = new Room("The entrance to the TEK building");
+        hall = new Room("The main hall");
+        hallway = new Room("A hallway adjacent to the main hall");
+        workshop = new Room("A workshop for the mechanical engineering students");
+        lab = new Room("A lab for the chemical enginneers");
+        robtek = new Room("A room where the robottechnology enginneers reside");
+        u55 = new Room("A lecture hall");
+        rally = new Room("A rally point incase of emergencies");
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        entrance.setExit("north", hall);
+        entrance.setExit("south", rally);
 
-        theatre.setExit("west", outside);
+        hall.setExit("south", entrance);
+        hall.setExit("north", hallway);
+        hall.setExit("east", workshop);
+        hall.setExit("west", u55);
 
-        pub.setExit("east", outside);
+        hallway.setExit("east", lab);
+        hallway.setExit("west", robtek);
+        hallway.setExit("south", hall);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        lab.setExit("west", hallway);
+        
+        robtek.setExit("east", hallway);
+        
+        u55.setExit("east", hall);
+        
+        workshop.setExit("west", hall);
+        
+        rally.setExit("north", entrance);
 
-        office.setExit("west", lab);
-
-        this.currentRoom = outside;
+        this.currentRoom = entrance;
     }
 
     /**
