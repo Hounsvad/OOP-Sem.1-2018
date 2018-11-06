@@ -34,7 +34,7 @@ public class Game {
      */
     private void createRooms() {
         Room outside, theatre, pub, lab, office;
-        /*
+        
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
@@ -54,7 +54,7 @@ public class Game {
 
         office.setExit("west", lab);
         
-        this.currentRoom = outside;*/
+        this.currentRoom = outside;
     }
 
     /**
