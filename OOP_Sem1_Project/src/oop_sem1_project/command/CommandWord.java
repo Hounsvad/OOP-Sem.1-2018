@@ -26,13 +26,6 @@ public enum CommandWord {
      * Use command.
      */
     USE("use"),
-    /**
-     * Look command.
-     */
-    LOOK("look"),
-    /**
-     * Inventory.
-     */
     INVENTORY("inventory"),
     /**
      * Why command This command is an easter egg and is not shown

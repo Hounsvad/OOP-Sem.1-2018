@@ -18,7 +18,8 @@ public class SafetyPoint {
     private static final Map<String, Item> CONTENTS = new HashMap<>();
 
     static {
-        CONTENTS.put("map", new Item("Map", "An e-Map", "####################################################\n"
+        CONTENTS.put("map", new Item("Map", "An e-Map", 
+                  "####################################################\n"
                 + "#             World of Fire Safety Map             #\n"
                 + "####################################################\n"
                 + "#               #                #                 #\n"

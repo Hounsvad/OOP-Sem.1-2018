@@ -141,9 +141,6 @@ public class Game {
             case USE:
                 //To be implementerd
                 break;
-            case LOOK:
-                //To implement getting items 
-                break;
             case INVENTORY:
                 //To be implementerd
                 System.out.println(this.player.getInventory().getItem().toString());
