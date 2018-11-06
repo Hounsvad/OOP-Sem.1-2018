@@ -5,6 +5,8 @@
  */
 package oop_sem1_project.items;
 
+import java.util.List;
+
 /**
  * Item is an item to be used in the game
  * 
@@ -29,14 +31,21 @@ public class Item {
     private final String usageMessage;
     
     /**
+     * List of progress requirements
+     */
+    private final List<Integer> desiredProgress;
+    
+    /**
      * Creates an item
      *
      * @param itemName is the name of the item as a string
      * @param itemDescription is the description of the item
+     * @param usageMessage
+     * @param desiredProgress
      * @throws IllegalArgumentException if the itemName is ""
      * @throws NullPointerException if the the itemName is null
      */ 
-    public Item(String itemName, String itemDescription, String usageMessage) {
+    public Item(String itemName, String itemDescription, String usageMessage, List<Integer> desiredProgress) {
         if (itemName == null) {
             throw new NullPointerException("The input for itemName must be somthing other than null");
         } else if (itemName.isEmpty()) {
@@ -57,6 +66,7 @@ public class Item {
             throw new IllegalArgumentException("The input for usageMessage must be somthing other than \"\"");
         }
         this.usageMessage = usageMessage;
+        this.desiredProgress = desiredProgress;
     }
 
     /**
