@@ -3,12 +3,16 @@ package oop_sem1_project;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.List;
+import oop_sem1_project.items.Inventory;
+import oop_sem1_project.items.Item;
+import oop_sem1_project.items.SafetyPoint;
 
 /**
  *
- * 
+ *
  */
 public class Room {
 
@@ -22,33 +26,51 @@ public class Room {
      * A description of this Room.
      */
     private final String description;
+
     /**
-     * 
+     * A value of how far the player should be to access the room.
      */
+    private final int desiredProgress;
+
+    /**
+     * The messages to be displayed in the room.
+     */
+    private final List<String> messages;
+
+    /**
+     * The message to be displayed when the player's progress is lower than the
+     * desired progress.
+     */
+    private final String deniedMessage;
+
+    private final Inventory inventory = new Inventory();
+
     private final String why;
+
     /**
      * Constructs a new Room Object.
      *
      * @param description A short description of this Room.
-     * @param why A brief description of how or why there is an accident or incident in a room
+     * @param desiredProgress A value of how far the player should be to access
+     * the room.
+     * @param messages The messages to be displayed in the room.
+     * @param deniedMessage The message to be displayed when the player's
+     * progress is lower than the desired progress
      */
-    public Room(String description, String why) {
+    public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why) {
         this.description = description;
+        this.desiredProgress = desiredProgress;
+        this.messages = messages;
+        this.deniedMessage = deniedMessage;
         this.why = why;
-    }
-    
-    /**
-     * Constructs a new Room Object.
-     * @param description 
-     */
-    public Room(String description){
-        this(description, "Who knows");
     }
 
     /**
      * Add a new exit to this room.
-     * @param direction The relative direction in which the neighbour is located.
-     * @param neighbor  The neighbour room.
+     *
+     * @param direction The relative direction in which the neighborg is
+     * located.
+     * @param neighbor The neighboring room.
      */
     public void setExit(String direction, Room neighbor) {
         this.exits.put(direction, neighbor);
@@ -79,15 +101,58 @@ public class Room {
         }
         return returnString;
     }
-     
+
     /**
      * Get an Exit in the given direction.
      *
      * @param direction The direction in which an exit room is to be retrieved.
      * @return A Room in the given direction or null if no Room is located in
-     *         the given direction i.e. no key exists for the parameter.
+     * the given direction i.e. no key exists for the parameter.
      */
     public Room getExit(String direction) {
         return this.exits.get(direction);
+    }
+
+    /**
+     * Get the desired progress
+     *
+     * @return desiredProgress
+     */
+    public int getDesiredProgress() {
+        return this.desiredProgress;
+    }
+
+    /**
+     * Get the current message
+     *
+     * @param Player p
+     * @return The current message to be displayed
+     */
+    public String getMessage(Player p) {
+        if (p.getProgress() < desiredProgress) {
+            return deniedMessage;
+        } else {
+            int roomProgress = p.getProgress() - desiredProgress;
+            p.increaseProgress();
+            return messages.get(roomProgress);
+        }
+    }
+
+    public String hasItem(Item item) {
+        if (item == null) {
+            return "You do not have anything";
+        } else if (inventory.hasItem(item.getItemName())) {
+            return item.usageMessage();
+        }
+        return "This item should be used somewhere else";
+
+    }
+
+    /**
+     *
+     * @return why
+     */
+    public String getWhy() {
+        return this.why;
     }
 }

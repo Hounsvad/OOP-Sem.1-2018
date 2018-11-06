@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Items;
+package oop_sem1_project.items;
 
 /**
  * Item is an item to be used in the game
@@ -24,14 +24,19 @@ public class Item {
     private final String itemDescription;
     
     /**
+     * The message displayed on usage
+     */
+    private final String usageMessage;
+    
+    /**
      * Creates an item
      *
      * @param itemName is the name of the item as a string
      * @param itemDescription is the description of the item
      * @throws IllegalArgumentException if the itemName is ""
-     * @throws NullPointerException if the 
+     * @throws NullPointerException if the the itemName is null
      */ 
-    public Item(String itemName, String itemDescription) {
+    public Item(String itemName, String itemDescription, String usageMessage) {
         if (itemName == null) {
             throw new NullPointerException("The input for itemName must be somthing other than null");
         } else if (itemName.isEmpty()) {
@@ -40,11 +45,18 @@ public class Item {
         this.itemName = itemName;
         
         if (itemDescription == null) {
-            throw new NullPointerException("The input for itemName must be somthing other than null");
+            throw new NullPointerException("The input for itemDescription must be somthing other than null");
         } else if (itemDescription.isEmpty()) {
             throw new IllegalArgumentException("The input for itemDescription must be somthing other than \"\"");
         }
         this.itemDescription = itemDescription;
+        
+        if (usageMessage == null) {
+            throw new NullPointerException("The input for usageMessage must be somthing other than null");
+        } else if (usageMessage.isEmpty()) {
+            throw new IllegalArgumentException("The input for usageMessage must be somthing other than \"\"");
+        }
+        this.usageMessage = usageMessage;
     }
 
     /**
@@ -59,6 +71,15 @@ public class Item {
      */
     public String getItemDescription() {
         return this.itemDescription;
+    }
+    
+    /**
+     * Return the items usageMessage
+     * 
+     * @return usageMessage A message displayed when the item is used
+     */
+    public String usageMessage(){
+        return usageMessage;
     }
     
     /**

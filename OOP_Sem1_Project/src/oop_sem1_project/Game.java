@@ -1,12 +1,12 @@
 package oop_sem1_project;
 
-import Command.Parser;
-import Command.CommandWord;
-import Command.Command;
+import oop_sem1_project.command.Parser;
+import oop_sem1_project.command.CommandWord;
+import oop_sem1_project.command.Command;
 
 /**
  *
- * 
+ *
  */
 public class Game {
 
@@ -14,6 +14,16 @@ public class Game {
      * The command {@link Parser}.
      */
     private final Parser parser = new Parser();
+
+    /**
+     * The player name - currently hardcoded - change to user input
+     */
+    private final String playerName = "Player1";
+
+    /**
+     * The player
+     */
+    private final Player player = new Player(playerName);
 
     /**
      * The current {@link Room}.
@@ -55,13 +65,13 @@ public class Game {
         hallway.setExit("south", hall);
 
         lab.setExit("west", hallway);
-        
+
         robtek.setExit("east", hallway);
-        
+
         u55.setExit("east", hall);
-        
+
         workshop.setExit("west", hall);
-        
+
         rally.setExit("north", entrance);
 
         this.currentRoom = entrance;
@@ -101,7 +111,7 @@ public class Game {
      *
      * @param command The called {@link Command}.
      * @return True if the Player has called {@link CommandWord#QUIT}. False if
-     *         any other {@link Command} has been called.
+     * any other {@link Command} has been called.
      */
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
