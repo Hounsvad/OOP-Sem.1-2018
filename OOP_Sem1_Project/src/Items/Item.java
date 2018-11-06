@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop_sem1_project;
-
-import java.util.Objects;
+package Items;
 
 /**
- *
- * @author Hounsvad
+ * Item is an item to be used in the game
+ * 
  */
-
 public class Item {
     
     /**
@@ -66,6 +63,7 @@ public class Item {
     
     /**
      * Checks if the itemName is equal
+     * @param input
      * @return true upon equality
      */
     @Override

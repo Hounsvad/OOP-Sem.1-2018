@@ -1,5 +1,13 @@
 package oop_sem1_project;
 
+import Command.Parser;
+import Command.CommandWord;
+import Command.Command;
+
+/**
+ *
+ * 
+ */
 public class Game {
 
     /**
@@ -81,7 +89,7 @@ public class Game {
      *
      * @param command The called {@link Command}.
      * @return True if the Player has called {@link CommandWord#QUIT}. False if
-     * any other {@link Command} has been called.
+     *         any other {@link Command} has been called.
      */
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
@@ -103,6 +111,28 @@ public class Game {
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case GRAB:
+                //To be implementerd
+                break;
+            case USE:
+                //To be implementerd
+                break;
+            case LOOK:
+                //To be implementerd
+                break;
+            case INVENTORY:
+                //To be implementerd
+                break;
+            case DO:
+                //To be implementerd
+                break;
+            case LISTEN:
+                //To be implementerd
+                break;
+            case WHY:
+                //To be implementerd
+                break;
+
             default:
                 break;
         }

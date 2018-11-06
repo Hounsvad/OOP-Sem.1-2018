@@ -5,6 +5,9 @@
  */
 package oop_sem1_project;
 
+import Items.Inventory;
+import Items.Item;
+
 /**
  *
  * @author Oliver
