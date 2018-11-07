@@ -219,7 +219,7 @@ public class Game {
             System.out.println("You don't have that item.");
             return;
         }
-        else if(this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress()) && this.player.getInventory().getItem() != null) {
+        else if(this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
             System.out.println(this.player.getInventory().getItem().usageMessage());
             this.player.increaseProgress();
             System.out.println(this.currentRoom.getMessage(this.player));
