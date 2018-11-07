@@ -45,14 +45,14 @@ public class Game {
     private void createRooms() {
         Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
         //public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why)
-        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
-        hall = new Room("in the main hall", 1, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
-        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
-        workshop = new Room("at a workshop for the mechanical engineering students", 3, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A student cut himself on a table saw.");
-        lab = new Room("at a lab for the chemical enginneers", 4, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A student was really clumsy and poured boiling NaOH in his eye.");
-        robtek = new Room("at the room where the robottechnology enginneers reside", 5, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A robot went out of control and started a fire.");
-        u55 = new Room("at the lecture hall", 6, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "The lecture was so boring that one of the students got a heart attack.");
-        rally = new Room("at the rally point incase of emergencies", 7, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "You successfully escaped.");
+        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", "The entrance to the TEK building", ""}, "You are not supposed to be here yet", "");
+        hall = new Room("in the main hall", 1, new String[]{"The main hall", "The main hall", ""}, "You are not supposed to be here yet", "");
+        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"A hallway", "A hallway", ""}, "You are not supposed to be here yet", "");
+        workshop = new Room("at a workshop for the mechanical engineering students", 3, new String[]{"As you enter the workshop you see a horrific accident. A student is lying on the floor bleeding from a wound in his hand.", "The student is still bleeding. You must help him!!", "You successfully patched the wound using the first-aid kit."}, "You are not supposed to be here yet", "A student cut himself on a table saw.");
+        lab = new Room("at a lab for the chemical enginneers", 4, new String[]{"As you enter the Chem-lab you see a horrific accident. A student accidentally poured boiling NaOH into his eye", "The student is in a lot of pain. You must help him!!", "You successfully used the eyewash and saved the students eye."}, "You are not supposed to be here yet", "A student was really clumsy and poured NaOH in his eye.");
+        robtek = new Room("at the room where the robottechnology enginneers reside", 5, new String[]{"As you enter the Robtek room you see a horrific accident. A robot has run rampant and has caused a huge fire in the room", "The fire i still roaring. You must help!!", "You used the fire-extinguisher and successfully put out the fire."}, "You are not supposed to be here yet", "A robot went out of control and started a fire.");
+        u55 = new Room("at the lecture hall", 6, new String[]{"As you enter U55 you see a horrific accident. A student is lying on the floor suffering a heart attack", "The student is dying. You must help!!", "You used the defibrilator and successfully saved the student"}, "You are not supposed to be here yet", "The lecture was so boring that one of the students got a heart attack.");
+        rally = new Room("at the rally point incase of emergencies", 7, new String[]{"This is the outdoor rally point incase of emergencies", "Nothing is going on here", ""}, "You are not supposed to be here yet", "Just an outdoor rally point.");
 
         entrance.setExit("north", hall);
         entrance.setExit("south", rally);
