@@ -45,14 +45,14 @@ public class Game {
     private void createRooms() {
         Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
         //public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why)
-        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        hall = new Room("in the main hall", 1, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        workshop = new Room("at a workshop for the mechanical engineering students", 3, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        lab = new Room("at a lab for the chemical enginneers", 4, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        robtek = new Room("at the room where the robottechnology enginneers reside", 5, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        u55 = new Room("at the lecture hall", 6, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
-        rally = new Room("at the rally point incase of emergencies", 7, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "Who knows");
+        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
+        hall = new Room("in the main hall", 1, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
+        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "");
+        workshop = new Room("at a workshop for the mechanical engineering students", 3, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A student cut himself on a table saw.");
+        lab = new Room("at a lab for the chemical enginneers", 4, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A student was really clumsy and poured boiling NaOH in his eye.");
+        robtek = new Room("at the room where the robottechnology enginneers reside", 5, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "A robot went out of control and started a fire.");
+        u55 = new Room("at the lecture hall", 6, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "The lecture was so boring that one of the students got a heart attack.");
+        rally = new Room("at the rally point incase of emergencies", 7, new String[]{"Welcome", " ", ""}, "You are not supposed to be here yet", "You successfully escaped.");
 
         entrance.setExit("north", hall);
         entrance.setExit("south", rally);
