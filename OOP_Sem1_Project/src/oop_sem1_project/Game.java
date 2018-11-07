@@ -1,6 +1,7 @@
 package oop_sem1_project;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import oop_sem1_project.command.Parser;
 import oop_sem1_project.command.CommandWord;
 import oop_sem1_project.command.Command;
@@ -18,14 +19,9 @@ public class Game {
     private final Parser parser = new Parser();
 
     /**
-     * The player name - currently hardcoded - change to user input
-     */
-    private final String playerName = "Player1";
-
-    /**
      * The player
      */
-    private final Player player = new Player(playerName);
+    private Player player;
 
     /**
      * The current {@link Room}.
@@ -105,6 +101,9 @@ public class Game {
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
+        System.out.println("What is your name?");
+        this.player = new Player(new Scanner(System.in).next());
+        System.out.println();
         System.out.println(this.currentRoom.getLongDescription());
     }
 
@@ -167,7 +166,7 @@ public class Game {
     }
 
     private void grabItem(Command command) {
-        if(this.currentRoom.getShortDescription().equals("in the main hall")){
+        if (this.currentRoom.getShortDescription().equals("in the main hall")) {
             player.getInventory().addItem(SafetyPoint.getItem(command.getSecondWord()));
         }
     }
@@ -209,22 +208,16 @@ public class Game {
         }
         return !command.hasSecondWord();
     }
-    
+
     private void useItem(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Use what?");
-            return;
-        }
-        else if (!this.player.getInventory().hasItem(command.getSecondWord())) {
+        } else if (!this.player.getInventory().hasItem(command.getSecondWord())) {
             System.out.println("You don't have that item.");
-            return;
-        }
-        else if(this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
+        } else if (this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
             System.out.println(this.player.getInventory().getItem().usageMessage());
             this.player.increaseProgress();
             System.out.println(this.currentRoom.getMessage(this.player));
         }
-        
-        
     }
 }
