@@ -65,7 +65,7 @@ class Question {
     boolean requestAnswer(Scanner scanner) {
         int input = 0;
 
-        while (input < 1 || input > this.anwsers.length) {
+        while (input < 1 || input > this.answers.length) {
             System.out.print("Please input an answer between 1 and " + this.answers.length + ": ");
             if (scanner.hasNextInt()) {
                 input = scanner.nextInt();
