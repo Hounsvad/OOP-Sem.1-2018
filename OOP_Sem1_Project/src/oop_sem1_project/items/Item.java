@@ -102,6 +102,10 @@ public class Item {
         return input instanceof Item && ((Item) input).itemName.equalsIgnoreCase(this.itemName);
     }
     
+    public boolean hasDesiredProgress(int playerProgress) {
+        return this.desiredProgress.contains(playerProgress);
+    }
+    
     /**
      * 
      * @return 
