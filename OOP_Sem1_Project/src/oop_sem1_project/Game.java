@@ -54,7 +54,7 @@ public class Game {
         u55 = new Room("at the lecture hall", 6, new String[]{"In the middle of all the commotion, you notice a student in the back, laying on the floor, clutching his chest", "The student lying on the floor doesn't seem to be responsive \nYou should act quick!", "Everyone seems to have calmed down already, some students even fell asleep"}, "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You instantly walk out of the room", "Who knows");
         rally = new Room("at the rally point in case of emergencies", 7, new String[]{"Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"", "The game should be over by now"}, "Why would you leave already? The day isn't over", "Who knows");
 
-        entrance.setExit("north", hall);
+      entrance.setExit("north", hall);
         entrance.setExit("south", rally);
 
         hall.setExit("south", entrance);
@@ -139,14 +139,12 @@ public class Game {
                 grabItem(command);
                 break;
             case USE:
-                //To be implementerd
+                useItem(command);
                 break;
             case INVENTORY:
-                //To be implementerd
                 System.out.println(this.player.getInventory().getItem().toString());
                 break;
             case WHY:
-                //To be implementerd
                 System.out.println(this.currentRoom.getWhy());
                 break;
 
@@ -210,5 +208,23 @@ public class Game {
             System.out.println("Quit what?");
         }
         return !command.hasSecondWord();
+    }
+    
+    private void useItem(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Use what?");
+            return;
+        }
+        else if (!this.player.getInventory().hasItem(command.getSecondWord())) {
+            System.out.println("You don't have that item.");
+            return;
+        }
+        else if(this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
+            System.out.println(this.player.getInventory().getItem().usageMessage());
+            this.player.increaseProgress();
+            System.out.println(this.currentRoom.getMessage(this.player));
+        }
+        
+        
     }
 }
