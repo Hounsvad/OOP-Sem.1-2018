@@ -26,7 +26,7 @@ class Question {
     /**
      * A variable amount of possible answers.
      */
-    private final String[] anwsers;
+    private final String[] answers;
 
     /**
      * Construct a new question object. Construction may throw an exception if
@@ -42,7 +42,7 @@ class Question {
         }
         this.question = question;
         this.correctAnswer = correctAnswer;
-        this.anwsers = answers;
+        this.answers = answers;
     }
 
     /**
@@ -51,8 +51,8 @@ class Question {
     void printQuestion() {
         System.out.println(this.question);
         System.out.println("--------------------------------------");
-        for (int i = 0; i < this.anwsers.length; i++) {
-            System.out.println((i + 1) + ". " + this.anwsers[i]);
+        for (int i = 0; i < this.answers.length; i++) {
+            System.out.println((i + 1) + ". " + this.answers[i]);
         }
     }
 
@@ -66,7 +66,7 @@ class Question {
         int input = 0;
 
         while (input < 1 || input > this.anwsers.length) {
-            System.out.print("Please input an answer between 1 and " + this.anwsers.length + ": ");
+            System.out.print("Please input an answer between 1 and " + this.answers.length + ": ");
             if (scanner.hasNextInt()) {
                 input = scanner.nextInt();
             } else {
