@@ -43,8 +43,6 @@ public class Room {
      */
     private final String deniedMessage;
 
-    private final Inventory inventory = new Inventory();
-
     private final String why;
 
     /**
@@ -71,7 +69,7 @@ public class Room {
      *
      * @param direction The relative direction in which the neighborg is
      * located.
-     * @param neighbor The neighboring room.
+     * @param neighbor The neighborging room.
      */
     public void setExit(String direction, Room neighbor) {
         this.exits.put(direction, neighbor);
@@ -130,22 +128,16 @@ public class Room {
      * @return The current message to be displayed
      */
     public String getMessage(Player p) {
+        int roomProgress = p.getProgress() - desiredProgress;
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
         }
-        int roomProgress = p.getProgress() - desiredProgress;
-        p.increaseProgress();
-        return messages[roomProgress];
-    }
-
-    public String hasItem(Item item) {
-        if (item == null) {
-            return "You do not have anything";
-        } else if (inventory.hasItem(item.getItemName())) {
-            return item.usageMessage();
+        else if (roomProgress == 0)
+        {
+            p.increaseProgress();
+            return messages[p.getProgress() - desiredProgress - 1];
         }
-        return "This item should be used somewhere else";
-
+        return messages[roomProgress];
     }
 
     /**

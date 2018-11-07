@@ -139,14 +139,12 @@ public class Game {
                 grabItem(command);
                 break;
             case USE:
-                //To be implementerd
+                useItem(command);
                 break;
             case INVENTORY:
-                //To be implementerd
                 System.out.println(this.player.getInventory().getItem().toString());
                 break;
             case WHY:
-                //To be implementerd
                 System.out.println(this.currentRoom.getWhy());
                 break;
 
@@ -210,5 +208,23 @@ public class Game {
             System.out.println("Quit what?");
         }
         return !command.hasSecondWord();
+    }
+    
+    private void useItem(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Use what?");
+            return;
+        }
+        else if (!this.player.getInventory().hasItem(command.getSecondWord())) {
+            System.out.println("You don't have that item.");
+            return;
+        }
+        else if(this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress()) && this.player.getInventory().getItem() != null) {
+            System.out.println(this.player.getInventory().getItem().usageMessage());
+            this.player.increaseProgress();
+            System.out.println(this.currentRoom.getMessage(this.player));
+        }
+        
+        
     }
 }
