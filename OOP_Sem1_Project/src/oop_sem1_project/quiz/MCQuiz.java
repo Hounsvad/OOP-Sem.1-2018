@@ -25,19 +25,22 @@ public class MCQuiz {
      * No-args constructor populating the above List with pre-defined questions.
      */
     public MCQuiz() {
+        // Missing questions and answers.
         questions.addAll(Arrays.asList(
-                new Question("Test (1)", 1, "Den", "Ikke den", "Ikke den", "Ikke Den", "Ikke den næ"),
-                new Question("Test (3)", 3, "Nææ", "Ikke den", "den", "Ikke Den"),
-                new Question("Test (4)", 4, "Ikke den", "Ikke den", "Ikke den", "Den", "ikke den", "heller ikke den"),
-                new Question("Test (1)", 1, "Den", "Ikke den", "Ikke den", "Ikke Den", "Ikke den næ", "Næ!"),
-                new Question("Test (2)", 2, "ikke Den", "den", "Ikke den")
+                new Question("Question 1", 1, "True", "False", "False", "False", "False"),
+                new Question("Question 2", 3, "False", "False", "True", "False"),
+                new Question("Question 3", 4, "False", "False", "False", "True", "False", "False", "False", "False"),
+                new Question("Question 4", 1, "True", "False", "False", "False", "False"),
+                new Question("Question 5", 2, "False", "True", "False")
         ));
     }
 
     /**
      * Starts the quiz and prompts the user to answer all questions.
+     *
+     * @return the number of correct answers.
      */
-    public void start() {
+    public int start() {
         Scanner scanner = new Scanner(System.in);
         int questionIndex, correctAnswers;
         questionIndex = correctAnswers = 0;
@@ -52,5 +55,7 @@ public class MCQuiz {
         } while (questionIndex < this.questions.size());
 
         System.out.println("You answered " + correctAnswers + " questions correctly out of " + this.questions.size() + " possible.");
+
+        return correctAnswers;
     }
 }
