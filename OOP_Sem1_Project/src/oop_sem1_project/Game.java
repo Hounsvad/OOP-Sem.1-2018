@@ -45,14 +45,14 @@ public class Game {
     private void createRooms() {
         Room entrance, hall, hallway, workshop, lab, robtek, u55, rally;
         //public Room(String description, int desiredProgress, List<String> messages, String deniedMessage, String why)
-        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"Welcome", " ", " "}, "This text should never appear", "Who knows");
-        hall = new Room("in the main hall", 1, new String[]{"", " ", ""}, "This text should never appear", "Who knows");
-        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"", " ", " "}, "This text should never appear", "Who knows");
-        robtek = new Room("in the room where the robottechnology enginneers reside", 3, new String[]{"", " ", " "}, "There is honestly no reason to ever be here", "Who knows");
-        lab = new Room("in a lab for the chemical enginneers", 4, new String[]{"", " ", " "}, "You walk up to the door of the Chemical lab, a sign on it says: \n \"Stay out, experiment in progress\"", "Who knows");
-        workshop = new Room("at a workshop for the mechanical engineering students", 5, new String[]{"", " ", " "}, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.", "Who knows");
-        u55 = new Room("at the lecture hall", 6, new String[]{"", " ", " "}, "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You instantly walk out of the room ", "Who knows");
-        rally = new Room("at the rally point in case of emergencies", 7, new String[]{"", " ", " "}, "Why would you leave already? The day isn't over", "Who knows");
+        entrance = new Room("at the entrance to the TEK building", 0, new String[]{"You decide to wander around a bit", "Still the same old, boring entrance", " "}, "This text should never appear", "Who knows");
+        hall = new Room("in the main hall", 1, new String[]{"You notice a \"Safety Point\" in the corner. You should probably check it out", " ", ""}, "This text should never appear", "Who knows");
+        hallway = new Room("in a hallway adjacent to the main hall", 2, new String[]{"As you walk along the empty hallway, you notice a smell of burnt robot", " ", " "}, "This text should never appear", "Who knows");
+        robtek = new Room("in the room where the robottechnology enginneers reside", 3, new String[]{"A burning smell enters your nose. In the corner of the room you see flames shooting out of a one-armed robot.\nOne of the engineers shouts: \"Someone please help! We are useless\"", " ", " "}, "There is honestly no reason to ever be here", "Who knows");
+        lab = new Room("in a lab for the chemical enginneers", 4, new String[]{"One of the chemists, screams in agony while desperatly rubbing his hands into his left eye \n You have to help him", " ", " "}, "You walk up to the door of the Chemical lab, a sign on it says: \n \"Stay out, experiment in progress\"", "Who knows");
+        workshop = new Room("at a workshop for the mechanical engineering students", 5, new String[]{"You notice blood dripping from one of the students arm. \n\"Tis but a scratch!\" he claims. \nYou should probably help him anyway", " ", " "}, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.", "Who knows");
+        u55 = new Room("at the lecture hall", 6, new String[]{"In the middle of all the commotion, you notice a student in the back, laying on the floor, clutching his chest", " ", " "}, "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You instantly walk out of the room ", "Who knows");
+        rally = new Room("at the rally point in case of emergencies", 7, new String[]{"Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"", " ", " "}, "Why would you leave already? The day isn't over", "Who knows");
 
         entrance.setExit("north", hall);
         entrance.setExit("south", rally);
