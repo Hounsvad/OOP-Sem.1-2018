@@ -49,6 +49,7 @@ class Question {
      * Prints the question neatly to the console/terminal.
      */
     void printQuestion() {
+        System.out.println("");
         System.out.println(this.question);
         System.out.println("--------------------------------------");
         for (int i = 0; i < this.answers.length; i++) {
@@ -65,14 +66,14 @@ class Question {
     boolean requestAnswer(Scanner scanner) {
         int input = 0;
 
-        while (input < 1 || input > this.answers.length) {
+        do {
             System.out.print("Please input an answer between 1 and " + this.answers.length + ": ");
             if (scanner.hasNextInt()) {
                 input = scanner.nextInt();
             } else {
                 scanner.next();
             }
-        }
+        } while (input < 1 || input > this.answers.length);
 
         return input == correctAnswer;
     }
