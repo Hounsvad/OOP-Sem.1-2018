@@ -245,6 +245,7 @@ public class Game {
                     MCQuiz qz = new MCQuiz();
                     this.player.setScore(this.player.getScore() * qz.start());
                     wantToQuit = true;
+                    System.out.println("Congratulations you achived a score of: " + this.player.getScore() + "/" + 50);
                 }
                 break;
             case QUIT:
