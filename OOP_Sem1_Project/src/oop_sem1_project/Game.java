@@ -11,6 +11,7 @@ import oop_sem1_project.quiz.MCQuiz;
 /**
  *
  *
+ * @author Pinnacle F
  */
 public class Game {
 
@@ -23,7 +24,7 @@ public class Game {
      * The player
      */
     private Player player;
-    
+
     private Date scoreTimer;
 
     /**
@@ -48,110 +49,109 @@ public class Game {
                 "at the entrance to the TEK building",
                 0,
                 new String[]{
-                    "1You decide to wander around a bit",
-                    "2Still the same, old, boring entrance"                    
+                    "You decide to wander around a bit",
+                    "Still the same, old, boring entrance"
                 },
                 "This text should never appear",
                 "Who knows",
                 0
         );
-        
+
         hall = new Room(
                 "in the main hall",
                 0,
                 new String[]{
-                    "1You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notise a faint smell of burning electronics...",
-                    "2Maybe the \"safety point\" has something useful.",
-                    "3Maybe the \"safety point\" has something useful.",
-                    "4Maybe the \"safety point\" has something useful.",
-                    "5Maybe the \"safety point\" has something useful.",
-                    "6Maybe the \"safety point\" has something useful.",
-                    "7You hear a bunch of loud noises as if something has gone utterly wrong in the workshop...",
-                    "8You should probably go check on the workshop there is blood spilling out under the door...",
-                    "9There is a drastic change in noice level from U55 something is defenetly wrong.",
-                    "10You should check U55 somthing is wrong in there, no one is that excitet when having a lecture.",
-                    "11The smell of smoke is choking and you should defenetly do something as you see fire everywhere!",
-                    "12Flee you fool"
+                    "You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notise a faint smell of burning electronics...",
+                    "Maybe the \"safety point\" has something useful.",
+                    "Maybe the \"safety point\" has something useful.",
+                    "Maybe the \"safety point\" has something useful.",
+                    "Maybe the \"safety point\" has something useful.",
+                    "Maybe the \"safety point\" has something useful.",
+                    "You hear a bunch of loud noises as if something has gone utterly wrong in the workshop...",
+                    "You should probably go check on the workshop there is blood spilling out under the door...",
+                    "There is a drastic change in noice level from U55 something is defenetly wrong.",
+                    "You should check U55 somthing is wrong in there, no one is that excitet when having a lecture.",
+                    "The smell of smoke is choking and you should defenetly do something as you see fire everywhere!",
+                    "Flee you fool"
                 },
                 "This text should never appear",
                 "Who knows",
                 1
         );
-        
+
         hallway = new Room(
                 "in a hallway adjacent to the main hall",
                 1,
                 new String[]{
-                    "1As you walk along the empty hallway, the smell of burnt electronics gets stronger.",
-                    "2There is still a burning smell in the air. \nYou should find out where its coming from.",
-                    "2.1There is still a burning smell in the air. \nYou should find out where its coming from.",
-                    "3As you walk in to the hallway you hear a scream coming from the chemestry lab.",
-                    "4The screams are still ringing out of the chemestry lab.",
-                    "5The hallway appears to be empty."
+                    "As you walk along the empty hallway, the smell of burnt electronics gets stronger.",
+                    "There is still a burning smell in the air. \nYou should find out where its coming from.",
+                    ".1There is still a burning smell in the air. \nYou should find out where its coming from.",
+                    "As you walk in to the hallway you hear a scream coming from the chemestry lab.",
+                    "The screams are still ringing out of the chemestry lab.",
+                    "The hallway appears to be empty."
                 },
                 "This text should never appear",
                 "Who knows",
                 1
         );
-        
+
         robtek = new Room(
                 "in the room where the robottechnology enginneers reside",
                 2,
                 new String[]{
-                    "1A burning smell enters your nose. In the corner of the room you see flames shooting out of a one-armed robot.\nOne of the engineers shouts: \"Someone please help! We are trapped behind the fire spewing robot\".",
-                    "2They really can't put out this fire on their own",
-                    "3Even with the fire gone, it still smells here \nBetter move on"
+                    "A burning smell enters your nose. In the corner of the room you see flames shooting out of a one-armed robot.\nOne of the engineers shouts: \"Someone please help! We are trapped behind the fire spewing robot\".",
+                    "They really can't put out this fire on their own",
+                    "Even with the fire gone, it still smells here \nBetter move on"
                 },
                 "There is honestly no reason to ever be here",
                 "Who knows",
                 1
         );
-        
+
         lab = new Room(
                 "in a lab for the chemical enginneers",
                 4,
                 new String[]{
-                    "1One of the chemists, screams in agony while desperatly rubbing his hands into his left eye \nYou have to help him",
-                    "2The chemist is still screaming \nHe could use some help",
-                    "3The sign still says \"Stay out, experiment in progress\" \n They are hopefully wearing safety glasses now"
+                    "One of the chemists, screams in agony while desperatly rubbing his hands into his left eye \nYou have to help him",
+                    "The chemist is still screaming \nHe could use some help",
+                    "The sign still says \"Stay out, experiment in progress\" \n They are hopefully wearing safety glasses now"
                 },
                 "You walk up to the door of the Chemical lab, a sign on it says: \n \"Stay out, experiment in progress\"",
                 "Who knows",
                 1
         );
-        
+
         workshop = new Room(
                 "at a workshop for the mechanical engineering students",
                 6,
                 new String[]{
-                    "1You notice blood pouring from one of the student's arms. \n\"Tis but a scratch!\" he claims. \nYou should probably help him anyway...",
-                    "2The Student is still calm. \nThe blood puddle on the floor seems to get larger with every second",
-                    "3The cleaning ladies are trying to get rid of all the blood on the floor \nYou dont want to bother them"
+                    "You notice blood pouring from one of the student's arms. \n\"Tis but a scratch!\" he claims. \nYou should probably help him anyway...",
+                    "The Student is still calm. \nThe blood puddle on the floor seems to get larger with every second",
+                    "The cleaning ladies are trying to get rid of all the blood on the floor \nYou dont want to bother them"
                 },
                 "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.",
                 "Who knows",
                 1
         );
-        
+
         u55 = new Room(
                 "at the lecture hall",
                 8,
                 new String[]{
-                    "1In the middle of all the commotion, you notice a student in the back, laying on the floor, clutching his chest",
-                    "2The student lying on the floor doesn't seem to be responsive \nYou should act quick!",
-                    "3Everyone seems to have calmed down already, some students even fell asleep..."
+                    "In the middle of all the commotion, you notice a student in the back, laying on the floor, clutching his chest",
+                    "The student lying on the floor doesn't seem to be responsive \nYou should act quick!",
+                    "Everyone seems to have calmed down already, some students even fell asleep..."
                 },
-        /*Kan e-lone holde til dette?*/        "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
-                "Who knows"
-                ,
-                1
+                /*Kan e-lone holde til dette?*/ "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
+                "Who knows",
+                 1
         );
         rally = new Room(
                 "at the rally point in case of emergencies",
                 11,
                 new String[]{
-                    "1Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"",
-                    "2The game should be over by now"
+                    "Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"",
+                    "The game should be over by now"
                 },
                 "Why would you leave already? The day isn't over",
                 "Who knows",
@@ -193,7 +193,7 @@ public class Game {
         scoreTimer = new Date();
         // Main game loop.
         boolean finished = false;
-        
+
         while (!finished) {
             Command command = this.parser.getCommand();
             finished = processCommand(command);
@@ -240,12 +240,12 @@ public class Game {
                 break;
             case GO:
                 goRoom(command);
-                if(this.player.getProgress() == 12){
-                    this.player.setScore(10-((int)(System.currentTimeMillis()-scoreTimer.getTime())/60000)); 
+                if (this.player.getProgress() == 12) {
+                    this.player.setScore(10 - ((int) (System.currentTimeMillis() - scoreTimer.getTime()) / 60000));
                     MCQuiz qz = new MCQuiz();
                     this.player.setScore(this.player.getScore() * qz.start());
                     wantToQuit = true;
-                    System.out.println("Congratulations you achived a score of: " + this.player.getScore() + "/" + 50);
+                    System.out.println("Congratulations " + player.getName() + ". You achived a score of: " + this.player.getScore() + "/" + 50);
                 }
                 break;
             case QUIT:
@@ -344,7 +344,7 @@ public class Game {
             System.out.println("You don't have that item.");
         } else if (this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
             System.out.println(this.player.getInventory().getItem().usageMessage());
-            if(!this.player.getInventory().getItem().getItemName().equals("Map")){
+            if (!this.player.getInventory().getItem().getItemName().equals("Map")) {
                 this.player.increaseProgress();
             }
         }

@@ -7,6 +7,7 @@ import java.util.Map;
 /**
  *
  *
+ * @author Pinnacle F
  */
 public class Room {
 

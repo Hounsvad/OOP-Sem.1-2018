@@ -68,6 +68,11 @@ public class SafetyPoint {
         return contents;
     }
     
+    /**
+     *
+     * @param itemName to be searched for
+     * @return true if the safetypoint contains the item
+     */
     public static boolean hasItem(String itemName){
         return CONTENTS.containsKey(itemName.toLowerCase());
     }

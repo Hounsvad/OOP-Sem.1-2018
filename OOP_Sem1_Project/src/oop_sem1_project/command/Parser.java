@@ -7,6 +7,7 @@ import java.util.Scanner;
 /**
  *
  * 
+ * @author Pinnacle F
  */
 public class Parser {
 

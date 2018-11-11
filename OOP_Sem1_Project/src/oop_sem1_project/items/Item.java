@@ -102,13 +102,17 @@ public class Item {
         return input instanceof Item && ((Item) input).itemName.equalsIgnoreCase(this.itemName);
     }
     
+    /**
+     * @param playerProgress 
+     * @return true if the desired progreess is achived
+     */
     public boolean hasDesiredProgress(int playerProgress) {
         return this.desiredProgress.contains(playerProgress);
     }
     
     /**
      * 
-     * @return 
+     * @return the itemName and itemDescription as a multiline string
      */
     @Override
     public String toString(){
