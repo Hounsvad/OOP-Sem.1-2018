@@ -54,6 +54,9 @@ public class CommandWords {
      */
     public void showAll() {
         for (String command : this.validCommands.keySet()) {
+            if ("why".equals(command)){
+                continue;
+            }
             System.out.print(command + "  ");
         }
         System.out.println();
