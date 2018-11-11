@@ -1,14 +1,8 @@
 package oop_sem1_project;
 
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.List;
-import oop_sem1_project.items.Inventory;
-import oop_sem1_project.items.Item;
-import oop_sem1_project.items.SafetyPoint;
 
 /**
  *
@@ -132,6 +126,7 @@ public class Room {
      * @return The current message to be displayed
      */
     public String getMessage(Player p) {
+        
         int roomProgress = p.getProgress() - desiredProgress;
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
@@ -140,8 +135,10 @@ public class Room {
                 p.increaseProgress();
                 return messages[p.getProgress() - desiredProgress - 1];
             }
+        } else if(roomProgress > 0 && roomProgress < messages.length){
+            return messages[p.getProgress() - desiredProgress];
         }
-        return messages[roomProgress];
+        return messages[messages.length - 1];
     }
 
     /**

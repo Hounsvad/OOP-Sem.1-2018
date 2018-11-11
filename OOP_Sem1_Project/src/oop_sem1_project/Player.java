@@ -31,7 +31,7 @@ public class Player {
     /**
      * The progress of a player
      */
-    private int progress = 0;
+    private int progress = 10;
 
     /**
      * Constructs a new Player Object.
@@ -51,7 +51,7 @@ public class Player {
 
     /**
      * @return the item with name passed as the argument or null if it does not
-     * not exist.
+     *         not exist.
      */
     public Inventory getInventory() {
         return this.inventory;
@@ -65,7 +65,7 @@ public class Player {
     }
 
     /**
-     * 
+     *
      *
      * @return the player's score
      */
@@ -74,10 +74,10 @@ public class Player {
     }
 
     /**
-     * @param points the points that get added to the player's score
+     * Sets the score
      */
-    public void addScore(int points) {
-        this.score += points;
+    public void setScore(int score) {
+        this.score = score;
     }
 
     /**
