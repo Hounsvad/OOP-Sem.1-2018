@@ -53,4 +53,18 @@ public class SafetyPoint {
     public static Item getItem(String input) {
         return CONTENTS.get(input.toLowerCase());
     }
+    
+    /**
+     * Returns the contents of the safetypoint in a multiline string.
+     * @return the contents of the safety point
+     */
+    public static String getContents() {
+        StringBuilder sb = new StringBuilder();
+        for(Map.Entry<String,Item> e : CONTENTS.entrySet()){
+            sb.append("-").append(e.getValue().getItemName()).append("\n");
+        }
+        sb.deleteCharAt(sb.lastIndexOf("\n"));
+        String contents = sb.toString();
+        return contents;
+    }
 }

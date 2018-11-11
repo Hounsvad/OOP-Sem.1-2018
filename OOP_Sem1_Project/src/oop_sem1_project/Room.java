@@ -45,31 +45,35 @@ public class Room {
 
     private final String why;
 
+    private final int progressIncrease;
+
     /**
      * Constructs a new Room Object.
      *
-     * @param description A short description of this Room.
-     * @param desiredProgress A value of how far the player should be to access
-     * the room.
-     * @param messages The messages to be displayed in the room.
-     * @param deniedMessage The message to be displayed when the player's
-     * progress is lower than the desired progress
+     * @param description      A short description of this Room.
+     * @param desiredProgress  A value of how far the player should be to access
+     *                         the room.
+     * @param messages         The messages to be displayed in the room.
+     * @param deniedMessage    The message to be displayed when the player's
+     *                         progress is lower than the desired progress
      * @param why
+     * @param progressIncrease the progress increase given by a room
      */
-    public Room(String description, int desiredProgress, String[] messages, String deniedMessage, String why) {
+    public Room(String description, int desiredProgress, String[] messages, String deniedMessage, String why, int progressIncrease) {
         this.description = description;
         this.desiredProgress = desiredProgress;
         this.messages = messages;
         this.deniedMessage = deniedMessage;
         this.why = why;
+        this.progressIncrease = progressIncrease;
     }
 
     /**
      * Add a new exit to this room.
      *
      * @param direction The relative direction in which the neighborg is
-     * located.
-     * @param neighbor The neighborging room.
+     *                  located.
+     * @param neighbor  The neighborging room.
      */
     public void setExit(String direction, Room neighbor) {
         this.exits.put(direction, neighbor);
@@ -106,7 +110,7 @@ public class Room {
      *
      * @param direction The direction in which an exit room is to be retrieved.
      * @return A Room in the given direction or null if no Room is located in
-     * the given direction i.e. no key exists for the parameter.
+     *         the given direction i.e. no key exists for the parameter.
      */
     public Room getExit(String direction) {
         return this.exits.get(direction);
@@ -131,11 +135,11 @@ public class Room {
         int roomProgress = p.getProgress() - desiredProgress;
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
-        }
-        else if (roomProgress == 0)
-        {
-            p.increaseProgress();
-            return messages[p.getProgress() - desiredProgress - 1];
+        } else if (roomProgress == 0) {
+            if (this.progressIncrease > 0) {
+                p.increaseProgress();
+                return messages[p.getProgress() - desiredProgress - 1];
+            }
         }
         return messages[roomProgress];
     }
