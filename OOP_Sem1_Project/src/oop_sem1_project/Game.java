@@ -144,7 +144,7 @@ public class Game {
                 },
                 /*Kan e-lone holde til dette?*/ "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
                 "Who knows",
-                 1
+                1
         );
         rally = new Room(
                 "at the rally point in case of emergencies",

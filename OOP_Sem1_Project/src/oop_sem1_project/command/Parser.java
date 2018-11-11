@@ -1,12 +1,10 @@
 package oop_sem1_project.command;
 
-import oop_sem1_project.command.Command;
-import oop_sem1_project.command.CommandWords;
 import java.util.Scanner;
 
 /**
  *
- * 
+ *
  * @author Pinnacle F
  */
 public class Parser {

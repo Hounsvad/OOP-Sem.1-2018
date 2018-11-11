@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  *
- * 
+ *
  * @author Pinnacle F
  */
 public class CommandWords {
@@ -32,7 +32,7 @@ public class CommandWords {
      *
      * @param commandWord The {@link CommandWord} to retrieve.
      * @return The {@link CommandWord} mapped to the argument or
-     * {@link CommandWord#UNKNOWN} if none is found.
+     *         {@link CommandWord#UNKNOWN} if none is found.
      */
     public CommandWord getCommandWord(String commandWord) {
         CommandWord command = this.validCommands.get(commandWord);
@@ -42,7 +42,7 @@ public class CommandWords {
     /**
      * @param commandWord The command to check the existence of.
      * @return True if {@link #validCommands} contains the argument key. False
-     * if it doesn't.
+     *         if it doesn't.
      */
     public boolean isCommand(String commandWord) {
         return this.validCommands.containsKey(commandWord);

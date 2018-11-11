@@ -27,12 +27,10 @@ public enum CommandWord {
      * Use command.
      */
     USE("use"),
-    
     /**
      * Inventory command
      */
     INVENTORY("inventory"),
-    
     /**
      * Why command This command is an easter egg and is not shown
      */

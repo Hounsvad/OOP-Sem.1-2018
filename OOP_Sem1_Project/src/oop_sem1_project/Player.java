@@ -75,6 +75,7 @@ public class Player {
 
     /**
      * Sets the score
+     *
      * @param score
      */
     public void setScore(int score) {

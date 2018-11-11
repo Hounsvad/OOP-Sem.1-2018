@@ -32,8 +32,8 @@ class Question {
      * Construct a new question object. Construction may throw an exception if
      * the answer index is not within the range of the correctAnswer index.
      *
-     * @param question The question.
-     * @param answers An array of possible answers to the question.
+     * @param question      The question.
+     * @param answers       An array of possible answers to the question.
      * @param correctAnswer The index of the correct answer.
      */
     Question(String question, int correctAnswer, String... answers) {

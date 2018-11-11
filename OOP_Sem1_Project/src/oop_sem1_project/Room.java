@@ -127,7 +127,7 @@ public class Room {
      * @return The current message to be displayed
      */
     public String getMessage(Player p) {
-        
+
         int roomProgress = p.getProgress() - desiredProgress;
         if (p.getProgress() < desiredProgress) {
             return deniedMessage;
@@ -136,7 +136,7 @@ public class Room {
                 p.increaseProgress();
                 return messages[p.getProgress() - desiredProgress - 1];
             }
-        } else if(roomProgress > 0 && roomProgress < messages.length){
+        } else if (roomProgress > 0 && roomProgress < messages.length) {
             return messages[p.getProgress() - desiredProgress];
         }
         return messages[messages.length - 1];

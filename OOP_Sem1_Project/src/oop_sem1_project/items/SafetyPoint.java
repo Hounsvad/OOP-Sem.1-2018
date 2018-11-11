@@ -18,8 +18,8 @@ public class SafetyPoint {
     private static final Map<String, Item> CONTENTS = new HashMap<>();
 
     static {
-        CONTENTS.put("map", new Item("Map", "An e-Map", 
-                  "####################################################\n"
+        CONTENTS.put("map", new Item("Map", "An e-Map",
+                "####################################################\n"
                 + "#             World of Fire Safety Map             #\n"
                 + "####################################################\n"
                 + "#               #                #                 #\n"
@@ -37,7 +37,7 @@ public class SafetyPoint {
                 + "                #                #\n"
                 + "                #   Rally Point  #\n"
                 + "                #                #\n"
-                + "                ##################", Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13)));
+                + "                ##################", Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)));
         CONTENTS.put("fire-extinguisher", new Item("Fire-extinguisher", "A CO2 filled vessel with a release handle", "*SPWOOOOOOSH!* Goes the fire-extinguisher", Arrays.asList(3)));
         CONTENTS.put("eyewash", new Item("Eyewash", "A saline solution in a handy container", "*SPLASH* Goes the eyewash", Arrays.asList(5)));
         CONTENTS.put("defibrilator", new Item("Defibrilator", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", "*BZZZZZT* Goes the fancy tazer", Arrays.asList(9)));
@@ -53,27 +53,28 @@ public class SafetyPoint {
     public static Item getItem(String input) {
         return CONTENTS.get(input.toLowerCase());
     }
-    
+
     /**
      * Returns the contents of the safetypoint in a multiline string.
+     *
      * @return the contents of the safety point
      */
     public static String getContents() {
         StringBuilder sb = new StringBuilder();
-        for(Map.Entry<String,Item> e : CONTENTS.entrySet()){
+        for (Map.Entry<String, Item> e : CONTENTS.entrySet()) {
             sb.append("- ").append(e.getValue().getItemName()).append("\n");
         }
         sb.deleteCharAt(sb.lastIndexOf("\n"));
         String contents = sb.toString();
         return contents;
     }
-    
+
     /**
      *
      * @param itemName to be searched for
      * @return true if the safetypoint contains the item
      */
-    public static boolean hasItem(String itemName){
+    public static boolean hasItem(String itemName) {
         return CONTENTS.containsKey(itemName.toLowerCase());
     }
 }
