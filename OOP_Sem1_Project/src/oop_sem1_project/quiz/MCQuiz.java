@@ -64,7 +64,7 @@ public class MCQuiz {
                 ),
                 new Question(
                         "Blood is pouring out of a students arm and requires immediate attention. What do you do?",
-                        2,
+                        1,
                         "Get the first aid kit.",
                         "Pass out because blood is not your thing…",
                         "Look the other way and hope the student figures something out.",
