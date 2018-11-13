@@ -298,6 +298,7 @@ public class Game {
             System.out.println("You pick up \"" + player.getInventory().getItem().getItemName() + "\" and put it in your inventory.");
         } else {
             System.out.println("You don't see that item.");
+        }
     }
 
     /**
