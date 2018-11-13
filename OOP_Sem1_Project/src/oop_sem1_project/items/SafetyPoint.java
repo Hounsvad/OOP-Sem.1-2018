@@ -62,7 +62,7 @@ public class SafetyPoint {
     public static String getContents() {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Item> e : CONTENTS.entrySet()) {
-            sb.append("- ").append(e.getValue().getItemName()).append(" ").append(e.getValue().getItemDescription()).append("\n");
+            sb.append("- ").append(e.getValue().getItemName()).append(" : ").append(e.getValue().getItemDescription()).append("\n");
         }
         sb.deleteCharAt(sb.lastIndexOf("\n"));
         return sb.toString();

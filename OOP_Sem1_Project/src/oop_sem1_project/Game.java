@@ -53,7 +53,7 @@ public class Game {
                     "Still the same, old, boring entrance"
                 },
                 "This text should never appear",
-                "Who knows",
+                "Cos you need a job",
                 0
         );
 
@@ -75,7 +75,7 @@ public class Game {
                     "Flee you fool"
                 },
                 "This text should never appear",
-                "Who knows",
+                "You know why",
                 1
         );
 
@@ -91,7 +91,7 @@ public class Game {
                     "The hallway appears to be empty."
                 },
                 "This text should never appear",
-                "Who knows",
+                "They did it",
                 1
         );
 
@@ -104,7 +104,7 @@ public class Game {
                     "Even with the fire gone, it still smells here \nBetter move on"
                 },
                 "There is honestly no reason to ever be here",
-                "Who knows",
+                "Fisting robots apparently don't run on 690 volts...",
                 1
         );
 
@@ -112,12 +112,12 @@ public class Game {
                 "in a lab for the chemical enginneers",
                 4,
                 new String[]{
-                    "One of the chemists, screams in agony while desperatly rubbing his hands into his left eye \nYou have to help him",
+                    "One of the chemists, screams in agony while desperatly rubbing his hands into his eyes \nYou have to help him",
                     "The chemist is still screaming \nHe could use some help",
                     "The sign still says \"Stay out, experiment in progress\" \n They are hopefully wearing safety glasses now"
                 },
                 "You walk up to the door of the Chemical lab, a sign on it says: \n \"Stay out, experiment in progress\"",
-                "Who knows",
+                "Apparently boiling NaOH does not belong in eyes...",
                 1
         );
 
@@ -130,7 +130,7 @@ public class Game {
                     "The cleaning ladies are trying to get rid of all the blood on the floor \nYou dont want to bother them"
                 },
                 "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.",
-                "Who knows",
+                "Apparently an electric bonesaw is not used to scratch an itch.\nAnd why is that not in the med-lab???",
                 1
         );
 
@@ -142,8 +142,8 @@ public class Game {
                     "The student lying on the floor doesn't seem to be responsive \nYou should act quick!",
                     "Everyone seems to have calmed down already, some students even fell asleep..."
                 },
-                /*Kan e-lone holde til dette?*/ "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
-                "Who knows",
+                "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
+                "Beware of spontaneous tests",
                 1
         );
         rally = new Room(
@@ -154,7 +154,7 @@ public class Game {
                     "The game should be over by now"
                 },
                 "Why would you leave already? The day isn't over",
-                "Who knows",
+                "Everything is on fire",
                 1
         );
 
@@ -207,8 +207,8 @@ public class Game {
      */
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World of safety!");
+        System.out.println("World of safety is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println("What is your name?");
