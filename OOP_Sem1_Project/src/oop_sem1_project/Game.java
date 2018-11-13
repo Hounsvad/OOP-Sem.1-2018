@@ -71,7 +71,7 @@ public class Game {
                     "You should probably go check on the workshop there is blood spilling out under the door...",
                     "There is a drastic change in noice level from U55 something is defenetly wrong.",
                     "You should check U55 somthing is wrong in there, no one is that excitet when having a lecture.",
-                    "The smell of smoke is choking and you should defenetly do something as you see fire everywhere!",
+                    "The smell of smoke is choking and you should definitely do something as you see fire everywhere!",
                     "Flee you fool"
                 },
                 "This text should never appear",
@@ -344,11 +344,13 @@ public class Game {
             System.out.println("Use what?");
         } else if (!this.player.getInventory().hasItem(command.getSecondWord())) {
             System.out.println("You don't have that item.");
-        } else if (this.player.getInventory().getItem() != null && this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
+        } else if (this.player.getInventory().getItem().hasDesiredProgress(this.player.getProgress())) {
             System.out.println(this.player.getInventory().getItem().usageMessage());
             if (!this.player.getInventory().getItem().getItemName().equals("Map")) {
                 this.player.increaseProgress();
             }
+        } else {
+            System.out.println("That does not seem right...");
         }
     }
 }
