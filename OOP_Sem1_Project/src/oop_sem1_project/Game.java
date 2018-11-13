@@ -139,8 +139,8 @@ public class Game {
                 "at the lecture hall",
                 8,
                 new String[]{
-                    "In the middle of all the commotion, you notice a student in the back, laying on the floor, clutching his chest",
-                    "The student lying on the floor doesn't seem to be responsive \nYou should act quick!",
+                    "In the middle of all the commotion, you notice a student in the back, laying on the floor! Someone is allready doing cpr.",
+                    "The student lying on the floor doesn't seem to be responsive and its allready been a little while \nYou should act quick!",
                     "Everyone seems to have calmed down already, some students even fell asleep..."
                 },
                 "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.",
