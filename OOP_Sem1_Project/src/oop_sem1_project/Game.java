@@ -294,9 +294,10 @@ public class Game {
      */
     private void grabItem(Command command) {
         if (this.currentRoom.getShortDescription().equals("in the main hall") && SafetyPoint.hasItem(command.getSecondWord())) {
-            player.getInventory().addItem((SafetyPoint.getItem(command.getSecondWord())));
+            player.getInventory().addItem(SafetyPoint.getItem(command.getSecondWord()));
             System.out.println("You pick up \"" + player.getInventory().getItem().getItemName() + "\" and put it in your inventory.");
-        }
+        } else {
+            System.out.println("You don't see that item.");
     }
 
     /**
