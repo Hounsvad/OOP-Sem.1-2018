@@ -60,7 +60,7 @@ public class MCQuiz {
                         "Nothing. It is only a temporary affair.",
                         "Get the fire extinguisher.",
                         "Call 112 immediately.",
-                        "Quickly retrieve the defibrillator."
+                        "Quickly retrieve the defibrillator while someone else performs CPR."
                 ),
                 new Question(
                         "Blood is pouring out of a students arm and requires immediate attention. What do you do?",
