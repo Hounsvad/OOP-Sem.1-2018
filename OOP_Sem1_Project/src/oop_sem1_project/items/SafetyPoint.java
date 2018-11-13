@@ -42,7 +42,7 @@ public class SafetyPoint {
         CONTENTS.put("eyewash", new Item("Eyewash", "A saline solution in a handy container", "*SPLASH* Goes the eyewash", Arrays.asList(5)));
         CONTENTS.put("defibrilator", new Item("Defibrilator", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", "*BZZZZZT* Goes the fancy tazer", Arrays.asList(9)));
         CONTENTS.put("first-aid", new Item("First-aid", "A bag of old socks", "As the socks are stuffed into the wound the patient screams in agony", Arrays.asList(7)));
-        CONTENTS.put("e-phone", new Item("E-Phone", "A Nokia E90 Communicator", "As you call 65 50 88 88 you hear \"You are number (*Error overflow*) in the queue...\"", Arrays.asList(10)));
+        CONTENTS.put("e-phone", new Item("E-Phone", "A Nokia E90 Communicator", "You call 112 and state your emergency then as you call 65 50 88 88 you hear \"You are number (*Error overflow*) in the queue...\"", Arrays.asList(10)));
     }
 
     /**
