@@ -20,7 +20,8 @@ package oop_sem1_project.command;
 
 /**
  *
- * 
+ *
+ * @author Pinnacle F
  */
 public class Command {
 
@@ -47,7 +48,7 @@ public class Command {
      * Construct a Command Object with potentially two words.
      *
      * @param commandWord The command word.
-     * @param secondWord The second command word.
+     * @param secondWord  The second command word.
      */
     public Command(CommandWord commandWord, String secondWord) {
         this.commandWord = commandWord;

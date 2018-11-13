@@ -3,6 +3,7 @@ package oop_sem1_project.command;
 /**
  *
  *
+ * @author Pinnacle F
  */
 public enum CommandWord {
 
@@ -26,12 +27,10 @@ public enum CommandWord {
      * Use command.
      */
     USE("use"),
-    
     /**
      * Inventory command
      */
     INVENTORY("inventory"),
-    
     /**
      * Why command This command is an easter egg and is not shown
      */
