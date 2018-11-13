@@ -26,51 +26,49 @@ public class MCQuiz {
      * No-args constructor populating the above List with pre-defined questions.
      */
     public MCQuiz() {
-        // Missing questions and answers.
         questions.addAll(Arrays.asList(
                 new Question(
-                        "Question 1",
-                        1,
-                        "True",
-                        "False",
-                        "False",
-                        "False",
-                        "False"
-                ),
-                new Question(
-                        "Question 2",
-                        3,
-                        "False",
-                        "False",
-                        "True",
-                        "False"
-                ),
-                new Question("Question 3",
-                        4,
-                        "False",
-                        "False",
-                        "False",
-                        "True",
-                        "False",
-                        "False",
-                        "False",
-                        "False"
-                ),
-                new Question(
-                        "Question 4",
-                        1,
-                        "True",
-                        "False",
-                        "False",
-                        "False",
-                        "False"
-                ),
-                new Question(
-                        "Question 5",
+                        "In case of fire, what do you do?",
                         2,
-                        "False",
-                        "True",
-                        "False"
+                        "Find the closest water tap and fill a bucket.",
+                        "Find a fire extinguisher.",
+                        "Blow as hard as you can and hope for the best.",
+                        "Go the rally point and hope someone else is capable of putting out the fire."
+                ),
+                new Question(
+                        "Who do you contact when an emergency occurs?",
+                        4,
+                        "65 50 88 88 then 112.",
+                        "Only 65 50 88 88.",
+                        "Only 112.",
+                        "112 then 65 50 88 88.",
+                        "Nobody."
+                ),
+                new Question("Which item should you look for if someone has been sprayed in the eyes with chemicals?",
+                        3,
+                        "A phone.",
+                        "First aid kit.",
+                        "Eyewash.",
+                        "Fire-extinguisher.",
+                        "Water fountain.",
+                        "None of the above."
+                ),
+                new Question(
+                        "A student is experiencing life-threatening cardiac dysrhythmias! What do you do?",
+                        5,
+                        "Run for your life. It is highly contagious!",
+                        "Nothing. It is only a temporary affair.",
+                        "Get the fire extinguisher.",
+                        "Call 112 immediately.",
+                        "Quickly retrieve the defibrillator."
+                ),
+                new Question(
+                        "Blood is pouring out of a students arm and requires immediate attention. What do you do?",
+                        2,
+                        "Get the first aid kit.",
+                        "Pass out because blood is not your thing…",
+                        "Look the other way and hope the student figures something out.",
+                        "Clean up the blood. Someone could slip and fall."
                 )
         ));
     }
@@ -91,7 +89,7 @@ public class MCQuiz {
             if (question.requestAnswer(scanner)) {
                 correctAnswers++;
             }
-            ClearShell.clear(); 
+            ClearShell.clear();
             questionIndex++;
         } while (questionIndex < this.questions.size());
 
