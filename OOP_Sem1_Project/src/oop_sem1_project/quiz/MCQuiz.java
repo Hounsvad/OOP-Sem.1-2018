@@ -28,11 +28,50 @@ public class MCQuiz {
     public MCQuiz() {
         // Missing questions and answers.
         questions.addAll(Arrays.asList(
-                new Question("Question 1", 1, "True", "False", "False", "False", "False"),
-                new Question("Question 2", 3, "False", "False", "True", "False"),
-                new Question("Question 3", 4, "False", "False", "False", "True", "False", "False", "False", "False"),
-                new Question("Question 4", 1, "True", "False", "False", "False", "False"),
-                new Question("Question 5", 2, "False", "True", "False")
+                new Question(
+                        "Question 1",
+                        1,
+                        "True",
+                        "False",
+                        "False",
+                        "False",
+                        "False"
+                ),
+                new Question(
+                        "Question 2",
+                        3,
+                        "False",
+                        "False",
+                        "True",
+                        "False"
+                ),
+                new Question("Question 3",
+                        4,
+                        "False",
+                        "False",
+                        "False",
+                        "True",
+                        "False",
+                        "False",
+                        "False",
+                        "False"
+                ),
+                new Question(
+                        "Question 4",
+                        1,
+                        "True",
+                        "False",
+                        "False",
+                        "False",
+                        "False"
+                ),
+                new Question(
+                        "Question 5",
+                        2,
+                        "False",
+                        "True",
+                        "False"
+                )
         ));
     }
 
@@ -52,7 +91,7 @@ public class MCQuiz {
             if (question.requestAnswer(scanner)) {
                 correctAnswers++;
             }
-            ClearShell.clear();
+            ClearShell.clear(); 
             questionIndex++;
         } while (questionIndex < this.questions.size());
 
