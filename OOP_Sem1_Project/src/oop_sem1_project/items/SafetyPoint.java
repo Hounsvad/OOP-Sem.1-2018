@@ -65,8 +65,7 @@ public class SafetyPoint {
             sb.append("- ").append(e.getValue().getItemName()).append(" ").append(e.getValue().getItemDescription()).append("\n");
         }
         sb.deleteCharAt(sb.lastIndexOf("\n"));
-        String contents = sb.toString();
-        return contents;
+        return sb.toString();
     }
 
     /**
