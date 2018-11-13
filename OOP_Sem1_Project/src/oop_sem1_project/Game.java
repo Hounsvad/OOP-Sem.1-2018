@@ -253,7 +253,7 @@ public class Game {
                 break;
             case GRAB:
                 if (!command.hasSecondWord() && this.currentRoom.getShortDescription().equals("in the main hall")) {
-                    System.out.println("You see the following in the saftypoint:");
+                    System.out.println("You see the following in the safetypoint:");
                     System.out.println(SafetyPoint.getContents());
                 } else {
                     grabItem(command);
