@@ -31,7 +31,7 @@ public class Player {
     /**
      * The progress of a player
      */
-    private int progress = 0;
+    private int progress = 10;
 
     /**
      * Constructs a new Player Object.

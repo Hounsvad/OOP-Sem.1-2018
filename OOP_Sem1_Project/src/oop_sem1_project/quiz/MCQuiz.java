@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import oop_sem1_project.ClearShell;
 
 /**
  *
@@ -51,6 +52,7 @@ public class MCQuiz {
             if (question.requestAnswer(scanner)) {
                 correctAnswers++;
             }
+            ClearShell.clear();
             questionIndex++;
         } while (questionIndex < this.questions.size());
 

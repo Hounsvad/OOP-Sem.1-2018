@@ -1,5 +1,6 @@
 package oop_sem1_project;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 import oop_sem1_project.command.Parser;
@@ -239,11 +240,12 @@ public class Game {
                 printHelp();
                 break;
             case GO:
+                ClearShell.clear();
                 goRoom(command);
                 if (this.player.getProgress() == 12) {
                     this.player.setScore(10 - ((int) (System.currentTimeMillis() - scoreTimer.getTime()) / 60000));
-                    MCQuiz qz = new MCQuiz();
-                    this.player.setScore(this.player.getScore() * qz.start());
+                    ClearShell.clear();
+                    this.player.setScore(this.player.getScore() * new MCQuiz().start());
                     wantToQuit = true;
                     System.out.println("Congratulations " + player.getName() + ". You achived a score of: " + this.player.getScore() + "/" + 50);
                 }
