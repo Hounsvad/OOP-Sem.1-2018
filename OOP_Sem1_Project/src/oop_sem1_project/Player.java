@@ -51,7 +51,7 @@ public class Player {
 
     /**
      * @return the item with name passed as the argument or null if it does not
-     *         not exist.
+     * not exist.
      */
     public Inventory getInventory() {
         return this.inventory;
