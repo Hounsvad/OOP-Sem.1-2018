@@ -5,17 +5,27 @@
  */
 package oop_sem1_project;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
  * @author Benjamin Staugaard | Benz56
  */
-public class Worldofzuul {
+public class Worldofzuul extends Application {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // Starts the game.
-        new Game().play();
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("presentation/WOS.fxml"));
+        primaryStage.setTitle("World of Safety");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }
