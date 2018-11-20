@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_sem1_project.presentation.WOSController">
+   <items>
+      <Canvas fx:id="gameCanvas" height="500.0" width="900.0" />
+      <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="200.0">
+         <items>
+            <Canvas fx:id="phoneCanvas" height="100.0" width="100.0" />
+            <Canvas fx:id="itemCanvas" height="100.0" width="100.0" />
+            <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+   </items>
+</SplitPane>
