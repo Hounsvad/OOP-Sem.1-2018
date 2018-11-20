@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 
 /**
@@ -19,12 +20,21 @@ import javafx.scene.control.TextArea;
  */
 public class WOSController implements Initializable {
 
+    //TEMPORARY
+    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator();
+
+    @FXML
+    private SplitPane root;
+
     @FXML
     private Canvas gameCanvas;
+
     @FXML
     private Canvas phoneCanvas;
+
     @FXML
     private Canvas itemCanvas;
+
     @FXML
     private TextArea textArea;
 
@@ -33,7 +43,16 @@ public class WOSController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // getScene() returns null in the initialize method.
+        // The below allows us to wait for the scene to be set before setting the EventHandler.
+        this.root.sceneProperty().addListener((observable, oldValue, newValue) -> {
+            if (oldValue == null && newValue != null) {
+                newValue.setOnKeyReleased(event -> interactionCommunicator.keyPressed(event));
+            }
+        });
+        this.gameCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.GAME_CANVAS, event));
+        this.phoneCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.PHONE_CANVAS, event));
+        this.itemCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.ITEM_CANVAS, event));
+        this.textArea.editableProperty().set(false);
     }
-
 }
