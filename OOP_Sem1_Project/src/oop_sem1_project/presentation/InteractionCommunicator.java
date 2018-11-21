@@ -8,6 +8,7 @@ package oop_sem1_project.presentation;
 import java.util.Arrays;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import oop_sem1_project.domain.InteractionHandler;
 
 /**
  *
@@ -15,18 +16,19 @@ import javafx.scene.input.MouseEvent;
  */
 public class InteractionCommunicator {
 
+    private final InteractionHandler interactionHandler;
+
     public InteractionCommunicator() {
-        //TODO
+        this.interactionHandler = new InteractionHandler();
     }
 
     public void keyEvent(KeyCode keycode) {
-        if (Arrays.asList(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D).contains(keycode)) {
-            //DO stuff
-            System.out.println(keycode);
+        if (Arrays.asList(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.UP, KeyCode.DOWN, KeyCode.LEFT, KeyCode.RIGHT).contains(keycode)) {
+            this.interactionHandler.keyEvent(keycode);
         }
     }
 
     public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
-        System.out.println(clickedNode + " | " + mouseEvent);
+        interactionHandler.mouseClick(clickedNode, mouseEvent);
     }
 }
