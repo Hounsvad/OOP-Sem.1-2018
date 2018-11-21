@@ -26,7 +26,7 @@ public class InteractionCommunicator {
         }
     }
 
-    public void mouseClicked(ClickedNode clickedNode, MouseEvent mouseEvent) {
+    public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
         System.out.println(clickedNode + " | " + mouseEvent);
     }
 }

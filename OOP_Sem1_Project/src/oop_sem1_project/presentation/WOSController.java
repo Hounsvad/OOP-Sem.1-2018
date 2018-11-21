@@ -52,9 +52,9 @@ public class WOSController implements Initializable {
                 newScene.getRoot().setOnKeyPressed(event -> interactionCommunicator.keyEvent(event.getCode()));
             }
         });
-        this.gameCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.GAME_CANVAS, event));
-        this.phoneCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.PHONE_CANVAS, event));
-        this.itemCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClicked(ClickedNode.ITEM_CANVAS, event));
+        this.gameCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
+        this.phoneCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
+        this.itemCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
         this.textArea.editableProperty().set(false);
     }
 }
