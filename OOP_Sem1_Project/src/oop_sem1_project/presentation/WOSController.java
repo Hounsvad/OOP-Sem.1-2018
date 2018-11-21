@@ -24,7 +24,7 @@ public class WOSController implements Initializable {
     private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator();
 
     @FXML
-    private SplitPane root;
+    private SplitPane splitPane;
 
     @FXML
     private Canvas gameCanvas;
@@ -45,7 +45,7 @@ public class WOSController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // getScene() returns null in the initialize method.
         // The below allows us to wait for the scene to be set before setting the EventHandler and the constant focus.
-        this.root.sceneProperty().addListener((observable, oldScene, newScene) -> {
+        this.splitPane.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (oldScene == null && newScene != null) {
                 newScene.getRoot().requestFocus();
                 newScene.getRoot().focusedProperty().addListener((obs, oldValue, newValue) -> newScene.getRoot().requestFocus());
