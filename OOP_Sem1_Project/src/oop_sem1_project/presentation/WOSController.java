@@ -49,12 +49,12 @@ public class WOSController implements Initializable {
             if (oldScene == null && newScene != null) {
                 newScene.getRoot().requestFocus();
                 newScene.getRoot().focusedProperty().addListener((obs, oldValue, newValue) -> newScene.getRoot().requestFocus());
-                newScene.getRoot().setOnKeyPressed(event -> interactionCommunicator.keyEvent(event.getCode()));
+                newScene.getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
             }
         });
-        this.gameCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
-        this.phoneCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
-        this.itemCanvas.setOnMouseClicked(event -> interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
+        this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
+        this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
+        this.itemCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
         this.textArea.editableProperty().set(false);
     }
 }
