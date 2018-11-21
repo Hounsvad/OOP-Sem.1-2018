@@ -9,8 +9,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.canvas.Canvas;
 
 /**
  * FXML Controller class
@@ -19,12 +20,21 @@ import javafx.scene.control.TextArea;
  */
 public class WOSController implements Initializable {
 
+    //TEMPORARY
+    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator();
+
+    @FXML
+    private SplitPane splitPane;
+
     @FXML
     private Canvas gameCanvas;
+
     @FXML
     private Canvas phoneCanvas;
+
     @FXML
     private Canvas itemCanvas;
+
     @FXML
     private TextArea textArea;
 
@@ -33,7 +43,18 @@ public class WOSController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // getScene() returns null in the initialize method.
+        // The below allows us to wait for the scene to be set before setting the EventHandler and the constant focus.
+        this.splitPane.sceneProperty().addListener((observable, oldScene, newScene) -> {
+            if (oldScene == null && newScene != null) {
+                newScene.getRoot().requestFocus();
+                newScene.getRoot().focusedProperty().addListener((obs, oldValue, newValue) -> newScene.getRoot().requestFocus());
+                newScene.getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
+            }
+        });
+        this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
+        this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
+        this.itemCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
+        this.textArea.editableProperty().set(false);
     }
-
 }
