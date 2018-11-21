@@ -5,7 +5,8 @@
  */
 package oop_sem1_project.presentation;
 
-import javafx.scene.input.KeyEvent;
+import java.util.Arrays;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -18,8 +19,11 @@ public class InteractionCommunicator {
         //TODO
     }
 
-    public void keyPressed(KeyEvent keyEvent) {
-        System.out.println(keyEvent);
+    public void keyEvent(KeyCode keycode) {
+        if (Arrays.asList(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D).contains(keycode)) {
+            //DO stuff
+            System.out.println(keycode);
+        }
     }
 
     public void mouseClicked(ClickedNode clickedNode, MouseEvent mouseEvent) {
