@@ -7,13 +7,11 @@ package oop_sem1_project.presentation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -46,7 +44,7 @@ public class WOSController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // getScene() returns null in the initialize method.
-        // The below allows us to wait for the scene to be set before setting the EventHandler.
+        // The below allows us to wait for the scene to be set before setting the EventHandler and the constant focus.
         this.root.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (oldScene == null && newScene != null) {
                 newScene.getRoot().requestFocus();
