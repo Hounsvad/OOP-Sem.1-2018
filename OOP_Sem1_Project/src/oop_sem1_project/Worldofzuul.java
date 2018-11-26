@@ -5,6 +5,8 @@
  */
 package oop_sem1_project;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class Worldofzuul extends Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         launch(args);
     }
 
