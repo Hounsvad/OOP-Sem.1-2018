@@ -9,7 +9,7 @@ package oop_sem1_project.domain;
  *
  * @author Pinnacle F
  */
-public class interactableObject extends DisplayableUnit{
+public class interactableObject extends DisplayableUnit {
 
     private int[] clickableArea;
 
@@ -18,8 +18,6 @@ public class interactableObject extends DisplayableUnit{
         this.clickableArea = clickableArea;
     }
 
-    
-    
     /**
      * Checks to see if the coordinates are withing the clickable area
      *
