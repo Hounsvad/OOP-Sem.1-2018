@@ -48,6 +48,6 @@ public class InteractionCommunicator {
      * @param mouseEvent The MouseEvent.
      */
     public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
-        interactionHandler.mouseClick(clickedNode, mouseEvent);
+        interactionHandler.mouseClick(clickedNode.toString(), mouseEvent);
     }
 }

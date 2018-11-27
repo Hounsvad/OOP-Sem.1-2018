@@ -7,7 +7,6 @@ package oop_sem1_project.domain;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import oop_sem1_project.presentation.ClickedNode;
 
 /**
  *
@@ -24,7 +23,7 @@ public class InteractionHandler {
         //Move player.
     }
 
-    public void mouseClick(ClickedNode clickedNode, MouseEvent mouseEvent) {
+    public void mouseClick(String clickedNode, MouseEvent mouseEvent) {
         System.out.println(clickedNode + "  " + mouseEvent);
         //Check for clickable area.
     }
