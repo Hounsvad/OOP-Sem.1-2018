@@ -22,7 +22,7 @@ public class Player {
      * Index zero is the task and index is progress in the task.
      */
     private final int[] progress = {0, 0};
-
+    
     /**
      * The name of the Player.
      */
@@ -32,6 +32,16 @@ public class Player {
      * The players position on the game canvas.
      */
     private final int[] pos;
+    
+    /**
+     * The current room the player is in.
+     */
+    private Room currentRoom;
+    
+    /**
+     * The player's inventory.
+     */
+    public final Inventory inventory = new Inventory();
 
     /**
      * Constructs a player object with the given name and position.
@@ -42,7 +52,7 @@ public class Player {
      */
     public Player(String name, int xInit, int yInit) {
         this.name = name;
-        this.pos = new int[]{xInit, yInit};
+        this.pos = new int[]{xInit, yInit};   
     }
 
     /**
@@ -93,5 +103,19 @@ public class Player {
     public void setPos(int x, int y) {
         this.pos[0] = x;
         this.pos[1] = y;
+    }  
+        /**
+     * Set the players current room
+     * @param Room The current room object 
+     */
+    public void setCurrentRoom(Room currentRoom){
+        this.currentRoom = currentRoom;
     }
-}
+        /**
+     * Return the current room object the player is in
+     * @return Room The current room object
+     */
+    public Room getCurrentRoom(){
+        return currentRoom;
+    }
+}   
