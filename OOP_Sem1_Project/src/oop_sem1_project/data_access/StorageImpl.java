@@ -36,9 +36,9 @@ public class StorageImpl implements Storage {
      */
     public StorageImpl(String path, String fileName) throws IOException {
         this.file = new File(path, fileName + ".csv");
-        if (!file.exists()) {
-            file.createNewFile();
-        } else if (file.isDirectory()) {
+        if (!this.file.exists()) {
+            this.file.createNewFile();
+        } else if (this.file.isDirectory()) {
             throw new IOException("The file(" + fileName + ") currently exists as a directory!");
         }
     }
