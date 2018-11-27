@@ -33,12 +33,4 @@ public class interactableObject extends DisplayableUnit{
         }
         return false;
     }
-    
-    /**
-     *
-     * @return the position of the object
-     */
-    public int[] getPosition() {
-        return position;
-    }
 }
