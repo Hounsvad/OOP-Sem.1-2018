@@ -9,6 +9,7 @@ import java.util.Arrays;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import oop_sem1_project.domain.InteractionHandler;
+import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
@@ -17,16 +18,19 @@ import oop_sem1_project.domain.InteractionHandler;
 public class InteractionCommunicator {
 
     /**
-     * InteractionHandler.
+     * InteractionHandlerImpl.
      */
-    private final InteractionHandler interactionHandler;
+    private final InteractionHandler interactionHandler = new InteractionHandlerImpl();
+    private final WOSController controller;
 
     /**
      * Constructs a new InteractionCommunicator which instantiates a new
-     * InteractionHandler.
+     * InteractionHandlerImpl.
+     *
+     * @param controller The instance of the WOSController.
      */
-    public InteractionCommunicator() {
-        this.interactionHandler = new InteractionHandler();
+    public InteractionCommunicator(WOSController controller) {
+        this.controller = controller;
     }
 
     /**
@@ -48,6 +52,20 @@ public class InteractionCommunicator {
      * @param mouseEvent The MouseEvent.
      */
     public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
-        interactionHandler.mouseClick(clickedNode.toString(), mouseEvent);
+        this.interactionHandler.mouseClick(clickedNode.toString(), mouseEvent);
+    }
+
+    /**
+     * Called when the start button is clicked on the main menu.
+     *
+     * @param name The name of the Player.
+     */
+    public void startClicked(String name) {
+    }
+
+    /**
+     * Called when the highscore button is clicked.
+     */
+    public void highscoreClicked() {
     }
 }

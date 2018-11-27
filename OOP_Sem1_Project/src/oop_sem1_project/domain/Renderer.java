@@ -5,16 +5,18 @@
  */
 package oop_sem1_project.domain;
 
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
+import oop_sem1_project.presentation.WOSController;
 
 /**
  *
  * @author Benjamin Staugaard | Benz56
  */
-public interface InteractionHandler {
+public class Renderer {
 
-    void keyEvent(KeyCode keycode);
+    private final WOSController controller;
 
-    void mouseClick(String clickedNode, MouseEvent mouseEvent);
+    public Renderer(WOSController controller) {
+        this.controller = controller;
+    }
+
 }

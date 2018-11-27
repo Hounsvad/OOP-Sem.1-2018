@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -20,11 +22,22 @@ import javafx.scene.canvas.Canvas;
  */
 public class WOSController implements Initializable {
 
-    //TEMPORARY
-    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator();
+    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this);
 
     @FXML
     private SplitPane splitPane;
+
+    @FXML
+    private VBox menu;
+
+    @FXML
+    private TextField nameTextField;
+
+    @FXML
+    private TextField lastScoreTextField;
+
+    @FXML
+    private Canvas menuCanvas;
 
     @FXML
     private Canvas gameCanvas;
@@ -48,7 +61,11 @@ public class WOSController implements Initializable {
         this.splitPane.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (oldScene == null && newScene != null) {
                 newScene.getRoot().requestFocus();
-                newScene.getRoot().focusedProperty().addListener((obs, oldValue, newValue) -> newScene.getRoot().requestFocus());
+                newScene.getRoot().focusedProperty().addListener((obs, oldValue, newValue) -> {
+                    if (!this.menu.isVisible()) { // Game is started
+                        newScene.getRoot().requestFocus();
+                    }
+                });
                 newScene.getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
             }
         });
@@ -56,5 +73,54 @@ public class WOSController implements Initializable {
         this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
         this.itemCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
         this.textArea.editableProperty().set(false);
+    }
+
+    @FXML
+    private void startButtonEvent() {
+        if (this.nameTextField.getText().isEmpty()) {
+            this.nameTextField.requestFocus();
+        } else {
+            toggleMenu();
+            this.interactionCommunicator.startClicked(this.nameTextField.getText());
+        }
+    }
+
+    @FXML
+    private void highscoreButtonEvent() {
+        this.interactionCommunicator.highscoreClicked();
+    }
+
+    public void toggleMenu() {
+        this.menu.setVisible(!this.menu.isVisible());
+        this.menuCanvas.setVisible(!this.menuCanvas.isVisible());
+        this.splitPane.requestFocus();
+    }
+
+    public InteractionCommunicator getInteractionCommunicator() {
+        return interactionCommunicator;
+    }
+
+    public Canvas getMenuCanvas() {
+        return this.menuCanvas;
+    }
+
+    public TextField getLastScoreTextField() {
+        return this.lastScoreTextField;
+    }
+
+    public Canvas getGameCanvas() {
+        return this.gameCanvas;
+    }
+
+    public Canvas getPhoneCanvas() {
+        return this.phoneCanvas;
+    }
+
+    public Canvas getItemCanvas() {
+        return this.itemCanvas;
+    }
+
+    public TextArea getTextArea() {
+        return this.textArea;
     }
 }
