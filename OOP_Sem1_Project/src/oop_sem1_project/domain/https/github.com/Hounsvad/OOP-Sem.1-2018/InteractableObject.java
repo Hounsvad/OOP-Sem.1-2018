@@ -26,9 +26,6 @@ public class InteractableObject extends DisplayableUnit {
      * @return true if the input is within the clickable area
      */
     public boolean isInArea(int x, int y) {
-        if (x > 0 && y > 0 && x >= clickableArea[0] && x <= clickableArea[2] && y > clickableArea[1] && y <= clickableArea[3]) {
-            return true;
-        }
-        return false;
+        return x > 0 && y > 0 && x >= clickableArea[0] && x <= clickableArea[2] && y > clickableArea[1] && y <= clickableArea[3];
     }
 }
