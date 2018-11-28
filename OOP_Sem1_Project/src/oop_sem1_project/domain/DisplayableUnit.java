@@ -12,10 +12,10 @@ package oop_sem1_project.domain;
 public abstract class DisplayableUnit
 {
 
-    private String name;
+    private final String name;
+    private final String image;
+    private final String description;
     private int[] position;
-    private String image;
-    private String description;
     
     /**
      * 
@@ -38,7 +38,7 @@ public abstract class DisplayableUnit
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     /**
@@ -46,7 +46,7 @@ public abstract class DisplayableUnit
      */
     public int[] getPosition()
     {
-        return position;
+        return this.position;
     }
 
     /**
@@ -62,7 +62,7 @@ public abstract class DisplayableUnit
      */
     public String getImage()
     {
-        return image;
+        return this.image;
     }
 
     /**
@@ -70,7 +70,7 @@ public abstract class DisplayableUnit
      */
     public String getDescription()
     {
-        return description;
+        return this.description;
     }
     
 }
