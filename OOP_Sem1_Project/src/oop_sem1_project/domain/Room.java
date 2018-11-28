@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Room {
 
-    private final Map<String, interactableObject> interactableObjects = new HashMap<>();
+    private final Map<String, InteractableObject> interactableObjects = new HashMap<>();
     private final int desiredProgress;
     private final Map<Integer, String> messages = new HashMap<>();
     private final boolean increasesProgress;
@@ -44,7 +44,7 @@ public class Room {
      * @param key    a as a string to identify the object
      * @param object as an interactableObject in the room
      */
-    public void addInteractableObject(String key, interactableObject object) {
+    public void addInteractableObject(String key, InteractableObject object) {
         if (null != this.interactableObjects.put(key, object)) {
             throw new IllegalArgumentException("Messeage index already exists");
         }
@@ -91,7 +91,7 @@ public class Room {
         return null;
     }
 
-    public Map<String, interactableObject> getInteractableObjects() {
+    public Map<String, InteractableObject> getInteractableObjects() {
         return interactableObjects;
     }
 
