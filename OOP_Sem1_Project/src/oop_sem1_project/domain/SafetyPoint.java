@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class SafetyPoint extends InteractableObject implements Popupable {
     
-    private final Map<Integer,Item> items = new HashMap();
+    private final Map<Integer, Item> items = new HashMap();
     
     public SafetyPoint(){
         /*insert super call*/
