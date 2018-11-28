@@ -9,8 +9,7 @@ package oop_sem1_project.domain;
  *
  * @author Oliver
  */
-public interface Popupable
-{
-    public boolean isClickable(int[] position);
+public interface Popupable {
     
+    public boolean isClickable(int[] position);
 }
