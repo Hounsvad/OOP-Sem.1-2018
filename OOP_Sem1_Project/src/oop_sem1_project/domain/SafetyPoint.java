@@ -7,17 +7,18 @@ package oop_sem1_project.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
  * @author Patrick
  */
-public class SafetyPoint extends InteractableObject implements Popupable {
+public class SafetyPoint extends Popup {
 
     private final Map<Integer, Item> items = new HashMap<>();
 
-    public SafetyPoint(String name, int[] clickableArea, String image, String description) {
-        super(name, clickableArea, image, description);
+    public SafetyPoint(InteractionHandlerImpl interactionHandler, String name, String image) {
+        super(interactionHandler, name, image);
     }
 
     public Map<Integer, Item> getItems() {
@@ -25,7 +26,6 @@ public class SafetyPoint extends InteractableObject implements Popupable {
     }
 
     @Override
-    public boolean isClickable(int[] position) {
-        return isInArea(position[0], position[1]);
+    public void onClick(int[] clickedPosition) {
     }
 }
