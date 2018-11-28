@@ -9,7 +9,7 @@ package oop_sem1_project.domain;
  *
  * @author Pinnacle F
  */
-public class interactableObject extends DisplayableUnit {
+public class InteractableObject extends DisplayableUnit {
 
     private int[] clickableArea;
 
