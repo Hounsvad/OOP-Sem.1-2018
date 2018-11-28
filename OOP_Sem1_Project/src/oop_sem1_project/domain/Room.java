@@ -34,8 +34,8 @@ public class Room extends DisplayableUnit {
      *                                  exsists
      */
     public void addMessage(int index, String message) {
-        if (null != this.messages.put(index, message)) {
-            throw new IllegalArgumentException("Messeage index already exists");
+        if (this.messages.put(index, message) != null) {
+            throw new IllegalArgumentException("Message index already exists");
         }
     }
 
