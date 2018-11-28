@@ -5,7 +5,7 @@
  */
 package oop_sem1_project.domain;
 
-import oop_sem1_project.domain.popups.Popup;
+import java.util.List;
 
 /**
  *
@@ -13,11 +13,7 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public interface InteractionHandler {
 
-    void keyEvent(String keyPressed);
+    List<String[]> update(String keyPressed);
 
-    void mouseClick(String clickedNode, int[] position);
-
-    Popup getPopup();
-
-    void setPopup(Popup popup);
+    List<String[]> update(String clickedNode, int[] position);
 }

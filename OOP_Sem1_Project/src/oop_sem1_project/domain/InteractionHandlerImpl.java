@@ -5,6 +5,7 @@
  */
 package oop_sem1_project.domain;
 
+import java.util.List;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
 import oop_sem1_project.domain.popups.Popup;
 
@@ -14,35 +15,34 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public class InteractionHandlerImpl implements InteractionHandler {
 
+    private final GameContainer gameContainer;
+    private DataPacket dataPacket = new DataPacket();
     private Popup popup;
 
     public InteractionHandlerImpl() {
-        //Initialize stuff.
+        this.gameContainer = new GameContainer();
     }
 
-    @Override
-    public void keyEvent(String keyPressed) {
-        System.out.println(keyPressed);
-    }
-
-    @Override
-    public void mouseClick(String clickedNode, int[] clickedPosition) {
-        if (clickedNode.equals("GAME_CANVAS") && popup != null) {
-            popup.onClick(clickedPosition);
-        } else if (clickedNode.equals("PHONE_CANVAS")) {
-            this.popup = new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen");
-        } else if (clickedNode.equals("ITEM_CANVAS")) {
-            
-        }
-    }
-
-    @Override
     public Popup getPopup() {
         return this.popup;
     }
 
-    @Override
     public void setPopup(Popup popup) {
         this.popup = popup;
+    }
+
+    @Override
+    public List<String[]> update(String keyPressed) {z
+    }
+
+    @Override
+    public List<String[]> update(String clickedNode, int[] position) {
+        if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
+            this.gameContainer.getPopup().onClick(position);
+        } else if (clickedNode.equals("PHONE_CANVAS")) {
+            this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
+        } else if (clickedNode.equals("ITEM_CANVAS")) {
+
+        }
     }
 }
