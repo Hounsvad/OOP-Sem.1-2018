@@ -16,12 +16,14 @@ public abstract class InteractableObject extends DisplayableUnit {
     private final int[] size;
     private final int range;
     private final String rangeType;
+    private String requiredItemName;
 
-    public InteractableObject(String name, String image, String description, int[] position, int[] size, int range, String rangeType) {
+    public InteractableObject(String name, String image, String description, int[] position, int[] size, int range, String rangeType, String requiredItemName) {
         super(name, position, image, description);
         this.size = size;
         this.range = range;
         this.rangeType = rangeType;
+        this.requiredItemName = requiredItemName;
     }
 
     /**
@@ -48,6 +50,11 @@ public abstract class InteractableObject extends DisplayableUnit {
 
     public String getRangeType() {
         return rangeType;
+    }
+    
+    public boolean isRequiredItem(Item item)
+    {
+        return item != null ? item.getName().equalsIgnoreCase(requiredItemName) : false;
     }
 
 }
