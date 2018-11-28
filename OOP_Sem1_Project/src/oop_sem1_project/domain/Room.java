@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author Pinnacle F
  */
-public class Room {
+public class Room extends DisplayableUnit {
 
     private final Map<String, InteractableObject> interactableObjects = new HashMap<>();
     private final int desiredProgress;
@@ -20,6 +20,7 @@ public class Room {
     private final boolean increasesProgress;
 
     public Room(int desiredProgress, boolean increasesProgress) {
+        //Missing super.
         this.desiredProgress = desiredProgress;
         this.increasesProgress = increasesProgress;
     }
