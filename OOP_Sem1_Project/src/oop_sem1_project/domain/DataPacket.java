@@ -9,6 +9,6 @@ package oop_sem1_project.domain;
  *
  * @author Benjamin Staugaard | Benz56
  */
-public class GraphicsPacket {
+public class DataPacket {
     
 }
