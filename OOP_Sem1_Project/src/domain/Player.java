@@ -19,29 +19,19 @@ public class Player extends DisplayableUnit {
     private final Date startTime = new Date();
 
     /**
-     * Index zero is the task and index is progress in the task.
+     * The player's inventory.
      */
-    private final int progress = 0;
-    
-    /**
-     * The name of the Player.
-     */
-    private final String name;
+    public final Inventory inventory = new Inventory(new Phone());
 
     /**
-     * The players position on the game canvas.
+     * Index zero is the task and index is progress in the task.
      */
-    private final int[] pos;
-    
+    private int progress = 0;
+
     /**
      * The current room the player is in.
      */
     private Room currentRoom;
-    
-    /**
-     * The player's inventory.
-     */
-    public final Inventory inventory = new Inventory();
 
     /**
      * Constructs a player object with the given name and position.
@@ -49,11 +39,11 @@ public class Player extends DisplayableUnit {
      * @param name The name of the player.
      * @param xInit The initial x coordinate.
      * @param yInit The initial y coordinate.
+     * @param image The image location as a String.
+     * @param description The player description.
      */
-    public Player(String name, int xInit, int yInit) {
-        // Super!!!
-        this.name = name;
-        this.pos = new int[]{xInit, yInit};   
+    public Player(String name, int xInit, int yInit, String image, String description) {
+        super(name, new int[]{xInit, yInit}, name, description);
     }
 
     /**
@@ -64,59 +54,36 @@ public class Player extends DisplayableUnit {
     }
 
     /**
-     * @return The progress array.
+     * @return The progress.
      */
-    public int[] getProgress() {
+    public int getProgress() {
         return this.progress;
     }
 
     /**
      * Set the game progress.
      *
-     * @param task The task.
-     * @param taskProgress The progress of the task.
+     * @param progress The progress.
      */
-    public void setProgress(int task, int taskProgress) {
-        this.progress[0] = task;
-        this.progress[1] = taskProgress;
+    public void setProgress(int progress) {
+        this.progress = progress;
     }
 
     /**
-     * @return The name of the player.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * @return The players current position.
-     */
-    public int[] getPos() {
-        return this.pos;
-    }
-
-    /**
-     * Set the position of the player.
-     *
-     * @param x The new x position.
-     * @param y The new y position.
-     */
-    public void setPos(int x, int y) {
-        this.pos[0] = x;
-        this.pos[1] = y;
-    }  
-        /**
      * Set the players current room
-     * @param Room The current room object 
+     *
+     * @param currentRoom The current room object;
      */
-    public void setCurrentRoom(Room currentRoom){
+    public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-        /**
+
+    /**
      * Return the current room object the player is in
+     *
      * @return Room The current room object
      */
-    public Room getCurrentRoom(){
+    public Room getCurrentRoom() {
         return this.currentRoom;
     }
-}   
+}

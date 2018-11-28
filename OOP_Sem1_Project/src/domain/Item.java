@@ -10,9 +10,10 @@ package domain;
  * @author Patrick
  */
 public class Item extends DisplayableUnit {
-    
+
     /**
      * Creates a new Item
+     *
      * @param name The name of the item
      * @param position Its position on screen
      * @param image The path to its image

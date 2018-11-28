@@ -8,7 +8,7 @@ package presentation.rendering;
 import java.util.List;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import oop_sem1_project.presentation.WOSController;
+import presentation.WOSController;
 
 /**
  *
