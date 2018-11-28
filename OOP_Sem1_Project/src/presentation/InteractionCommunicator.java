@@ -8,8 +8,8 @@ package presentation;
 import java.util.Arrays;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import oop_sem1_project.domain.InteractionHandler;
-import oop_sem1_project.domain.InteractionHandlerImpl;
+import domain.InteractionHandler;
+import domain.InteractionHandlerImpl;
 
 /**
  *

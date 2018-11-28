@@ -10,6 +10,6 @@ package domain;
  * @author Oliver
  */
 public interface Popupable {
-    
+
     public boolean isClickable(int[] position);
 }

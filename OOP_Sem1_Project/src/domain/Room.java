@@ -19,8 +19,8 @@ public class Room extends DisplayableUnit {
     private final Map<Integer, String> messages = new HashMap<>();
     private final boolean increasesProgress;
 
-    public Room(int desiredProgress, boolean increasesProgress) {
-        //Missing super.
+    public Room(String name, int[] position, String image, String description, int desiredProgress, boolean increasesProgress) {
+        super(name, position, image, description);
         this.desiredProgress = desiredProgress;
         this.increasesProgress = increasesProgress;
     }
@@ -28,10 +28,8 @@ public class Room extends DisplayableUnit {
     /**
      * Adds a message to the message list
      *
-     * @param index   minimum progress for the message
+     * @param index minimum progress for the message
      * @param message the message
-     * @throws illigalArgumentException in the event that the index already
-     *                                  exsists
      */
     public void addMessage(int index, String message) {
         if (this.messages.put(index, message) != null) {
@@ -42,7 +40,7 @@ public class Room extends DisplayableUnit {
     /**
      * Adds an object to the object list
      *
-     * @param key    a as a string to identify the object
+     * @param key a as a string to identify the object
      * @param object as an interactableObject in the room
      */
     public void addInteractableObject(String key, InteractableObject object) {
@@ -63,14 +61,14 @@ public class Room extends DisplayableUnit {
         if (roomProgress == 0) {
             player.setProgress(player.getProgress() + 1);
         }
+
         return getMessageSmaller(roomProgress);
     }
 
     /**
      * Gets the matching message or the first message smaller than the wished
-     * message.
-     * In the event that the input is smaller than the smallest index then it
-     * returns null
+     * message. In the event that the input is smaller than the smallest index
+     * then it returns null
      *
      * @param input index to be searched for
      * @return null or desired message
