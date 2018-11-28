@@ -33,16 +33,15 @@ public class Phone implements Popupable
     @Override
     public boolean isClickable(int[] position)
     {
-        boolean output = false;
         for (int[] clickableArea : clickableAreas)
         {
             //if the clicks position from the argument is within a clickable area form the clickable areas list
             if (clickableArea[0] + clickableArea[2] > position[0] && position[0] < clickableArea[0] && clickableArea[1] + clickableArea[3] > position[1] && position[1] < clickableArea[1])
             {
-                output = true;
+                return true;
             }
         }
-        return output;
+        return false;
     }
     
     /**
@@ -50,7 +49,7 @@ public class Phone implements Popupable
      */
     public boolean hasMap()
     {
-        return hasMap;
+        return this.hasMap;
     }
 
     /**
@@ -60,9 +59,4 @@ public class Phone implements Popupable
     {
         this.hasMap = hasMap;
     }
-    
-    
-
-    
-    
 }
