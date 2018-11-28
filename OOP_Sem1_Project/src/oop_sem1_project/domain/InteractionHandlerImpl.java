@@ -8,7 +8,6 @@ package oop_sem1_project.domain;
 import java.util.ArrayList;
 import java.util.List;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
-import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
@@ -44,7 +43,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             }
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage());
-            this.dataPacket.setDisplayableUnits(currentRoom.getInteractableObjects().values());
+            this.dataPacket.setDisplayableUnits(new ArrayList<>(currentRoom.getInteractableObjects().values()));
         }
         return this.dataPacket.constructPacket();
     }
@@ -63,7 +62,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 }
             }
         }
-        this.dataPacket.setDisplayableUnits(this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values());
+        this.dataPacket.setDisplayableUnits(new ArrayList<>(this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()));
         return this.dataPacket.constructPacket();
     }
 

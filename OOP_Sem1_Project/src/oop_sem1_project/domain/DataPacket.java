@@ -19,7 +19,7 @@ public class DataPacket {
     private final Player player;
 
     private String background;
-    private List<DisplayableUnit> displayableUnits;
+    private List<InteractableObject> interactableObjects;
 
     public DataPacket(String background, Player player) {
         this.background = background;
@@ -31,19 +31,19 @@ public class DataPacket {
     }
 
     public void resetDisplayableUnits() {
-        this.displayableUnits = new ArrayList<>();
+        this.interactableObjects = new ArrayList<>();
     }
-    
-    public void setDisplayableUnits(Collection<InteractableObject> values) {
-        this.displayableUnits = new ArrayList<>(values);
+
+    public void setDisplayableUnits(List<InteractableObject> interactableObjects) {
+        this.interactableObjects = interactableObjects;
     }
 
     public List<String[]> constructPacket() {
         this.packet.add(new String[]{"bg", this.background});
         this.packet.add(new String[]{"pl", String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});
         this.packet.add(new String[]{"ci", this.player.getItem().getImage()});
-        for (DisplayableUnit displayableUnit : this.displayableUnits) {
-            this.packet.add(new String[]{"go", displayableUnit.getImage(), String.valueOf(displayableUnit.getPosition()[0]), String.valueOf(displayableUnit.getPosition()[1])});
+        for (InteractableObject interactableObject : this.interactableObjects) {
+            this.packet.add(new String[]{"go", interactableObject.getImage(), String.valueOf(interactableObject.getPosition()[0]), String.valueOf(interactableObject.getPosition()[1])});
         }
         return this.packet;
     }
