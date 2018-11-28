@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package oop_sem1_project.domain;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;

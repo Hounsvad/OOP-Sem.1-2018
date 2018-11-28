@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation.rendering;
+package oop_sem1_project.presentation.rendering;
 
 import java.util.List;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import presentation.WOSController;
+import oop_sem1_project.presentation.WOSController;
 
 /**
  *
