@@ -41,7 +41,7 @@ public class InteractionCommunicator {
      */
     public void keyEvent(KeyCode keycode) {
         if (Arrays.asList(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.UP, KeyCode.DOWN, KeyCode.LEFT, KeyCode.RIGHT).contains(keycode)) {
-            this.interactionHandler.keyEvent(keycode);
+            this.interactionHandler.keyEvent(keycode.getName());
         }
     }
 
@@ -52,7 +52,7 @@ public class InteractionCommunicator {
      * @param mouseEvent The MouseEvent.
      */
     public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
-        this.interactionHandler.mouseClick(clickedNode.toString(), mouseEvent);
+        this.interactionHandler.mouseClick(clickedNode.toString(), new int[]{(int) mouseEvent.getSceneX(), (int) mouseEvent.getSceneY()});
     }
 
     /**

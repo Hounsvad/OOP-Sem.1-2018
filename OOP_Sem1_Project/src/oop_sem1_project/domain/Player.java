@@ -19,11 +19,6 @@ public class Player extends DisplayableUnit {
     private final Date startTime = new Date();
 
     /**
-     * The player's inventory.
-     */
-    public final Inventory inventory = new Inventory(new Phone());
-
-    /**
      * Index zero is the task and index is progress in the task.
      */
     private int progress = 0;
@@ -34,16 +29,20 @@ public class Player extends DisplayableUnit {
     private Room currentRoom;
 
     /**
+     * The players current item.
+     */
+    private Item item;
+
+    /**
      * Constructs a player object with the given name and position.
      *
      * @param name The name of the player.
-     * @param xInit The initial x coordinate.
-     * @param yInit The initial y coordinate.
+     * @param initPosition The initial position of the Player.
      * @param image The image location as a String.
      * @param description The player description.
      */
-    public Player(String name, int xInit, int yInit, String image, String description) {
-        super(name, new int[]{xInit, yInit}, name, description);
+    public Player(String name, int[] initPosition, String image, String description) {
+        super(name, initPosition, name, description);
     }
 
     /**
@@ -85,5 +84,13 @@ public class Player extends DisplayableUnit {
      */
     public Room getCurrentRoom() {
         return this.currentRoom;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
