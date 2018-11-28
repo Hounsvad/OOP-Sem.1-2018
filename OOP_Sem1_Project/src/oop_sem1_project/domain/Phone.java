@@ -33,7 +33,7 @@ public class Phone implements Popupable
     @Override
     public boolean isClickable(int[] position)
     {
-        for (int[] clickableArea : clickableAreas)
+        for (int[] clickableArea : this.clickableAreas)
         {
             //if the clicks position from the argument is within a clickable area form the clickable areas list
             if (clickableArea[0] + clickableArea[2] > position[0] && position[0] < clickableArea[0] && clickableArea[1] + clickableArea[3] > position[1] && position[1] < clickableArea[1])
