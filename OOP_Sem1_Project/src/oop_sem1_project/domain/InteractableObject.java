@@ -52,9 +52,8 @@ public abstract class InteractableObject extends DisplayableUnit {
         return rangeType;
     }
     
-    public boolean isRequiredItem(Item item)
-    {
-        return item != null ? item.getName().equalsIgnoreCase(requiredItemName) : false;
+    public boolean isRequiredItem(Item item) {
+        return item != null && item.getName().equalsIgnoreCase(requiredItemName);
     }
 
 }
