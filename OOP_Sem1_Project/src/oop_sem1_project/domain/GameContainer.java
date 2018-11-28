@@ -5,6 +5,8 @@
  */
 package oop_sem1_project.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import oop_sem1_project.domain.popups.Popup;
 
 /**
@@ -13,15 +15,14 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public class GameContainer {
 
+    private final List<Room> rooms = new ArrayList<>();
+
     private Popup popup;
     private Player player;
 
-    public GameContainer() {
-    }
-
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{100, 100}, "Player", "I am a Player");
-
+        Room room = new Room("Rally Point", new int[]{0,0}, "RallyPoint", , 0, true)
     }
 
     public Popup getPopup() {
@@ -32,4 +33,7 @@ public class GameContainer {
         this.popup = popup;
     }
 
+    public Player getPlayer() {
+        return this.player;
+    }
 }
