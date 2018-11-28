@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Benjamin Staugaard | Benz56
  */
-public class Player {
+public class Player extends DisplayableUnit {
 
     /**
      * Game start time.
@@ -21,7 +21,7 @@ public class Player {
     /**
      * Index zero is the task and index is progress in the task.
      */
-    private final int[] progress = {0, 0};
+    private final int progress = 0;
     
     /**
      * The name of the Player.
@@ -51,6 +51,7 @@ public class Player {
      * @param yInit The initial y coordinate.
      */
     public Player(String name, int xInit, int yInit) {
+        // Super!!!
         this.name = name;
         this.pos = new int[]{xInit, yInit};   
     }
@@ -59,14 +60,14 @@ public class Player {
      * @return The start time.
      */
     public Date getStartTime() {
-        return startTime;
+        return this.startTime;
     }
 
     /**
      * @return The progress array.
      */
     public int[] getProgress() {
-        return progress;
+        return this.progress;
     }
 
     /**
@@ -84,14 +85,14 @@ public class Player {
      * @return The name of the player.
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
      * @return The players current position.
      */
     public int[] getPos() {
-        return pos;
+        return this.pos;
     }
 
     /**
@@ -116,6 +117,6 @@ public class Player {
      * @return Room The current room object
      */
     public Room getCurrentRoom(){
-        return currentRoom;
+        return this.currentRoom;
     }
 }   
