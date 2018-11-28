@@ -46,7 +46,7 @@ public class Room extends DisplayableUnit {
      * @param object as an interactableObject in the room
      */
     public void addInteractableObject(String key, InteractableObject object) {
-        if (null != this.interactableObjects.put(key, object)) {
+        if (this.interactableObjects.put(key, object) != null) {
             throw new IllegalArgumentException("Messeage index already exists");
         }
     }
