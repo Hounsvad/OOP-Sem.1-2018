@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation;
+package oop_sem1_project.presentation;
 
 import java.util.Arrays;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import domain.InteractionHandler;
-import domain.InteractionHandlerImpl;
+import oop_sem1_project.domain.InteractionHandler;
+import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *

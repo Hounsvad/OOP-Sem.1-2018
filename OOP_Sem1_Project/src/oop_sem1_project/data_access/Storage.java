@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data_access;
+package oop_sem1_project.data_access;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
