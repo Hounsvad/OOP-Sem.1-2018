@@ -93,11 +93,11 @@ public class Room extends DisplayableUnit {
     }
 
     public Map<String, InteractableObject> getInteractableObjects() {
-        return interactableObjects;
+        return this.interactableObjects;
     }
 
     public int getDesiredProgress() {
-        return desiredProgress;
+        return this.desiredProgress;
     }
 
 }
