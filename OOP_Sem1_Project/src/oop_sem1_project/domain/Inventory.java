@@ -18,7 +18,7 @@ public class Inventory {
      * Creates an empty inventory with a Phone object
      * @param phone the phone for the player
      */
-    public Inventory (Phone phone){
+    public Inventory(Phone phone){
         this.phone = phone;
     }
     
