@@ -62,6 +62,7 @@ public class InteractionCommunicator {
      * @param name The name of the Player.
      */
     public void startClicked(String name) {
+        this.controller.getRenderer().requestGraphicalUpdate(this.interactionHandler.start(name));
     }
 
     /**
