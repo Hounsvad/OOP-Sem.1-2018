@@ -19,7 +19,7 @@ public class Renderer {
     /**
      * The image of the player.
      */
-    private final Image player = new Image(getClass().getResourceAsStream("images/player.png"));
+    private final Image player = null;//new Image(getClass().getResourceAsStream("images/player.png"));
 
     /**
      * An instance of the WOSController to access the canvases.
@@ -43,6 +43,7 @@ public class Renderer {
     public void requestGraphicalUpdate(List<String[]> dataList) {
         // Main purpose of the RenderingDataReader is to convert the dataList to something more specific
         // than arbritray abbrevations and random array positions. Aids readability.
+        System.out.println(dataList);
         RenderingDataReader dataReader = new RenderingDataReader(dataList);
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 

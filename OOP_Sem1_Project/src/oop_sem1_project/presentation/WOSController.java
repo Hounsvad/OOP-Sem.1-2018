@@ -28,28 +28,28 @@ public class WOSController implements Initializable {
 
     @FXML
     private SplitPane splitPane;
-
-    @FXML
-    private VBox menu;
-
-    @FXML
-    private TextField nameTextField;
-
-    @FXML
-    private TextField lastScoreTextField;
-
-    @FXML
-    private Canvas menuCanvas;
-
+    
     @FXML
     private Canvas gameCanvas;
-
+    
+    @FXML
+    private Canvas menuCanvas;
+    
+    @FXML
+    private VBox menu;
+    
+    @FXML
+    private TextField nameTextField;
+    
+    @FXML
+    private TextField lastScoreTextField;
+    
     @FXML
     private Canvas phoneCanvas;
-
+    
     @FXML
     private Canvas itemCanvas;
-
+    
     @FXML
     private TextArea textArea;
 

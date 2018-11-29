@@ -6,7 +6,6 @@
 package oop_sem1_project.domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
