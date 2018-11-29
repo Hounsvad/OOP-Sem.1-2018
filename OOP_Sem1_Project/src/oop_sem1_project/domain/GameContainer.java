@@ -22,7 +22,7 @@ public class GameContainer {
 
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{100, 100}, "Player", "I am a Player");
-        Room room = new Room("Rally Point", new int[]{0,0}, "RallyPoint", , 0, true)
+        //Room room = new Room("Rally Point", new int[]{0,0}, "RallyPoint", , 0, true)
     }
 
     public Popup getPopup() {

@@ -8,6 +8,7 @@ package oop_sem1_project.domain;
 import java.util.ArrayList;
 import java.util.List;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
+import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
 
 /**
  *
@@ -29,14 +30,12 @@ public class InteractionHandlerImpl implements InteractionHandler {
             int movePixels = 5;
             int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + movePixels, this.gameContainer.getPlayer().getPosition()[1] + movePixels};
             for (InteractableObject interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (interactableObject.isAtBoundary(newPos)) {
+                if (interactableObject.isAtboundary(newPos)) {
                     break;
                 }
                 if (interactableObject.isWithinRange(newPos)) {
                     if (interactableObject.getRangeType().equalsIgnoreCase("safetypoint")) {
-                        this.gameContainer.setPopup(null); //NEW SAFETY POINT. NULL ER PLACEHOLDER.
-                    } else {
-                        interactableObject.doStuff();
+                        this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
                     }
                     break;
                 }
@@ -56,8 +55,9 @@ public class InteractionHandlerImpl implements InteractionHandler {
             this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
             for (InteractableObject interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (!interactableObject.getRangeType().equalsIgnoreCase("none") && interactableObject.isWithinRange(this.gameContainer.getPlayer()) && interactableObject.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
-                    interactableObject.doStuff();
+                if (!interactableObject.getRangeType().equalsIgnoreCase("none") && interactableObject.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableObject.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
+                    this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
+                    this.gameContainer.getPlayer().setItem(null);
                     break;
                 }
             }
@@ -75,5 +75,9 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String> getStoredHighscores() {
         return new ArrayList<>(); //Request stored data.
+    }
+
+    public GameContainer getGameContainer() {
+        return this.gameContainer;
     }
 }

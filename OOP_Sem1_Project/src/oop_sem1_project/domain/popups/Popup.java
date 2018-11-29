@@ -7,7 +7,6 @@ package oop_sem1_project.domain.popups;
 
 import java.util.HashMap;
 import java.util.Map;
-import oop_sem1_project.domain.InteractionHandler;
 import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**

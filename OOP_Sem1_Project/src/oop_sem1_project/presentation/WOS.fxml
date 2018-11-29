@@ -11,51 +11,51 @@
 <?import javafx.scene.layout.VBox?>
 
 <SplitPane fx:id="splitPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_sem1_project.presentation.WOSController">
-    <items>
-        <StackPane prefHeight="500.0" prefWidth="900.0">
-            <children>
-                <Canvas fx:id="gameCanvas" height="500.0" width="900.0" />
-                <Canvas fx:id="menuCanvas" height="500.0" width="900.0" />
-                <VBox fx:id="menu" prefHeight="500.0" prefWidth="900.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#startButtonEvent" prefWidth="150.0" text="Start">
-                            <VBox.margin>
-                                <Insets bottom="20.0" left="375.0" top="170.0" />
-                            </VBox.margin>
-                        </Button>
-                        <TextField fx:id="nameTextField" alignment="CENTER" prefWidth="100.0" promptText="Name">
-                            <VBox.margin>
-                                <Insets bottom="40.0" left="375.0" right="375.0" />
-                            </VBox.margin>
-                        </TextField>
-                        <Button mnemonicParsing="false" onAction="#highscoreButtonEvent" prefWidth="150.0" text="High Score">
-                            <VBox.margin>
-                                <Insets bottom="20.0" left="375.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Label contentDisplay="CENTER" text="Last Score">
-                            <VBox.margin>
-                                <Insets left="422.0" />
-                            </VBox.margin>
-                        </Label>
-                        <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" prefWidth="100.0" promptText="None">
-                            <VBox.margin>
-                                <Insets left="375.0" right="375.0" />
-                            </VBox.margin>
-                        </TextField>
-                    </children>
-                    <StackPane.margin>
-                        <Insets />
-                    </StackPane.margin>
-                </VBox>
-            </children>
-        </StackPane>
-        <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="200.0">
-            <items>
-                <Canvas fx:id="phoneCanvas" height="100.0" width="100.0" />
-                <Canvas fx:id="itemCanvas" height="100.0" width="100.0" />
-                <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
-            </items>
-        </SplitPane>
-    </items>
+   <items>
+      <StackPane prefHeight="500.0" prefWidth="900.0">
+         <children>
+            <Canvas fx:id="gameCanvas" height="200.0" width="200.0" />
+            <Canvas fx:id="menuCanvas" height="500.0" width="900.0" />
+            <VBox fx:id="menu" prefHeight="500.0" prefWidth="900.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#startButtonEvent" prefWidth="150.0" text="Start">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="375.0" top="170.0" />
+                     </VBox.margin>
+                  </Button>
+                  <TextField fx:id="nameTextField" alignment="CENTER" prefWidth="100.0" promptText="Name">
+                     <VBox.margin>
+                        <Insets bottom="40.0" left="375.0" right="375.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#highscoreButtonEvent" prefWidth="150.0" text="High Score">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="375.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label contentDisplay="CENTER" text="Last Score">
+                     <VBox.margin>
+                        <Insets left="422.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" prefWidth="100.0" promptText="None">
+                     <VBox.margin>
+                        <Insets left="375.0" right="375.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </VBox>
+         </children>
+      </StackPane>
+      <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="200.0">
+         <items>
+            <Canvas fx:id="phoneCanvas" height="100.0" width="100.0" />
+            <Canvas fx:id="itemCanvas" height="100.0" width="100.0" />
+            <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+   </items>
 </SplitPane>
