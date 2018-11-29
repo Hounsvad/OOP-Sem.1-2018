@@ -48,6 +48,15 @@ public class Room extends DisplayableUnit {
             throw new IllegalArgumentException("Messeage index already exists");
         }
     }
+    
+    /**
+     * removes an InteractableObject from the room
+     * @param key 
+     */
+    public void removeInteractableObject(String key)
+    {
+        this.interactableObjects.remove(key);
+    }
 
     /**
      * Returns the relevant message
