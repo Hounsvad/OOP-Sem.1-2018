@@ -23,10 +23,10 @@ public class PhoneMainScreenPopup extends Popup {
         if (clickedArea != null) {
             switch (clickedArea) {
                 case "map":
-                    getInteractionHandler().setPopup(new PhoneMapScreenPopup(getInteractionHandler(), "MapPhone", "PhoneMapScreen"));
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneMapScreenPopup(getInteractionHandler(), "MapPhone", "PhoneMapScreen"));
                     break;
                 case "dial":
-                    getInteractionHandler().setPopup(new PhoneDialScreenPopup(getInteractionHandler(), "MapPhone", "PhoneDialScreen"));
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneDialScreenPopup(getInteractionHandler(), "MapPhone", "PhoneDialScreen"));
             }
         }
     }

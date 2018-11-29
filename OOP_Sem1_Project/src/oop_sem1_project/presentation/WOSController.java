@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextFlow;
 import oop_sem1_project.presentation.rendering.Renderer;
 
 /**
@@ -30,6 +31,12 @@ public class WOSController implements Initializable {
     private SplitPane splitPane;
 
     @FXML
+    private Canvas gameCanvas;
+
+    @FXML
+    private Canvas menuCanvas;
+
+    @FXML
     private VBox menu;
 
     @FXML
@@ -39,12 +46,6 @@ public class WOSController implements Initializable {
     private TextField lastScoreTextField;
 
     @FXML
-    private Canvas menuCanvas;
-
-    @FXML
-    private Canvas gameCanvas;
-
-    @FXML
     private Canvas phoneCanvas;
 
     @FXML
@@ -52,6 +53,9 @@ public class WOSController implements Initializable {
 
     @FXML
     private TextArea textArea;
+
+    @FXML
+    private TextFlow phoneTextField;
 
     /**
      * Initializes the controller class.
@@ -126,6 +130,10 @@ public class WOSController implements Initializable {
         return this.textArea;
     }
 
+    public TextFlow getPhoneTextField() {
+        return phoneTextField;
+    }
+    
     public Renderer getRenderer() {
         return this.renderer;
     }
