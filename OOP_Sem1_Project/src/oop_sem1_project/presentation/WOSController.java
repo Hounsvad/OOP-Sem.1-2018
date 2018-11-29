@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import oop_sem1_project.presentation.rendering.Renderer;
 
 /**
  * FXML Controller class
@@ -23,6 +24,7 @@ import javafx.scene.layout.VBox;
 public class WOSController implements Initializable {
 
     private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this);
+    private final Renderer renderer = new Renderer(this);
 
     @FXML
     private SplitPane splitPane;
@@ -122,5 +124,9 @@ public class WOSController implements Initializable {
 
     public TextArea getTextArea() {
         return this.textArea;
+    }
+
+    public Renderer getRenderer() {
+        return this.renderer;
     }
 }

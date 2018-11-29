@@ -13,6 +13,10 @@ import java.util.List;
  */
 public interface InteractionHandler {
 
+    List<String[]> start(String playerName);
+
+    List<String> getStoredHighscores();
+
     List<String[]> update(String keyPressed);
 
     List<String[]> update(String clickedNode, int[] position);
