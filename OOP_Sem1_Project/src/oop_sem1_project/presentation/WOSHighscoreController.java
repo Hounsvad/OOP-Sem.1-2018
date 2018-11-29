@@ -38,7 +38,6 @@ public class WOSHighscoreController implements Initializable {
     }
 
     public void setScoreList(List<String> highscoreClicked) {
-        System.out.println(highscoreClicked);
         this.scoreListView.getItems().addAll(highscoreClicked);
         this.scoreListView.refresh();
     }
