@@ -6,6 +6,7 @@
 package oop_sem1_project.presentation;
 
 import java.util.Arrays;
+import java.util.List;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import oop_sem1_project.domain.InteractionHandler;
@@ -65,7 +66,10 @@ public class InteractionCommunicator {
 
     /**
      * Called when the highscore button is clicked.
+     *
+     * @return The retrieved List of highscores.
      */
-    public void highscoreClicked() {
+    public List<String> highscoreClicked() {
+        return this.interactionHandler.getStoredHighscores();
     }
 }
