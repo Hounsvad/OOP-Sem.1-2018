@@ -9,12 +9,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <SplitPane fx:id="splitPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_sem1_project.presentation.WOSController">
     <items>
         <StackPane prefHeight="500.0" prefWidth="900.0">
             <children>
-                <Canvas fx:id="gameCanvas" height="200.0" width="200.0" />
+            <TextFlow fx:id="phoneTextField" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <StackPane.margin>
+                  <Insets bottom="300.0" left="250.0" right="250.0" top="100.0" />
+               </StackPane.margin>
+            </TextFlow>
+                <Canvas fx:id="gameCanvas" height="500.0" width="900.0" />
                 <Canvas fx:id="menuCanvas" height="500.0" width="900.0" />
                 <VBox fx:id="menu" prefHeight="500.0" prefWidth="900.0">
                     <children>
