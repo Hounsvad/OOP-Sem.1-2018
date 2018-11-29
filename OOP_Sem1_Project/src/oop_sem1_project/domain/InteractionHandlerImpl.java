@@ -5,8 +5,14 @@
  */
 package oop_sem1_project.domain;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oop_sem1_project.data_access.Storage;
+import oop_sem1_project.data_access.StorageImpl;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
 import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
 
@@ -74,7 +80,14 @@ public class InteractionHandlerImpl implements InteractionHandler {
 
     @Override
     public List<String> getStoredHighscores() {
-        return new ArrayList<>(); //Request stored data.
+        List<String> scores = new ArrayList<>();
+        try {
+            scores = new StorageImpl(System.getProperty("user.home") + "/Desktop", "storage").load(); //Temp Dir.
+        } catch (IOException ex) {
+            return scores;
+        }
+        Collections.sort(scores, new ScoreSorter());
+        return scores;
     }
 
     public GameContainer getGameContainer() {

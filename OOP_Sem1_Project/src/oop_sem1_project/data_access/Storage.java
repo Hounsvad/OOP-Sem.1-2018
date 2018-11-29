@@ -18,7 +18,7 @@ public interface Storage {
     /**
      * Save the result of playthrough.
      *
-     * @param result The playthrough result in the form of "Player:Score".
+     * @param result The playthrough result in the form of "Score PlayerName".
      * @throws FileNotFoundException Exception is thrown if it wasn't possible
      * to save the result.
      * @throws IOException Thrown if the file can't be opened.

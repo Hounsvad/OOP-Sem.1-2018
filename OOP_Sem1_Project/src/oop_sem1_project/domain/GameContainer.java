@@ -22,6 +22,7 @@ public class GameContainer {
 
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{100, 100}, "Player", "I am a Player");
+
         
         Room entrance = new Room("Entrance", new int[]{0,0}, "Entrance", "This is he entrance to the Tek-Building", 0, false);
         entrance.addMessage(0, "You decide to wander around a bit");
@@ -80,7 +81,7 @@ public class GameContainer {
         rooms.add(u55);
         rooms.add(rallypoint);
         this.player.setCurrentRoom(entrance);
-        
+
     }
 
     public Popup getPopup() {

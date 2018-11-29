@@ -5,16 +5,21 @@
  */
 package oop_sem1_project.presentation;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import oop_sem1_project.presentation.rendering.Renderer;
 
 /**
@@ -93,7 +98,21 @@ public class WOSController implements Initializable {
 
     @FXML
     private void highscoreButtonEvent() {
-        this.interactionCommunicator.highscoreClicked();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSHighscore.fxml"));
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.focusedProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue) {
+                    stage.close();
+                }
+            });
+            Scene scene = new Scene(loader.load());
+            ((WOSHighscoreController) loader.getController()).setScoreList(this.interactionCommunicator.highscoreClicked());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+        }
     }
 
     public void toggleMenu() {
@@ -133,7 +152,7 @@ public class WOSController implements Initializable {
     public TextFlow getPhoneTextField() {
         return phoneTextField;
     }
-    
+
     public Renderer getRenderer() {
         return this.renderer;
     }

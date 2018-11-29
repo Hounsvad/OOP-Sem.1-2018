@@ -53,7 +53,7 @@ public class StorageImpl implements Storage {
     @Override
     public void save(String result) throws FileNotFoundException, IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.file, true))) {
-            writer.write((this.file.length() == 0 ? "" : ",") + result);
+            writer.write((this.file.length() == 0 ? "" : "\n") + result);
         }
     }
 
@@ -66,9 +66,10 @@ public class StorageImpl implements Storage {
     @Override
     public List<String> load() throws FileNotFoundException {
         List<String> results = new ArrayList<>();
-        Scanner scanner = new Scanner(this.file).useDelimiter(",");
-        while (scanner.hasNext()) {
-            results.add(scanner.next());
+        try (Scanner scanner = new Scanner(this.file).useDelimiter("\n")) {
+            while (scanner.hasNext()) {
+                results.add(scanner.next());
+            }
         }
         return results;
     }
