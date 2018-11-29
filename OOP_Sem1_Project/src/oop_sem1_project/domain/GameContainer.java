@@ -66,6 +66,15 @@ public class GameContainer {
         Room rallypoint = new Room("Rallypoint", new int[]{0, 0}, "Rallypoint", "This is the Rallypoint where you're supposed to meet up in case of emergency", 11, true);
         rallypoint.addMessage(0, "Why would you leave already? The day isn't over");
         rallypoint.addMessage(1, "Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"");
+        
+        rooms.add(hall);
+        rooms.add(hallway);
+        rooms.add(robtek);
+        rooms.add(chemlab);
+        rooms.add(workshop);
+        rooms.add(u55);
+        rooms.add(rallypoint);
+        
     }
 
     public Popup getPopup() {
