@@ -22,6 +22,11 @@ public class GameContainer {
 
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{100, 100}, "Player", "I am a Player");
+        
+        Room entrance = new Room("Entrance", new int[]{0,0}, "Entrance", "This is he entrance to the Tek-Building", 0, false);
+        entrance.addMessage(0, "You decide to wander around a bit");
+        entrance.addMessage(1, "Still the same, old, boring entrance");
+        
         Room hall = new Room("Hall", new int[]{0, 0}, "Hall", "This is the main Hall of the Tek-Building", 0, false);
         hall.addMessage(0, "You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notise a faint smell of burning electronics...");
         hall.addMessage(1, "Maybe the \"safety point\" has something useful.");
