@@ -79,6 +79,7 @@ public class GameContainer {
         rooms.add(workshop);
         rooms.add(u55);
         rooms.add(rallypoint);
+        this.player.setCurrentRoom(entrance);
         
     }
 
