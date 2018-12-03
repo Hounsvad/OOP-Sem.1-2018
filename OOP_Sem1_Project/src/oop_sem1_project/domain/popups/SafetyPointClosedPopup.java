@@ -5,11 +5,7 @@
  */
 package oop_sem1_project.domain.popups;
 
-import java.util.HashMap;
-import java.util.Map;
 import oop_sem1_project.domain.InteractionHandlerImpl;
-import oop_sem1_project.domain.Item;
-import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
@@ -17,17 +13,28 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public class SafetyPointClosedPopup extends Popup {
 
-    private final Map<Integer, Item> items = new HashMap<>();
-
     public SafetyPointClosedPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
     }
 
-    public Map<Integer, Item> getItems() {
-        return this.items;
-    }
-
     @Override
     public void onClick(int[] clickedPosition) {
+        String clickedArea = getClickedArea(clickedPosition);
+        if (clickedArea != null) {
+            switch (clickedArea) {
+                case "map":
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointMap"));
+                    break;
+                case "whatToDo":
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomWhatToDo", "SafetyPointWhatToDo"));
+                    break;
+                case "open":
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointOpenPopup(getInteractionHandler(), "SafetyPointOpen", "SafetyPointOpen"));
+                    break;
+                case "exit":
+                    getInteractionHandler().getGameContainer().setPopup(null); //Is this how we close popup?
+                    break;
+            }
+        }
     }
 }
