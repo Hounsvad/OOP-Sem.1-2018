@@ -51,7 +51,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             }
             this.getGameContainer().getPlayer().setPosition(newPos);
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
-            this.dataPacket.setBackground(currentRoom.getImage());
+            this.dataPacket.setBackground(currentRoom.getImage(gameContainer.getPlayer()));
             this.dataPacket.setDisplayableUnits(new ArrayList<>(currentRoom.getInteractableObjects().values()));
             this.dataPacket.setPlayerDirection(keyPressed);
 
@@ -100,4 +100,9 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public GameContainer getGameContainer() {
         return this.gameContainer;
     }
+
+    public DataPacket getDataPacket() {
+        return dataPacket;
+    }
+
 }

@@ -13,6 +13,8 @@ public class Item {
 
     private final int desiredProgress;
     private final String name;
+    private final String image;
+    private final String description;
 
     /**
      * Creates a new Item
@@ -25,6 +27,8 @@ public class Item {
     public Item(String name, String image, String description, int desiredProgress) {
         this.name = name;
         this.desiredProgress = desiredProgress;
+        this.image = image;
+        this.description = description;
     }
 
     public boolean isDesiredProgress(int progress) {
@@ -33,6 +37,14 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }

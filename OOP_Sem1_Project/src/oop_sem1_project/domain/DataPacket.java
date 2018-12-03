@@ -7,6 +7,7 @@ package oop_sem1_project.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,6 +22,8 @@ public class DataPacket {
     private String background;
     private List<InteractableArea> interactableObjects = new ArrayList<>();
     private String playerDirection = "Up";
+    private final StringBuilder phoneNumber = new StringBuilder();
+    private String textField;
 
     public DataPacket(String background, Player player) {
         this.background = background;
@@ -43,6 +46,14 @@ public class DataPacket {
         this.playerDirection = keyPressed;
     }
 
+    public StringBuilder getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setTextField(String textField) {
+        this.textField = textField;
+    }
+
     public List<String[]> constructPacket() {
         this.packet = new ArrayList<>();
         this.packet.add(new String[]{"bg", this.background});
@@ -51,6 +62,8 @@ public class DataPacket {
         for (InteractableArea interactableObject : this.interactableObjects) {
             this.packet.add(new String[]{"go", interactableObject.getImage(), String.valueOf(interactableObject.getPosition()[0]), String.valueOf(interactableObject.getPosition()[1])});
         }
+        this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
+        this.packet.add(new String[]{"tf", this.textField});
         return this.packet;
     }
 
