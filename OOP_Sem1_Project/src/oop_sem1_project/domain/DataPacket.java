@@ -59,9 +59,6 @@ public class DataPacket {
         this.packet.add(new String[]{"bg", this.background});
         this.packet.add(new String[]{"pl", this.playerDirection, String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});
         this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
-        for (InteractableArea interactableObject : this.interactableObjects) {
-            this.packet.add(new String[]{"go", interactableObject.getImage(), String.valueOf(interactableObject.getPosition()[0]), String.valueOf(interactableObject.getPosition()[1])});
-        }
         this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
         this.packet.add(new String[]{"tf", this.textField});
         return this.packet;
