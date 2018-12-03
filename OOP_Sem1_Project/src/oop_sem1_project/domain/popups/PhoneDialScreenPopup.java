@@ -20,5 +20,5 @@ public class PhoneDialScreenPopup extends Popup {
     @Override
     public void onClick(int[] clickedPosition) {
     }
-    
+
 }

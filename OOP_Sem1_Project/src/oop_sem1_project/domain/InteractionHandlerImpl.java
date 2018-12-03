@@ -7,11 +7,9 @@ package oop_sem1_project.domain;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import oop_sem1_project.data_access.Storage;
 import oop_sem1_project.data_access.StorageImpl;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
 import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
@@ -23,21 +21,26 @@ import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
 public class InteractionHandlerImpl implements InteractionHandler {
 
     private final GameContainer gameContainer;
-    private final DataPacket dataPacket;
+    private DataPacket dataPacket;
 
     public InteractionHandlerImpl() {
         this.gameContainer = new GameContainer();
-        this.dataPacket = new DataPacket("FIRST BACKGROUND", this.gameContainer.getPlayer());
     }
 
     @Override
     public List<String[]> update(String keyPressed) {
         if (this.gameContainer.getPopup() == null) {
-            int movePixels = 5;
-            int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + movePixels, this.gameContainer.getPlayer().getPosition()[1] + movePixels};
+            int movePixels = 50;
+            int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
+            int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
+            int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + horizontal, this.gameContainer.getPlayer().getPosition()[1] + vertical};
+            boolean canMove = newPos[0] > -1 && newPos[0] < 851 && newPos[1] > -1 && newPos[1] < 451;
+            if (!canMove) {
+                return this.dataPacket.constructPacket();
+            }
             for (InteractableObject interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (interactableObject.isAtboundary(newPos)) {
-                    break;
+                    return this.dataPacket.constructPacket();
                 }
                 if (interactableObject.isWithinRange(newPos)) {
                     if (interactableObject.getRangeType().equalsIgnoreCase("safetypoint")) {
@@ -46,9 +49,12 @@ public class InteractionHandlerImpl implements InteractionHandler {
                     break;
                 }
             }
+            this.getGameContainer().getPlayer().setPosition(newPos);
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage());
             this.dataPacket.setDisplayableUnits(new ArrayList<>(currentRoom.getInteractableObjects().values()));
+            this.dataPacket.setPlayerDirection(keyPressed);
+
         }
         return this.dataPacket.constructPacket();
     }
@@ -75,6 +81,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
+        this.dataPacket = new DataPacket("RoomTemplate", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
 

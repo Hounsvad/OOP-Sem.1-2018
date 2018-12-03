@@ -5,6 +5,8 @@
  */
 package oop_sem1_project.presentation.rendering;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,6 +14,11 @@ import java.util.List;
  * @author Benjamin Staugaard | Benz56
  */
 class RenderingDataReader {
+
+    /**
+     * A list of all objects that should be drawn.
+     */
+    private final List<GameObject> gameObjects = new ArrayList<>();
 
     /**
      * The dataList to be read.
@@ -34,14 +41,14 @@ class RenderingDataReader {
     private int playerX, playerY;
 
     /**
+     * The direction the player is facing.
+     */
+    private int playerRotation;
+
+    /**
      * The current item the player has.
      */
     private String currentItem;
-
-    /**
-     * A list of all objects that should be drawn.
-     */
-    private List<GameObject> gameObjects;
 
     /**
      * Constructs a new RenderingDataReader.
@@ -65,8 +72,9 @@ class RenderingDataReader {
                     break;
                 case "pl":
                     this.drawPlayer = true;
-                    this.playerX = Integer.parseInt(data[1]);
-                    this.playerY = Integer.parseInt(data[2]);
+                    this.playerRotation = !Arrays.asList("W", "Up").contains(data[1]) ? !Arrays.asList("S", "Down").contains(data[1]) ? !Arrays.asList("A", "Left").contains(data[1]) ? 90 : -90 : 180 : 0;
+                    this.playerX = Integer.parseInt(data[2]);
+                    this.playerY = Integer.parseInt(data[3]);
                     break;
                 case "ci":
                     this.currentItem = data[1];
@@ -103,6 +111,14 @@ class RenderingDataReader {
      */
     public int getPlayerY() {
         return this.playerY;
+    }
+
+    /**
+     * @return The rotation of the player based on the direction. (Left, Right,
+     * Up, or Down)
+     */
+    public int getPlayerRotation() {
+        return this.playerRotation;
     }
 
     /**

@@ -37,21 +37,19 @@ public abstract class InteractableObject extends DisplayableUnit {
     public abstract void onClick();
 
     public boolean isWithinRange(int[] playerPosition) {
-        return (playerPosition[0] > this.getPosition()[0] - this.range && playerPosition[0] < this.getPosition()[0] + this.size[0] + this.range    //within x-limit
-                && 
-                playerPosition[1] > this.getPosition()[1] - this.range && playerPosition[1] < this.getPosition()[1] + this.size[1] + this.range);  //within y-limit
+        return (playerPosition[0] > this.getPosition()[0] - this.range && playerPosition[0] < this.getPosition()[0] + this.size[0] + this.range //within x-limit
+                && playerPosition[1] > this.getPosition()[1] - this.range && playerPosition[1] < this.getPosition()[1] + this.size[1] + this.range);  //within y-limit
     }
 
     public boolean isAtboundary(int[] playerPosition) {
-        return (playerPosition[0] > this.getPosition()[0] && playerPosition[0] < this.getPosition()[0] + this.size[0]    //within x-limit
-                &&
-                playerPosition[1] > this.getPosition()[1] && playerPosition[1] < this.getPosition()[1] + this.size[1]);  //within y-limit
+        return (playerPosition[0] > this.getPosition()[0] && playerPosition[0] < this.getPosition()[0] + this.size[0] //within x-limit
+                && playerPosition[1] > this.getPosition()[1] && playerPosition[1] < this.getPosition()[1] + this.size[1]);  //within y-limit
     }
 
     public String getRangeType() {
         return rangeType;
     }
-    
+
     public boolean isRequiredItem(Item item) {
         return item != null && item.getName().equalsIgnoreCase(requiredItemName);
     }

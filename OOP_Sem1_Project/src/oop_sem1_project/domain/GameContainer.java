@@ -21,13 +21,12 @@ public class GameContainer {
     private Player player;
 
     public void inititalize(String playerName) {
-        this.player = new Player(playerName, new int[]{100, 100}, "Player", "I am a Player");
+        this.player = new Player(playerName, new int[]{100, 100}, "player", "I am a Player");
 
-        
-        Room entrance = new Room("Entrance", new int[]{0,0}, "Entrance", "This is he entrance to the Tek-Building", 0, false);
+        Room entrance = new Room("Entrance", new int[]{0, 0}, "RoomTemplate", "This is he entrance to the Tek-Building", 0, false);
         entrance.addMessage(0, "You decide to wander around a bit");
         entrance.addMessage(1, "Still the same, old, boring entrance");
-        
+
         Room hall = new Room("Hall", new int[]{0, 0}, "Hall", "This is the main Hall of the Tek-Building", 0, false);
         hall.addMessage(0, "You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notise a faint smell of burning electronics...");
         hall.addMessage(1, "Maybe the \"safety point\" has something useful.");
@@ -72,7 +71,7 @@ public class GameContainer {
         Room rallypoint = new Room("Rallypoint", new int[]{0, 0}, "Rallypoint", "This is the Rallypoint where you're supposed to meet up in case of emergency", 11, true);
         rallypoint.addMessage(-1000, "Why would you leave already? The day isn't over");
         rallypoint.addMessage(1, "Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"");
-        
+
         rooms.add(hall);
         rooms.add(hallway);
         rooms.add(robtek);
