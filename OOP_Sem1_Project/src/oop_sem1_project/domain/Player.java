@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Benjamin Staugaard | Benz56
  */
-public class Player extends DisplayableUnit {
+public class Player {
 
     /**
      * Game start time.
@@ -33,6 +33,9 @@ public class Player extends DisplayableUnit {
      */
     private Item item;
 
+    private final String name;
+    private final int[] position;
+
     /**
      * Constructs a player object with the given name and position.
      *
@@ -42,7 +45,17 @@ public class Player extends DisplayableUnit {
      * @param description The player description.
      */
     public Player(String name, int[] initPosition, String image, String description) {
-        super(name, initPosition, name, description);
+        //super(name, initPosition);
+        this.name = name;
+        this.position = initPosition;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int[] getPosition() {
+        return position;
     }
 
     /**

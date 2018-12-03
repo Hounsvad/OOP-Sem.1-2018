@@ -12,15 +12,18 @@ import java.util.Map;
  *
  * @author Pinnacle F
  */
-public class Room extends DisplayableUnit {
+public class Room {
 
-    private final Map<String, InteractableObject> interactableObjects = new HashMap<>();
+    private final Map<String, InteractableArea> interactableObjects = new HashMap<>();
     private final int desiredProgress;
     private final Map<Integer, String> messages = new HashMap<>();
     private final boolean increasesProgress;
+    private final String[] image;
+    private final String name;
 
-    public Room(String name, int[] position, String image, String description, int desiredProgress, boolean increasesProgress) {
-        super(name, position, image, description);
+    public Room(String name, String[] image, int desiredProgress, boolean increasesProgress) {
+        this.name = name;
+        this.image = image;
         this.desiredProgress = desiredProgress;
         this.increasesProgress = increasesProgress;
     }
@@ -43,7 +46,7 @@ public class Room extends DisplayableUnit {
      * @param key a as a string to identify the object
      * @param object as an interactableObject in the room
      */
-    public void addInteractableObject(String key, InteractableObject object) {
+    public void addInteractableObject(String key, InteractableArea object) {
         if (this.interactableObjects.put(key, object) != null) {
             throw new IllegalArgumentException("Messeage index already exists");
         }
@@ -69,6 +72,7 @@ public class Room extends DisplayableUnit {
 
         if (roomProgress == 0) {
             player.setProgress(player.getProgress() + 1);
+
         }
 
         return getMessageSmaller(roomProgress);
@@ -99,7 +103,7 @@ public class Room extends DisplayableUnit {
         return null;
     }
 
-    public Map<String, InteractableObject> getInteractableObjects() {
+    public Map<String, InteractableArea> getInteractableObjects() {
         return this.interactableObjects;
     }
 
@@ -107,4 +111,14 @@ public class Room extends DisplayableUnit {
         return this.desiredProgress;
     }
 
+    public String getImage(Player player) {
+        int roomProgress = player.getProgress() - this.desiredProgress;
+        if (roomProgress <= 2 && roomProgress >= 0) {
+            return image[roomProgress];
+        } else if (roomProgress < 0) {
+            return image[0];
+        } else {
+            return image[2];
+        }
+    }
 }

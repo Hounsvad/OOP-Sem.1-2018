@@ -19,7 +19,7 @@ public class DataPacket {
 
     private List<String[]> packet = new ArrayList<>();
     private String background;
-    private List<InteractableObject> interactableObjects = new ArrayList<>();
+    private List<InteractableArea> interactableObjects = new ArrayList<>();
     private String playerDirection = "Up";
 
     public DataPacket(String background, Player player) {
@@ -35,7 +35,7 @@ public class DataPacket {
         this.interactableObjects = new ArrayList<>();
     }
 
-    public void setDisplayableUnits(List<InteractableObject> interactableObjects) {
+    public void setDisplayableUnits(List<InteractableArea> interactableObjects) {
         this.interactableObjects = interactableObjects;
     }
 
@@ -48,7 +48,7 @@ public class DataPacket {
         this.packet.add(new String[]{"bg", this.background});
         this.packet.add(new String[]{"pl", this.playerDirection, String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});
         this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
-        for (InteractableObject interactableObject : this.interactableObjects) {
+        for (InteractableArea interactableObject : this.interactableObjects) {
             this.packet.add(new String[]{"go", interactableObject.getImage(), String.valueOf(interactableObject.getPosition()[0]), String.valueOf(interactableObject.getPosition()[1])});
         }
         return this.packet;

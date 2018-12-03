@@ -9,25 +9,30 @@ package oop_sem1_project.domain;
  *
  * @author Patrick
  */
-public class Item extends DisplayableUnit {
+public class Item {
 
     private final int desiredProgress;
+    private final String name;
 
     /**
      * Creates a new Item
      *
      * @param name The name of the item
-     * @param position Its position on screen
      * @param image The path to its image
      * @param description The items description
      * @param desiredProgress The items desired progress.
      */
-    public Item(String name, int[] position, String image, String description, int desiredProgress) {
-        super(name, position, image, description);
+    public Item(String name, String image, String description, int desiredProgress) {
+        this.name = name;
         this.desiredProgress = desiredProgress;
     }
 
     public boolean isDesiredProgress(int progress) {
         return this.desiredProgress == progress;
     }
+
+    public String getName() {
+        return name;
+    }
+
 }

@@ -38,7 +38,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             if (!canMove) {
                 return this.dataPacket.constructPacket();
             }
-            for (InteractableObject interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+            for (InteractableArea interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (interactableObject.isAtboundary(newPos)) {
                     return this.dataPacket.constructPacket();
                 }
@@ -66,7 +66,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
         } else if (clickedNode.equals("PHONE_CANVAS")) {
             this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
-            for (InteractableObject interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+            for (InteractableArea interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableObject.getRangeType().equalsIgnoreCase("none") && interactableObject.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableObject.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
                     this.gameContainer.getPlayer().setItem(null);
