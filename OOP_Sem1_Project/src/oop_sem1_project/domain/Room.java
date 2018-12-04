@@ -115,7 +115,7 @@ public class Room {
         int roomProgress = player.getProgress() - this.desiredProgress;
         if (roomProgress < 0) {
             return image[0];
-        } else if (roomProgress == 0) {
+        } else if (roomProgress == 0 || roomProgress == 1) {
             return image[1];
         }
         return image[2];
