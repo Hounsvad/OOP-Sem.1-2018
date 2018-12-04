@@ -16,7 +16,9 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,6 +33,7 @@ public class WOSController implements Initializable {
 
     private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this);
     private final Renderer renderer = new Renderer(this);
+    private final Text phoneText = new Text();
 
     @FXML
     private SplitPane splitPane;
@@ -51,16 +54,16 @@ public class WOSController implements Initializable {
     private TextField lastScoreTextField;
 
     @FXML
-    private Canvas phoneCanvas;
+    private ImageView phoneCanvas;
 
     @FXML
-    private Canvas itemCanvas;
+    private ImageView itemImageView;
 
     @FXML
     private TextArea textArea;
 
     @FXML
-    private TextFlow phoneTextField;
+    private TextFlow phoneTextFlow;
 
     /**
      * Initializes the controller class.
@@ -80,10 +83,8 @@ public class WOSController implements Initializable {
                 newScene.getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
             }
         });
-        this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
-        this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
-        this.itemCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
         this.textArea.editableProperty().set(false);
+        this.phoneTextFlow.getChildren().add(phoneText);
     }
 
     @FXML
@@ -93,6 +94,9 @@ public class WOSController implements Initializable {
         } else {
             toggleMenu();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
+            this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
+            this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
+            this.itemImageView.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
         }
     }
 
@@ -137,23 +141,23 @@ public class WOSController implements Initializable {
         return this.gameCanvas;
     }
 
-    public Canvas getPhoneCanvas() {
-        return this.phoneCanvas;
-    }
-
-    public Canvas getItemCanvas() {
-        return this.itemCanvas;
+    public ImageView getItemImageView() {
+        return this.itemImageView;
     }
 
     public TextArea getTextArea() {
         return this.textArea;
     }
 
-    public TextFlow getPhoneTextField() {
-        return phoneTextField;
-    }
-
     public Renderer getRenderer() {
         return this.renderer;
+    }
+
+    public TextFlow getPhoneTextFlow() {
+        return phoneTextFlow;
+    }
+    
+    public void setPhoneNumber(String number) {
+        this.phoneText.setText(number);
     }
 }

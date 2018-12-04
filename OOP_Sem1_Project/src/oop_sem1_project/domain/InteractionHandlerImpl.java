@@ -38,12 +38,12 @@ public class InteractionHandlerImpl implements InteractionHandler {
             if (!canMove) {
                 return this.dataPacket.constructPacket();
             }
-            for (InteractableArea interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (interactableObject.isAtboundary(newPos)) {
+            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+                if (interactableArea.isAtboundary(newPos)) {
                     return this.dataPacket.constructPacket();
                 }
-                if (interactableObject.isWithinRange(newPos)) {
-                    if (interactableObject.getRangeType().equalsIgnoreCase("safetypoint")) {
+                if (interactableArea.isWithinRange(newPos)) {
+                    if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
                     }
                     break;
@@ -52,7 +52,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             this.getGameContainer().getPlayer().setPosition(newPos);
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage(gameContainer.getPlayer()));
-            this.dataPacket.setDisplayableUnits(new ArrayList<>(currentRoom.getInteractableObjects().values()));
+            this.dataPacket.setPopup(gameContainer.getPopup());
             this.dataPacket.setPlayerDirection(keyPressed);
 
         }
@@ -64,7 +64,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
             this.gameContainer.getPopup().onClick(position);
         } else if (clickedNode.equals("PHONE_CANVAS")) {
-            this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
+                this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
             for (InteractableArea interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableObject.getRangeType().equalsIgnoreCase("none") && interactableObject.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableObject.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
@@ -74,14 +74,14 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 }
             }
         }
-        this.dataPacket.setDisplayableUnits(new ArrayList<>(this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()));
+        this.dataPacket.setPopup(gameContainer.getPopup());
         return this.dataPacket.constructPacket();
     }
 
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
-        this.dataPacket = new DataPacket("RoomTemplate", this.gameContainer.getPlayer());
+        this.dataPacket = new DataPacket("RoomTemplate0", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
 

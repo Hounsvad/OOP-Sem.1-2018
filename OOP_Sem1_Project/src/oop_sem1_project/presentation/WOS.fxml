@@ -7,6 +7,9 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
@@ -15,7 +18,7 @@
     <items>
         <StackPane prefHeight="500.0" prefWidth="900.0">
             <children>
-                <TextFlow fx:id="phoneTextField" prefHeight="200.0" prefWidth="200.0" visible="false">
+                <TextFlow fx:id="phoneTextFlow" prefHeight="200.0" prefWidth="200.0" visible="false">
                     <StackPane.margin>
                         <Insets bottom="300.0" left="250.0" right="250.0" top="100.0" />
                     </StackPane.margin>
@@ -44,7 +47,7 @@
                                 <Insets left="422.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" prefWidth="100.0" promptText="None">
+                        <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" focusTraversable="false" prefWidth="100.0" promptText="None">
                             <VBox.margin>
                                 <Insets left="375.0" right="375.0" />
                             </VBox.margin>
@@ -56,10 +59,18 @@
                 </VBox>
             </children>
         </StackPane>
-        <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="200.0">
+        <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="900.0">
             <items>
-                <Canvas fx:id="phoneCanvas" height="100.0" width="100.0" />
-                <Canvas fx:id="itemCanvas" height="100.0" width="100.0" />
+            <Pane maxHeight="100.0" maxWidth="100.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="phoneCanvas" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/PhoneMainScreen.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fx:id="itemImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
                 <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
             </items>
         </SplitPane>

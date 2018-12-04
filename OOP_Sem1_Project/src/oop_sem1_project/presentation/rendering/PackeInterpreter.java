@@ -5,7 +5,6 @@
  */
 package oop_sem1_project.presentation.rendering;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,12 +12,7 @@ import java.util.List;
  *
  * @author Benjamin Staugaard | Benz56
  */
-class RenderingDataReader {
-
-    /**
-     * A list of all objects that should be drawn.
-     */
-    private final List<GameObject> gameObjects = new ArrayList<>();
+class PackeInterpreter {
 
     /**
      * The dataList to be read.
@@ -29,11 +23,6 @@ class RenderingDataReader {
      * The background to be drawn.
      */
     private String background;
-
-    /**
-     * Whether or not the player should be drawn.
-     */
-    private boolean drawPlayer;
 
     /**
      * The X and Y coordinate of the player.
@@ -51,12 +40,27 @@ class RenderingDataReader {
     private String currentItem;
 
     /**
+     * The current displayed phone number.
+     */
+    private String phoneNumber;
+
+    /**
+     * The message to be appended to the text flow.
+     */
+    private String message;
+
+    /**
+     * The current Popup to be displayed.
+     */
+    private String popupImage;
+
+    /**
      * Constructs a new RenderingDataReader.
      *
      * @param dataList The data list to be converted to something
      * understandable.
      */
-    public RenderingDataReader(List<String[]> dataList) {
+    public PackeInterpreter(List<String[]> dataList) {
         this.dataList = dataList;
         readData();
     }
@@ -71,7 +75,6 @@ class RenderingDataReader {
                     this.background = data[1];
                     break;
                 case "pl":
-                    this.drawPlayer = true;
                     this.playerRotation = !Arrays.asList("W", "Up").contains(data[1]) ? !Arrays.asList("S", "Down").contains(data[1]) ? !Arrays.asList("A", "Left").contains(data[1]) ? 90 : -90 : 180 : 0;
                     this.playerX = Integer.parseInt(data[2]);
                     this.playerY = Integer.parseInt(data[3]);
@@ -79,8 +82,14 @@ class RenderingDataReader {
                 case "ci":
                     this.currentItem = data[1];
                     break;
-                case "go":
-                    this.gameObjects.add(new GameObject(data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3])));
+                case "pn":
+                    this.phoneNumber = data[1];
+                    break;
+                case "tf":
+                    this.message = data[1];
+                    break;
+                case "pu":
+                    this.popupImage = data[1];
             }
         }
     }
@@ -90,13 +99,6 @@ class RenderingDataReader {
      */
     public String getBackground() {
         return this.background;
-    }
-
-    /**
-     * @return Whether to draw the Player.
-     */
-    public boolean drawPlayer() {
-        return this.drawPlayer;
     }
 
     /**
@@ -129,9 +131,23 @@ class RenderingDataReader {
     }
 
     /**
-     * @return The List of all GameObjects to be drawn.
+     * @return The phone number.
      */
-    public List<GameObject> getGameObjects() {
-        return this.gameObjects;
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @return The message.
+     */
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * @return The current Popup.
+     */
+    public String getPopupImage() {
+        return popupImage;
     }
 }
