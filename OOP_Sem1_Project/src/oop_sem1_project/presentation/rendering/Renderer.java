@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import oop_sem1_project.presentation.WOSController;
 
 /**
@@ -44,26 +45,28 @@ public class Renderer {
      * @param dataList The list that specifies where something should be drawn.
      */
     public void requestGraphicalUpdate(List<String[]> dataList) {
-        // Main purpose of the RenderingDataReader is to convert the dataList to something more specific
+        // Main purpose of the PackeInterpreter is to convert the dataList to something more specific
         // than arbritray abbrevations and random array positions. Aids readability.
-        RenderingDataReader dataReader = new RenderingDataReader(dataList);
+        PackeInterpreter dataReader = new PackeInterpreter(dataList);
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 
         System.out.println(dataReader.getBackground());
-        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getBackground() + ".png")), 0, 0);
-        if (dataReader.drawPlayer()) {
-            this.player.setRotate(dataReader.getPlayerRotation());
-            SnapshotParameters snapshotParameters = new SnapshotParameters();
-            snapshotParameters.setFill(Color.TRANSPARENT);
-            gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), dataReader.getPlayerX(), dataReader.getPlayerY());
-        }
-
-        for (GameObject gameObject : dataReader.getGameObjects()) {
-            gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + gameObject.getImage() + ".png")), gameObject.getX(), gameObject.getY());
-        }
+        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + "MainHall" + ".png")), 0, 0);
+        this.player.setRotate(dataReader.getPlayerRotation());
+        SnapshotParameters snapshotParameters = new SnapshotParameters();
+        snapshotParameters.setFill(Color.TRANSPARENT);
+        gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), dataReader.getPlayerX(), dataReader.getPlayerY());
 
         if (!dataReader.getCurrentItem().isEmpty()) {
-            this.controller.getItemCanvas().getGraphicsContext2D().drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")), 0, 0);
+            this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
+        }
+
+        this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage());
+
+        this.controller.setPhoneNumber(dataReader.getPhoneNumber());
+
+        if (dataReader.getPopupImage().isEmpty()) {
+            gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getPopupImage() + ".png")), 0, 0);
         }
     }
 }

@@ -52,7 +52,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             this.getGameContainer().getPlayer().setPosition(newPos);
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage(gameContainer.getPlayer()));
-            this.dataPacket.setDisplayableUnits(new ArrayList<>(currentRoom.getInteractableObjects().values()));
+            this.dataPacket.setPopup(gameContainer.getPopup());
             this.dataPacket.setPlayerDirection(keyPressed);
 
         }
@@ -74,14 +74,14 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 }
             }
         }
-        this.dataPacket.setDisplayableUnits(new ArrayList<>(this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()));
+        this.dataPacket.setPopup(gameContainer.getPopup());
         return this.dataPacket.constructPacket();
     }
 
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
-        this.dataPacket = new DataPacket("RoomTemplate", this.gameContainer.getPlayer());
+        this.dataPacket = new DataPacket("RoomTemplate0", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
 

@@ -6,9 +6,8 @@
 package oop_sem1_project.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
+import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
@@ -17,13 +16,13 @@ import java.util.List;
 public class DataPacket {
 
     private final Player player;
+    private final StringBuilder phoneNumber = new StringBuilder();
 
     private List<String[]> packet = new ArrayList<>();
     private String background;
-    private List<InteractableArea> interactableObjects = new ArrayList<>();
     private String playerDirection = "Up";
-    private final StringBuilder phoneNumber = new StringBuilder();
-    private String textField;
+    private String textField = "";
+    private Popup popup;
 
     public DataPacket(String background, Player player) {
         this.background = background;
@@ -32,14 +31,6 @@ public class DataPacket {
 
     public void setBackground(String background) {
         this.background = background;
-    }
-
-    public void resetDisplayableUnits() {
-        this.interactableObjects = new ArrayList<>();
-    }
-
-    public void setDisplayableUnits(List<InteractableArea> interactableObjects) {
-        this.interactableObjects = interactableObjects;
     }
 
     public void setPlayerDirection(String keyPressed) {
@@ -54,6 +45,10 @@ public class DataPacket {
         this.textField = textField;
     }
 
+    public void setPopup(Popup popup) {
+        this.popup = popup;
+    }
+
     public List<String[]> constructPacket() {
         this.packet = new ArrayList<>();
         this.packet.add(new String[]{"bg", this.background});
@@ -61,7 +56,7 @@ public class DataPacket {
         this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
         this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
         this.packet.add(new String[]{"tf", this.textField});
+        this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
         return this.packet;
     }
-
 }
