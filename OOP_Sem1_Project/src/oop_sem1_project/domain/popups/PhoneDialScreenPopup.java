@@ -38,7 +38,8 @@ public class PhoneDialScreenPopup extends Popup {
             StringBuilder pn = getInteractionHandler().getDataPacket().getPhoneNumber();
             switch (clickedArea) {
                 case "home":
-                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "Phone", "PhoneMainScreen"));
+                    pn.setLength(0);
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "Phone", "PhoneHomeScreen"));
                     break;
                 case "b1":
                     if (pn.length() < 8) {

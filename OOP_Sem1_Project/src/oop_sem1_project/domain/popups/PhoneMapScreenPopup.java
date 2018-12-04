@@ -24,7 +24,7 @@ public class PhoneMapScreenPopup extends Popup {
         if (clickedArea != null) {
             switch (clickedArea) {
                 case "home":
-                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "Phone", "PhoneMainScreen"));
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "Phone", "PhoneHomeScreen"));
                     break;
             }
         }
