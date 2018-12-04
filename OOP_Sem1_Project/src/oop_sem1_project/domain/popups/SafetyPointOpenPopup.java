@@ -30,7 +30,7 @@ public class SafetyPointOpenPopup extends Popup {
     public void onClick(int[] clickedPosition) {
         String clickedArea = getClickedArea(clickedPosition);
         if (clickedArea != null) {
-            /*switch (clickedArea) {
+            switch (clickedArea) {
                 case "map":
                     getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointMap"));
                     break;
@@ -51,7 +51,7 @@ public class SafetyPointOpenPopup extends Popup {
                     break;
                 case "exit":
                     getInteractionHandler().getGameContainer().setPopup(null); //Is this how we exit popup?
-            }*/
+            }
         }
     }
 }
