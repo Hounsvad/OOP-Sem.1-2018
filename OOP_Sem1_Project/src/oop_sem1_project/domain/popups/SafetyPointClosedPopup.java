@@ -15,10 +15,9 @@ public class SafetyPointClosedPopup extends Popup {
 
     public SafetyPointClosedPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
-        addClickableAreas("whatToDo", new int[]{474, 119, 54, 71});
-        addClickableAreas("map", new int[]{366, 117, 97, 92});
+        addClickableAreas("zoom", new int[]{366, 117, 163, 97});
         addClickableAreas("open", new int[]{476, 291, 79, 80});
-        addClickableAreas("exit1", new int[]{0,0, 343, 500});
+        addClickableAreas("exit1", new int[]{0, 0, 343, 500});
         addClickableAreas("exit2", new int[]{557, 0, 343, 500});
     }
 
@@ -27,11 +26,8 @@ public class SafetyPointClosedPopup extends Popup {
         String clickedArea = getClickedArea(clickedPosition);
         if (clickedArea != null) {
             switch (clickedArea) {
-                case "map":
-                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointMap"));
-                    break;
-                case "whatToDo":
-                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomWhatToDo", "SafetyPointWhatToDo"));
+                case "zoom":
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointOverlay"));
                     break;
                 case "open":
                     getInteractionHandler().getGameContainer().setPopup(new SafetyPointOpenPopup(getInteractionHandler(), "SafetyPointOpen", "SafetyPointOpen"));
