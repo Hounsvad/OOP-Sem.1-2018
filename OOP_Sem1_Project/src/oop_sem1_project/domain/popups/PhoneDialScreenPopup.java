@@ -15,19 +15,19 @@ public class PhoneDialScreenPopup extends Popup {
 
     public PhoneDialScreenPopup(InteractionHandlerImpl interactionHandler, String dialPhone, String phoneDialScreen) {
         super(interactionHandler, dialPhone, phoneDialScreen);
-        addClickableAreas("home", new int[]{109, 452, 40, 40});
-        addClickableAreas("b1", new int[]{21, 222, 79, 40});
-        addClickableAreas("b2", new int[]{100, 222, 56, 40});
-        addClickableAreas("b3", new int[]{156, 222, 79, 40});
-        addClickableAreas("b4", new int[]{21, 256, 79, 40});
-        addClickableAreas("b5", new int[]{100, 256, 56, 40});
-        addClickableAreas("b6", new int[]{156, 256, 79, 40});
-        addClickableAreas("b7", new int[]{21, 302, 79, 40});
-        addClickableAreas("b8", new int[]{100, 302, 56, 40});
-        addClickableAreas("b9", new int[]{156, 302, 79, 40});
-        addClickableAreas("b0", new int[]{100, 342, 56, 40});
-        addClickableAreas("dial", new int[]{100, 392, 56, 45});
-        addClickableAreas("delete", new int[]{216, 173, 29, 41});
+        addClickableAreas("home", new int[]{431, 452, 40, 40});
+        addClickableAreas("b1", new int[]{343, 222, 79, 40});
+        addClickableAreas("b2", new int[]{422, 222, 56, 40});
+        addClickableAreas("b3", new int[]{478, 222, 79, 40});
+        addClickableAreas("b4", new int[]{343, 256, 79, 40});
+        addClickableAreas("b5", new int[]{422, 256, 56, 40});
+        addClickableAreas("b6", new int[]{478, 256, 79, 40});
+        addClickableAreas("b7", new int[]{343, 302, 79, 40});
+        addClickableAreas("b8", new int[]{422, 302, 56, 40});
+        addClickableAreas("b9", new int[]{478, 302, 79, 40});
+        addClickableAreas("b0", new int[]{422, 342, 56, 40});
+        addClickableAreas("dial", new int[]{422, 392, 56, 45});
+        addClickableAreas("delete", new int[]{538, 173, 29, 41});
 
     }
 
