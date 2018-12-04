@@ -15,6 +15,11 @@ public class SafetyPointClosedPopup extends Popup {
 
     public SafetyPointClosedPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
+        addClickableAreas("whatToDo", new int[]{474, 119, 54, 71});
+        addClickableAreas("map", new int[]{366, 117, 97, 92});
+        addClickableAreas("open", new int[]{476, 291, 79, 80});
+        addClickableAreas("exit1", new int[]{0,0, 343, 500});
+        addClickableAreas("exit2", new int[]{557, 0, 343, 500});
     }
 
     @Override
@@ -31,8 +36,9 @@ public class SafetyPointClosedPopup extends Popup {
                 case "open":
                     getInteractionHandler().getGameContainer().setPopup(new SafetyPointOpenPopup(getInteractionHandler(), "SafetyPointOpen", "SafetyPointOpen"));
                     break;
-                case "exit":
-                    getInteractionHandler().getGameContainer().setPopup(null); //Is this how we close popup?
+                case "exit1":
+                case "exit2":
+                    getInteractionHandler().getGameContainer().setPopup(null);
                     break;
             }
         }
