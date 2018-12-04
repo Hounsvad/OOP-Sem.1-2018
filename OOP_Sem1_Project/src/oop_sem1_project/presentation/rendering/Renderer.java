@@ -63,10 +63,11 @@ public class Renderer {
 
         this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage());
 
-        this.controller.setPhoneNumber(dataReader.getPhoneNumber());
-
-        if (dataReader.getPopupImage().isEmpty()) {
+        if (!dataReader.getPopupImage().isEmpty()) {
             gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getPopupImage() + ".png")), 0, 0);
         }
+        
+        this.controller.setPhoneNumber(dataReader.getPhoneNumber());
+        this.controller.getPhoneTextFlow().setVisible(!dataReader.getPhoneNumber().isEmpty());
     }
 }

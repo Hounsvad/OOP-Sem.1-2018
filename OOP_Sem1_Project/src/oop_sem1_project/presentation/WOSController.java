@@ -153,6 +153,10 @@ public class WOSController implements Initializable {
         return this.renderer;
     }
 
+    public TextFlow getPhoneTextFlow() {
+        return phoneTextFlow;
+    }
+    
     public void setPhoneNumber(String number) {
         this.phoneText.setText(number);
     }

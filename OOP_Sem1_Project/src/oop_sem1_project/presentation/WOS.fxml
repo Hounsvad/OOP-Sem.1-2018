@@ -65,7 +65,7 @@
                <children>
                   <ImageView fx:id="phoneCanvas" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/PhoneHomeScreen.png" />
+                        <Image url="@images/PhoneMainScreen.png" />
                      </image>
                   </ImageView>
                </children>
