@@ -26,7 +26,7 @@ public class PhoneDialScreenPopup extends Popup {
         addClickableAreas("b8", new int[]{100, 302, 56, 40});
         addClickableAreas("b9", new int[]{156, 302, 79, 40});
         addClickableAreas("b0", new int[]{100, 342, 56, 40});
-        addClickableAreas("dail", new int[]{100, 392, 56, 45});
+        addClickableAreas("dial", new int[]{100, 392, 56, 45});
         addClickableAreas("delete", new int[]{216, 173, 29, 41});
 
     }
@@ -110,7 +110,7 @@ public class PhoneDialScreenPopup extends Popup {
                     }
                     whoCall();
                     break;
-                case "dail":
+                case "dial":
                     if (pn.toString().equals("112")) {
                         getInteractionHandler().getDataPacket().setTextField("You call 112 an state your name, emergency and the current address");
                         break;
