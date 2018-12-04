@@ -46,7 +46,7 @@ public class Room {
      * @param key a as a string to identify the object
      * @param object as an interactableObject in the room
      */
-    public void addInteractableObject(String key, InteractableArea object) {
+    public void addInteractableArea(String key, InteractableArea object) {
         if (this.interactableObjects.put(key, object) != null) {
             throw new IllegalArgumentException("Messeage index already exists");
         }

@@ -18,7 +18,7 @@ public class InteractableArea {
     private final String requiredItemName;
     private final String name;
 
-    public InteractableArea(String name, String image, String description, int[] position, int[] size, int range, String rangeType, String requiredItemName) {
+    public InteractableArea(String name, int[] position, int[] size, int range, String rangeType, String requiredItemName) {
         this.name = name;
         this.position = position;
         this.size = size;
