@@ -113,12 +113,12 @@ public class Room {
 
     public String getImage(Player player) {
         int roomProgress = player.getProgress() - this.desiredProgress;
-        if (roomProgress <= 2 && roomProgress >= 0) {
-            return image[roomProgress];
-        } else if (roomProgress < 0) {
+        if (roomProgress < 0) {
             return image[0];
-        } else {
-            return image[2];
+        } else if (roomProgress == 0 || roomProgress == 1) {
+            return image[1];
         }
+        return image[2];
+
     }
 }

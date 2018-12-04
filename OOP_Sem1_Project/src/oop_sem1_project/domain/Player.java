@@ -34,7 +34,7 @@ public class Player {
     private Item item;
 
     private final String name;
-    private final int[] position;
+    private int[] position;
 
     /**
      * Constructs a player object with the given name and position.
@@ -56,6 +56,10 @@ public class Player {
 
     public int[] getPosition() {
         return position;
+    }
+
+    public void setPosition(int[] position) {
+        this.position = position;
     }
 
     /**
@@ -106,4 +110,6 @@ public class Player {
     public void setItem(Item item) {
         this.item = item;
     }
+    
+    
 }

@@ -34,7 +34,7 @@ public abstract class Popup {
         return this.image;
     }
 
-    public void addClickableAreas(String identifier, int[] area) {
+    public final void addClickableAreas(String identifier, int[] area) {
         this.clickableAreas.put(identifier, area);
     }
 
@@ -45,7 +45,12 @@ public abstract class Popup {
     public String getClickedArea(int[] clickedPosition) {
         for (Map.Entry<String, int[]> clickableArea : this.clickableAreas.entrySet()) {
             //if the clicks position from the argument is within a clickable area form the clickable areas map
-            if (clickableArea.getValue()[0] + clickableArea.getValue()[2] > clickedPosition[0] && clickedPosition[0] < clickableArea.getValue()[0] && clickableArea.getValue()[1] + clickableArea.getValue()[3] > clickedPosition[1] && clickedPosition[1] < clickableArea.getValue()[1]) {
+            if ( //X
+                    clickedPosition[0] < clickableArea.getValue()[0] + clickableArea.getValue()[2]
+                    && clickedPosition[0] > clickableArea.getValue()[0]
+                    //Y
+                    && clickedPosition[1] < clickableArea.getValue()[1] + clickableArea.getValue()[3]
+                    && clickedPosition[1] > clickableArea.getValue()[1]) {
                 return clickableArea.getKey();
             }
         }
