@@ -51,7 +51,7 @@ public class Renderer {
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 
         System.out.println(dataReader.getBackground());
-        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + "MainHall" + ".png")), 0, 0);
+        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getBackground() + ".png")), 0, 0);
         this.player.setRotate(dataReader.getPlayerRotation());
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
@@ -61,6 +61,7 @@ public class Renderer {
             this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
         }
 
+        System.out.println(dataReader.getMessage());
         this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage() + "\n");
 
         if (!dataReader.getPopupImage().isEmpty()) {

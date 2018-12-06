@@ -44,12 +44,20 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 }
                 if (interactableArea.isWithinRange(newPos)) {
                     if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
+                        canMove = false;
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
+                    } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
+                        Door destination = (Door) interactableArea;
+                        newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
+                        this.dataPacket.setTextField(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
+                        this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
                     }
                     break;
                 }
             }
-            this.getGameContainer().getPlayer().setPosition(newPos);
+            if (canMove) {
+                this.getGameContainer().getPlayer().setPosition(newPos);
+            }
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage(gameContainer.getPlayer()));
             this.dataPacket.setPopup(gameContainer.getPopup());
@@ -81,7 +89,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
-        this.dataPacket = new DataPacket("RoomTemplate0", this.gameContainer.getPlayer());
+        this.dataPacket = new DataPacket("Entrance", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
 

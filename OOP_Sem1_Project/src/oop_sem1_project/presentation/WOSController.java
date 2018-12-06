@@ -80,7 +80,6 @@ public class WOSController implements Initializable {
                         newScene.getRoot().requestFocus();
                     }
                 });
-                newScene.getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
             }
         });
         this.textArea.editableProperty().set(false);
@@ -96,6 +95,7 @@ public class WOSController implements Initializable {
             this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
             this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
             this.itemImageView.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
+            this.splitPane.getScene().getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
         }
     }
 
