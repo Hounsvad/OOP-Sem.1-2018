@@ -15,7 +15,7 @@ public class PhoneMapScreenPopup extends Popup {
 
     public PhoneMapScreenPopup(InteractionHandlerImpl interactionHandler, String mapPhone, String phoneMapScreen) {
         super(interactionHandler, mapPhone, mapPhone);
-        addClickableAreas("home", new int[]{109, 452, 40, 40});
+        addClickableAreas("home", new int[]{431, 452, 40, 40});
     }
 
     @Override

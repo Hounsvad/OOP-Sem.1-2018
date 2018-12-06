@@ -15,8 +15,8 @@ public class PhoneMainScreenPopup extends Popup {
 
     public PhoneMainScreenPopup(InteractionHandlerImpl interactionHandler, String phone, String phoneMainScreen) {
         super(interactionHandler, phone, phoneMainScreen);
-        addClickableAreas("map", new int[]{68, 319, 41, 41});
-        addClickableAreas("dial", new int[]{150, 319, 41, 41});
+        addClickableAreas("map", new int[]{390, 319, 41, 41});
+        addClickableAreas("dial", new int[]{472, 319, 41, 41});
     }
 
     @Override
@@ -26,7 +26,7 @@ public class PhoneMainScreenPopup extends Popup {
         if (clickedArea != null) {
             switch (clickedArea) {
                 case "map":
-                    getInteractionHandler().getGameContainer().setPopup(new PhoneMapScreenPopup(getInteractionHandler(), "PhoneMap", "PhoneMapScreen"));
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneMapScreenPopup(getInteractionHandler(), "PhoneMap", "PhoneMap"));
                     break;
                 case "dial":
                     getInteractionHandler().getGameContainer().setPopup(new PhoneDialScreenPopup(getInteractionHandler(), "PhoneMap", "PhoneDialScreen"));
