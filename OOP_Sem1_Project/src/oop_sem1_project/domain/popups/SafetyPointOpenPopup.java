@@ -13,21 +13,17 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  */
 public class SafetyPointOpenPopup extends Popup {
 
-
-
-    SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
+    public SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
-    
-    addClickableAreas("map", new int[]{366, 117, 97, 92});
-    addClickableAreas("whatToDo", new int[]{474, 119, 54, 71});
-    addClickableAreas("fire-extinguisher", new int[]{363, 318, 68, 153});
-    addClickableAreas("defibrilator", new int[]{457, 321, 64, 56});
-    addClickableAreas("first-aid", new int[]{458, 404, 66, 57});
-    addClickableAreas("eyewash", new int[]{474, 119, 54, 71}); //add Eyewash
-    addClickableAreas("exit1", new int[]{0,0, 343, 500});
-    addClickableAreas("exit2", new int[]{557, 0, 343, 500});
+        addClickableAreas("map", new int[]{366, 117, 97, 92});
+        addClickableAreas("whatToDo", new int[]{474, 119, 54, 71});
+        addClickableAreas("fire-extinguisher", new int[]{363, 318, 68, 153});
+        addClickableAreas("defibrilator", new int[]{457, 321, 64, 56});
+        addClickableAreas("first-aid", new int[]{458, 404, 66, 57});
+        addClickableAreas("eyewash", new int[]{474, 119, 54, 71}); //add Eyewash
+        addClickableAreas("exit1", new int[]{0, 0, 343, 500});
+        addClickableAreas("exit2", new int[]{557, 0, 343, 500});
     }
-
 
     @Override
     public void onClick(int[] clickedPosition) {

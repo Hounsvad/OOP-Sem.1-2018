@@ -45,7 +45,6 @@ public abstract class Popup {
 
     public String getClickedArea(int[] clickedPosition) {
         for (Map.Entry<String, int[]> clickableArea : this.clickableAreas.entrySet()) {
-            System.out.println(Arrays.toString(clickableArea.getValue()) + "    ---- " + Arrays.toString(clickedPosition));
             //if the clicks position from the argument is within a clickable area form the clickable areas map
             if ( //X
                     clickedPosition[0] < clickableArea.getValue()[0] + clickableArea.getValue()[2]

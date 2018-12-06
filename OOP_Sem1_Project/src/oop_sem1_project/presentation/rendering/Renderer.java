@@ -61,13 +61,13 @@ public class Renderer {
             this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
         }
 
-        this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage());
+        this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage() + "\n");
 
         if (!dataReader.getPopupImage().isEmpty()) {
             gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getPopupImage() + ".png")), 0, 0);
         }
-        
-        this.controller.setPhoneNumber(dataReader.getPhoneNumber());
-        this.controller.getPhoneTextFlow().setVisible(!dataReader.getPhoneNumber().isEmpty());
+
+        this.controller.getPhoneNumberArea().setText(dataReader.getPhoneNumber());
+        this.controller.getPhoneNumberArea().setVisible(!dataReader.getPhoneNumber().isEmpty());
     }
 }

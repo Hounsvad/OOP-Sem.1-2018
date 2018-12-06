@@ -17,6 +17,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -33,7 +34,6 @@ public class WOSController implements Initializable {
 
     private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this);
     private final Renderer renderer = new Renderer(this);
-    private final Text phoneText = new Text();
 
     @FXML
     private SplitPane splitPane;
@@ -54,7 +54,7 @@ public class WOSController implements Initializable {
     private TextField lastScoreTextField;
 
     @FXML
-    private ImageView phoneCanvas;
+    private Pane phoneCanvas;
 
     @FXML
     private ImageView itemImageView;
@@ -63,7 +63,7 @@ public class WOSController implements Initializable {
     private TextArea textArea;
 
     @FXML
-    private TextFlow phoneTextFlow;
+    private Text phoneNumberArea;
 
     /**
      * Initializes the controller class.
@@ -84,7 +84,6 @@ public class WOSController implements Initializable {
             }
         });
         this.textArea.editableProperty().set(false);
-        this.phoneTextFlow.getChildren().add(phoneText);
     }
 
     @FXML
@@ -153,11 +152,7 @@ public class WOSController implements Initializable {
         return this.renderer;
     }
 
-    public TextFlow getPhoneTextFlow() {
-        return phoneTextFlow;
-    }
-    
-    public void setPhoneNumber(String number) {
-        this.phoneText.setText(number);
+    public Text getPhoneNumberArea() {
+        return phoneNumberArea;
     }
 }

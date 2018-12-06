@@ -83,7 +83,12 @@ class PackeInterpreter {
                     this.currentItem = data[1];
                     break;
                 case "pn":
-                    this.phoneNumber = data[1];
+                    StringBuilder number = new StringBuilder();
+                    //Add a space every 2 chars.
+                    for (int i = 0; i < data[1].length(); i++) {
+                        number.append(i != 0 && i % 2 == 0 ? " " : "").append(String.valueOf(data[1].charAt(i)));
+                    }
+                    this.phoneNumber = number.toString();
                     break;
                 case "tf":
                     this.message = data[1];

@@ -12,18 +12,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <SplitPane fx:id="splitPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_sem1_project.presentation.WOSController">
     <items>
         <StackPane prefHeight="500.0" prefWidth="900.0">
             <children>
-                <TextFlow fx:id="phoneTextFlow" prefHeight="200.0" prefWidth="200.0" visible="false">
-                    <StackPane.margin>
-                        <Insets bottom="300.0" left="250.0" right="250.0" top="100.0" />
-                    </StackPane.margin>
-                </TextFlow>
                 <Canvas fx:id="gameCanvas" height="500.0" width="900.0" />
+            <Text fx:id="phoneNumberArea" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="300.0" />
+               </StackPane.margin>
+            </Text>
                 <Canvas fx:id="menuCanvas" height="500.0" width="900.0" />
                 <VBox fx:id="menu" prefHeight="500.0" prefWidth="900.0">
                     <children>
@@ -61,11 +65,11 @@
         </StackPane>
         <SplitPane dividerPositions="0.5, 0.5" prefHeight="200.0" prefWidth="900.0">
             <items>
-            <Pane maxHeight="100.0" maxWidth="100.0" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="phoneCanvas" maxHeight="100.0" maxWidth="100.0" prefHeight="100.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="phoneCanvas" fitHeight="100.0" fitWidth="100.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/PhoneMainScreen.png" />
+                        <Image url="@images/PhoneHomeScreen.png" />
                      </image>
                   </ImageView>
                </children>
