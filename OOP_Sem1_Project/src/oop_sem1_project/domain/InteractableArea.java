@@ -5,6 +5,8 @@
  */
 package oop_sem1_project.domain;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Pinnacle F
@@ -16,10 +18,8 @@ public class InteractableArea {
     private final String rangeType;
     private final int[] position;
     private final String requiredItemName;
-    private final String name;
 
-    public InteractableArea(String name, int[] position, int[] size, int range, String rangeType, String requiredItemName) {
-        this.name = name;
+    public InteractableArea(int[] position, int[] size, int range, String rangeType, String requiredItemName) {
         this.position = position;
         this.size = size;
         this.range = range;
@@ -33,8 +33,9 @@ public class InteractableArea {
     }
 
     public boolean isAtboundary(int[] playerPosition) {
-        return (playerPosition[0] > this.position[0] && playerPosition[0] < this.position[0] + this.size[0] //within x-limit
-                && playerPosition[1] > this.position[1] && playerPosition[1] < this.position[1] + this.size[1]);  //within y-limit
+        System.out.println(Arrays.toString(playerPosition) + "  " + Arrays.toString(this.position));
+        return playerPosition[0] >= this.position[0] && playerPosition[0] < this.position[0] + this.size[0] //within x-limit
+                && playerPosition[1] >= this.position[1] && playerPosition[1] < this.position[1] + this.size[1];  //within y-limit
     }
 
     public String getRangeType() {
@@ -43,9 +44,5 @@ public class InteractableArea {
 
     public boolean isRequiredItem(Item item) {
         return item != null && item.getName().equalsIgnoreCase(requiredItemName);
-    }
-
-    public String getName() {
-        return name;
     }
 }

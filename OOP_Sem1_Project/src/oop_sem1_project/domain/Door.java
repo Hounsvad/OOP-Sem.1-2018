@@ -15,7 +15,7 @@ public class Door extends InteractableArea {
     private final boolean vertical;
 
     public Door(String name, int[] position, int[] size, int range, String rangeType, String requiredItemName, Room destination, boolean vertical) {
-        super(name, position, size, range, rangeType, requiredItemName);
+        super(position, size, range, rangeType, requiredItemName);
         this.destination = destination;
         this.vertical = vertical;
     }

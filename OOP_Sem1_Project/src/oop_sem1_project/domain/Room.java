@@ -48,7 +48,7 @@ public class Room {
      */
     public void addInteractableArea(String key, InteractableArea object) {
         if (this.interactableObjects.put(key, object) != null) {
-            throw new IllegalArgumentException("Messeage index already exists");
+            throw new IllegalArgumentException("Message index already exists");
         }
     }
 

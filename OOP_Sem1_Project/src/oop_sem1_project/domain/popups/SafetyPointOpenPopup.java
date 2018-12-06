@@ -12,14 +12,15 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  * @author Patrick
  */
 public class SafetyPointOpenPopup extends Popup {
-    SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
+
+    public SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
 
         addClickableAreas("zoom", new int[]{366, 117, 163, 97});
         addClickableAreas("fire-extinguisher", new int[]{363, 318, 68, 153});
-        addClickableAreas("defibrilator", new int[]{461, 340, 61, 56});
+        addClickableAreas("defibrilator", new int[]{461, 340, 70, 60});
         addClickableAreas("first-aid", new int[]{458, 403, 66, 59});
-        addClickableAreas("eyewash", new int[]{458, 329, 64, 29});
+        addClickableAreas("eyewash", new int[]{458, 297, 70, 32});
         addClickableAreas("exit1", new int[]{0, 0, 343, 500});
         addClickableAreas("exit2", new int[]{557, 0, 343, 500});
     }
@@ -35,13 +36,13 @@ public class SafetyPointOpenPopup extends Popup {
                 case "fire-extinguisher":
                     getInteractionHandler().getGameContainer().getPlayer().setItem(getInteractionHandler().getGameContainer().getItems().get(0));
                     break;
-                case "defibrilator":
+                case "eyewash":
                     getInteractionHandler().getGameContainer().getPlayer().setItem(getInteractionHandler().getGameContainer().getItems().get(1));
                     break;
-                case "first-aid":
+                case "defibrilator":
                     getInteractionHandler().getGameContainer().getPlayer().setItem(getInteractionHandler().getGameContainer().getItems().get(2));
                     break;
-                case "eyewash":
+                case "first-aid":
                     getInteractionHandler().getGameContainer().getPlayer().setItem(getInteractionHandler().getGameContainer().getItems().get(3));
                     break;
                 case "exit1":

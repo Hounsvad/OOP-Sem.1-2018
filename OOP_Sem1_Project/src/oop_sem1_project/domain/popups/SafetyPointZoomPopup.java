@@ -25,12 +25,14 @@ public class SafetyPointZoomPopup extends Popup {
     @Override
     public void onClick(int[] clickedPosition) {
         String clickedArea = getClickedArea(clickedPosition);
-        switch (clickedArea) {
-            case "exit1":
-            case "exit2":
-            case "exit3":
-            case "exit4":
-                getInteractionHandler().getGameContainer().setPopup(new SafetyPointClosedPopup(getInteractionHandler(), "SafetyPointClosed", "SafetyPointClosed"));
+        if (clickedArea != null) {
+            switch (clickedArea) {
+                case "exit1":
+                case "exit2":
+                case "exit3":
+                case "exit4":
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointClosedPopup(getInteractionHandler(), "SafetyPointClosed", "SafetyPointClosed"));
+            }
         }
     }
 }

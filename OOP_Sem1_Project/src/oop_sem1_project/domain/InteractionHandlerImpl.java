@@ -39,20 +39,20 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 return this.dataPacket.constructPacket();
             }
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (interactableArea.isAtboundary(newPos)) {
-                    return this.dataPacket.constructPacket();
-                }
                 if (interactableArea.isWithinRange(newPos)) {
                     if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
                         canMove = false;
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
+                        break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
                         Door destination = (Door) interactableArea;
                         newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
                         this.dataPacket.setTextField(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
+                        break;
                     }
-                    break;
+                } else if (interactableArea.isAtboundary(newPos)) {
+                    return this.dataPacket.constructPacket();
                 }
             }
             if (canMove) {
@@ -69,6 +69,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
 
     @Override
     public List<String[]> update(String clickedNode, int[] position) {
+        System.out.println(Arrays.toString(position));
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
             this.gameContainer.getPopup().onClick(position);
         } else if (clickedNode.equals("PHONE_CANVAS")) {

@@ -41,6 +41,10 @@ public class GameContainer {
         //Entrance interactable areas
         entrance.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, hall, true));
         entrance.addInteractableArea("doorSouth", new Door("doorSouth", new int[]{400, 450}, new int[]{50, 50}, 50, "door", null, rallypoint, true));
+        entrance.addInteractableArea("flower1", new InteractableArea(new int[]{550, 350}, new int[]{50, 100}, 0, "none", null));
+        entrance.addInteractableArea("flower2", new InteractableArea(new int[]{300, 350}, new int[]{50, 100}, 0, "none", null));
+        entrance.addInteractableArea("buildingLeft", new InteractableArea(new int[]{0, 0}, new int[]{400, 300}, 0, "none", null));
+        entrance.addInteractableArea("BuildingRight", new InteractableArea(new int[]{500, 0}, new int[]{400, 300}, 0, "none", null));
 
         //Hall messages
         hall.addMessage(0, "You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notise a faint smell of burning electronics...");
@@ -57,7 +61,7 @@ public class GameContainer {
         hall.addInteractableArea("doorEast", new Door("doorEast", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, workshop, false));
         hall.addInteractableArea("doorSouth", new Door("doorSouth", new int[]{400, 450}, new int[]{50, 50}, 50, "door", null, entrance, true));
         hall.addInteractableArea("doorWest", new Door("doorWest", new int[]{0, 200}, new int[]{0, 50}, 50, "door", null, u55, false));
-        hall.addInteractableArea("safetyPoint", new InteractableArea("safetyPoint", new int[]{650, 450}, new int[]{100, 50}, 50, "safetypoint", null));
+        hall.addInteractableArea("safetyPoint", new InteractableArea(new int[]{650, 450}, new int[]{100, 50}, 50, "safetypoint", null));
 
         //Hallway messages
         hallway.addMessage(-1000, "As you walk along the empty hallway, the smell of burnt electronics gets stronger.");
@@ -79,8 +83,8 @@ public class GameContainer {
 
         //Robtek interactable areas
         robtek.addInteractableArea("doorEast", new Door("doorEast", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, hallway, false));
-        robtek.addInteractableArea("table", new InteractableArea("table", new int[]{0, 100}, new int[]{250, 100}, 0, "none", null));
-        robtek.addInteractableArea("robotFire", new InteractableArea("robotFire", new int[]{250, 0}, new int[]{150, 250}, 50, "emergency", null));
+        robtek.addInteractableArea("table", new InteractableArea(new int[]{0, 100}, new int[]{250, 100}, 0, "none", null));
+        robtek.addInteractableArea("robotFire", new InteractableArea(new int[]{250, 0}, new int[]{150, 250}, 50, "emergency", null));
 
         //Chemlab messages
         chemlab.addMessage(-1000, "You walk up to the door of the Chemical lab, a sign on it says: \n \"Stay out, experiment in progress\"");
@@ -90,11 +94,11 @@ public class GameContainer {
 
         //Chemlab interactable areas
         chemlab.addInteractableArea("doorWest", new Door("doorWest", new int[]{0, 200}, new int[]{0, 50}, 50, "door", null, hallway, false));
-        chemlab.addInteractableArea("closetWest", new InteractableArea("closetWest", new int[]{0, 0}, new int[]{300, 100}, 0, "none", null));
-        chemlab.addInteractableArea("tableWest", new InteractableArea("tableWest", new int[]{200, 100}, new int[]{100, 250}, 0, "none", null));
-        chemlab.addInteractableArea("closetEast", new InteractableArea("closetEast", new int[]{0, 200}, new int[]{50, 100}, 0, "none", null));
-        chemlab.addInteractableArea("tableEast", new InteractableArea("tableEast", new int[]{0, 200}, new int[]{50, 100}, 0, "none", null));
-        chemlab.addInteractableArea("chemStudent", new InteractableArea("chemStudent", new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", null));
+        chemlab.addInteractableArea("closetWest", new InteractableArea(new int[]{0, 0}, new int[]{300, 100}, 0, "none", null));
+        chemlab.addInteractableArea("tableWest", new InteractableArea(new int[]{200, 100}, new int[]{100, 250}, 0, "none", null));
+        chemlab.addInteractableArea("closetEast", new InteractableArea(new int[]{400, 400}, new int[]{300, 100}, 0, "none", null));
+        chemlab.addInteractableArea("tableEast", new InteractableArea(new int[]{600, 150}, new int[]{100, 250}, 0, "none", null));
+        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", null));
 
         //Workshop messages
         workshop.addMessage(-1000, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.");
@@ -104,13 +108,13 @@ public class GameContainer {
 
         //Workshop interactable areas
         workshop.addInteractableArea("doorWest", new Door("doorWest", new int[]{0, 200}, new int[]{0, 50}, 50, "door", null, hall, false));
-        workshop.addInteractableArea("closetWest", new InteractableArea("closetWest", new int[]{0, 0}, new int[]{300, 100}, 0, "none", null));
-        workshop.addInteractableArea("closetEast", new InteractableArea("closetEast", new int[]{350, 0}, new int[]{300, 100}, 0, "none", null));
-        workshop.addInteractableArea("tableWest", new InteractableArea("tableWest", new int[]{150, 150}, new int[]{100, 250}, 0, "none", null));
-        workshop.addInteractableArea("tableCenter", new InteractableArea("tableCenter", new int[]{350, 150}, new int[]{100, 250}, 0, "none", null));
-        workshop.addInteractableArea("tableEast", new InteractableArea("tableEast", new int[]{550, 150}, new int[]{100, 250}, 0, "none", null));
-        workshop.addInteractableArea("woodPile", new InteractableArea("woodPile", new int[]{800, 0}, new int[]{100, 500}, 0, "none", null));
-        workshop.addInteractableArea("workshopStudent", new InteractableArea("workshopStudent", new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", null));
+        workshop.addInteractableArea("closetWest", new InteractableArea(new int[]{0, 0}, new int[]{300, 100}, 0, "none", null));
+        workshop.addInteractableArea("closetEast", new InteractableArea(new int[]{350, 0}, new int[]{300, 100}, 0, "none", null));
+        workshop.addInteractableArea("tableWest", new InteractableArea(new int[]{150, 150}, new int[]{100, 250}, 0, "none", null));
+        workshop.addInteractableArea("tableCenter", new InteractableArea(new int[]{350, 150}, new int[]{100, 250}, 0, "none", null));
+        workshop.addInteractableArea("tableEast", new InteractableArea(new int[]{550, 150}, new int[]{100, 250}, 0, "none", null));
+        workshop.addInteractableArea("woodPile", new InteractableArea(new int[]{800, 0}, new int[]{100, 500}, 0, "none", null));
+        workshop.addInteractableArea("workshopStudent", new InteractableArea(new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", null));
 
         //U55 messages
         u55.addMessage(-1000, "Someone is giving a lecture right now, you decide to stay and listen for a while \n \" ...og som i har læst i e-tivitet 4... \" \n You decide not to listen any more and decide to head out of the room.");
@@ -120,18 +124,18 @@ public class GameContainer {
 
         //U55 interactable areas
         u55.addInteractableArea("doorEast", new Door("doorEast", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, hall, false));
-        u55.addInteractableArea("tabelNorth1", new InteractableArea("tabelNorth1", new int[]{150, 0}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableNorth2", new InteractableArea("tableNorth2", new int[]{250, 0}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableNorth3", new InteractableArea("tableNorth3", new int[]{350, 0}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableNorth4", new InteractableArea("tableNorth4", new int[]{450, 0}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableNorth5", new InteractableArea("tableNorth5", new int[]{550, 0}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableSouth1", new InteractableArea("tableSouth1", new int[]{150, 250}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableSouth2", new InteractableArea("tableSouth2", new int[]{250, 250}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableSouth3", new InteractableArea("tableSouth3", new int[]{350, 250}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableSouth4", new InteractableArea("tableSouth4", new int[]{450, 250}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("tableSouth5", new InteractableArea("tableSouth5", new int[]{550, 250}, new int[]{50, 200}, 0, "none", null));
-        u55.addInteractableArea("podium", new InteractableArea("podium", new int[]{50, 200}, new int[]{50, 100}, 0, "none", null));
-        u55.addInteractableArea("heartAttack", new InteractableArea("heartAttack", new int[]{600, 350}, new int[]{50, 100}, 50, "emergency", null));
+        u55.addInteractableArea("tabelNorth1", new InteractableArea(new int[]{150, 0}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableNorth2", new InteractableArea(new int[]{250, 0}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableNorth3", new InteractableArea(new int[]{350, 0}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableNorth4", new InteractableArea(new int[]{450, 0}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableNorth5", new InteractableArea(new int[]{550, 0}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableSouth1", new InteractableArea(new int[]{150, 300}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableSouth2", new InteractableArea(new int[]{250, 300}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableSouth3", new InteractableArea(new int[]{350, 300}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableSouth4", new InteractableArea(new int[]{450, 300}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("tableSouth5", new InteractableArea(new int[]{550, 300}, new int[]{50, 200}, 0, "none", null));
+        u55.addInteractableArea("podium", new InteractableArea(new int[]{50, 200}, new int[]{50, 100}, 0, "none", null));
+        u55.addInteractableArea("heartAttack", new InteractableArea(new int[]{600, 350}, new int[]{50, 100}, 50, "emergency", null));
 
         //Rallypoint messages
         rallypoint.addMessage(-1000, "Why would you leave already? The day isn't over");
