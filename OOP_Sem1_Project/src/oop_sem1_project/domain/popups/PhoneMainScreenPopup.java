@@ -17,6 +17,8 @@ public class PhoneMainScreenPopup extends Popup {
         super(interactionHandler, phone, phoneMainScreen);
         addClickableAreas("map", new int[]{390, 391, 41, 41});
         addClickableAreas("dial", new int[]{472, 391, 41, 41});
+        addClickableAreas("exit1", new int[]{0,0,322,500});
+        addClickableAreas("exit2", new int[]{577,0,900,500});
     }
 
     @Override
@@ -29,6 +31,11 @@ public class PhoneMainScreenPopup extends Popup {
                     break;
                 case "dial":
                     getInteractionHandler().getGameContainer().setPopup(new PhoneDialScreenPopup(getInteractionHandler(), "PhoneMap", "PhoneDialScreen"));
+                    break;
+                case "exit1":
+                case "exit2":
+                    getInteractionHandler().getGameContainer().setPopup(null);
+                    break;
             }
         }
     }
