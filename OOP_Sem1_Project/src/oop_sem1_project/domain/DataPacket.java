@@ -56,6 +56,7 @@ public class DataPacket {
         this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
         this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
         this.packet.add(new String[]{"tf", this.textField});
+        this.textField = ""; // Clear message.
         this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
         return this.packet;
     }

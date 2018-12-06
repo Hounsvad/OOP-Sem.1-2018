@@ -16,6 +16,7 @@ import oop_sem1_project.domain.popups.Popup;
 public class GameContainer {
 
     private final List<Room> rooms = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
 
     private Popup popup;
     private Player player;
@@ -80,6 +81,11 @@ public class GameContainer {
         rooms.add(u55);
         rooms.add(rallypoint);
         this.player.setCurrentRoom(entrance);
+        
+        items.add(new Item("fire-extinguisher", "_0000_Brandslukker", "A CO2 filled vessel with a release handle", 0));
+        items.add(new Item("defibrilator", "_0001_Øjen", "A ciplock bag full of murky sea water", 1));
+        items.add(new Item("first-aid", "_0002_AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2));
+        items.add(new Item("eyewash", "_0003_Førstehjælp", "A bag of old socks from lost and found", 3));
 
     }
 
@@ -93,5 +99,9 @@ public class GameContainer {
 
     public Player getPlayer() {
         return this.player;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }

@@ -64,10 +64,10 @@ public class InteractionHandlerImpl implements InteractionHandler {
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
             this.gameContainer.getPopup().onClick(position);
         } else if (clickedNode.equals("PHONE_CANVAS")) {
-                this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneMainScreen"));
+            this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneHomeScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
-            for (InteractableArea interactableObject : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (!interactableObject.getRangeType().equalsIgnoreCase("none") && interactableObject.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableObject.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
+            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+                if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
                     this.gameContainer.getPlayer().setItem(null);
                     break;

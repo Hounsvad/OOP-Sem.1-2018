@@ -12,7 +12,6 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  * @author Patrick
  */
 public class SafetyPointOpenPopup extends Popup {
-
     SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
 
