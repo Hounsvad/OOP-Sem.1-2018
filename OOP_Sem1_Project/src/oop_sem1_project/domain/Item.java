@@ -15,6 +15,7 @@ public class Item {
     private final String name;
     private final String image;
     private final String description;
+    private final String useMessage;
 
     /**
      * Creates a new Item
@@ -23,12 +24,14 @@ public class Item {
      * @param image The path to its image
      * @param description The items description
      * @param desiredProgress The items desired progress.
+     * @param useMessage
      */
-    public Item(String name, String image, String description, int desiredProgress) {
+    public Item(String name, String image, String description, int desiredProgress, String useMessage) {
         this.name = name;
         this.desiredProgress = desiredProgress;
         this.image = image;
         this.description = description;
+        this.useMessage = useMessage;
     }
 
     public boolean isDesiredProgress(int progress) {
@@ -45,6 +48,10 @@ public class Item {
 
     public String getDescription() {
         return description;
+    }
+    
+    public String getUseMessage() {
+        return this.useMessage;
     }
 
 }

@@ -143,10 +143,10 @@ public class GameContainer {
         rooms.addAll(Arrays.asList(hall, hallway, robtek, chemlab, workshop, u55, rallypoint));
         this.player.setCurrentRoom(entrance);
 
-        items.add(new Item("fire-extinguisher", "_0000_Brandslukker", "A CO2 filled vessel with a release handle", 0));
-        items.add(new Item("defibrilator", "_0001_Øjen", "A ciplock bag full of murky sea water", 1));
-        items.add(new Item("first-aid", "_0002_AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2));
-        items.add(new Item("eyewash", "_0003_Førstehjælp", "A bag of old socks from lost and found", 3));
+        items.add(new Item("fire-extinguisher", "_0000_Brandslukker", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher"));
+        items.add(new Item("defibrilator", "_0001_Øjen", "A ciplock bag full of murky sea water", 1, "*SPLASH* Goes the eyewash"));
+        items.add(new Item("first-aid", "_0002_AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer"));
+        items.add(new Item("eyewash", "_0003_Førstehjælp", "A bag of old socks from lost and found", 3, "As the socks are stuffed into the wound the patient screams in agony"));
 
     }
 
