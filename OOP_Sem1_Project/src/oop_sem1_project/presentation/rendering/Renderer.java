@@ -50,7 +50,6 @@ public class Renderer {
         PackeInterpreter dataReader = new PackeInterpreter(dataList);
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 
-        System.out.println(dataReader.getBackground());
         gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getBackground() + ".png")), 0, 0);
         this.player.setRotate(dataReader.getPlayerRotation());
         SnapshotParameters snapshotParameters = new SnapshotParameters();
@@ -58,10 +57,10 @@ public class Renderer {
         gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), dataReader.getPlayerX(), dataReader.getPlayerY());
 
         if (!dataReader.getCurrentItem().isEmpty()) {
+            System.out.println(dataReader.getCurrentItem());
             this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
         }
 
-        System.out.println(dataReader.getMessage());
         this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage() + "\n");
 
         if (!dataReader.getPopupImage().isEmpty()) {
