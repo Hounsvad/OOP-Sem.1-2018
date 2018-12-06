@@ -70,7 +70,7 @@ public class Room {
     public String getMessage(Player player) {
         int roomProgress = player.getProgress() - this.desiredProgress;
 
-        if (roomProgress == 0) {
+        if (roomProgress == 0 && this.increasesProgress == true) {
             player.setProgress(player.getProgress() + 1);
 
         }
@@ -100,7 +100,7 @@ public class Room {
         if (firstSmaller != -1000) {
             return this.messages.get(firstSmaller);
         }
-        return null;
+        return this.messages.get(firstSmaller);
     }
 
     public Map<String, InteractableArea> getInteractableObjects() {
