@@ -69,7 +69,6 @@ public class InteractionHandlerImpl implements InteractionHandler {
 
     @Override
     public List<String[]> update(String clickedNode, int[] position) {
-        System.out.println(Arrays.toString(position));
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
             this.gameContainer.getPopup().onClick(position);
         } else if (clickedNode.equals("PHONE_CANVAS")) {

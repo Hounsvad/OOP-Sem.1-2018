@@ -33,7 +33,6 @@ public class InteractableArea {
     }
 
     public boolean isAtboundary(int[] playerPosition) {
-        System.out.println(Arrays.toString(playerPosition) + "  " + Arrays.toString(this.position));
         return playerPosition[0] >= this.position[0] && playerPosition[0] < this.position[0] + this.size[0] //within x-limit
                 && playerPosition[1] >= this.position[1] && playerPosition[1] < this.position[1] + this.size[1];  //within y-limit
     }

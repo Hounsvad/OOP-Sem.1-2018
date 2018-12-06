@@ -57,7 +57,6 @@ public class Renderer {
         gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), dataReader.getPlayerX(), dataReader.getPlayerY());
 
         if (!dataReader.getCurrentItem().isEmpty()) {
-            System.out.println(dataReader.getCurrentItem());
             this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
         }
 
