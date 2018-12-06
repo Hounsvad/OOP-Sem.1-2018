@@ -113,7 +113,7 @@ public class PhoneDialScreenPopup extends Popup {
                     break;
                 case "dial":
                     if (pn.toString().equals("112")) {
-                        getInteractionHandler().getDataPacket().setTextField("You call 112 an state your name, emergency and the current address");
+                        getInteractionHandler().getDataPacket().setTextField("You call 112 and state your name, emergency and the current address");
                         break;
                     }
                     whoCall();
