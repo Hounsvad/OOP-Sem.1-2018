@@ -51,7 +51,8 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
                         break;
                     }
-                } else if (interactableArea.isAtboundary(newPos)) {
+                }
+                if (interactableArea.isAtboundary(newPos)) {
                     return this.dataPacket.constructPacket();
                 }
             }
