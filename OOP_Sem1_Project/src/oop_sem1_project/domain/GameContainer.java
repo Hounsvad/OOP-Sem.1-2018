@@ -102,7 +102,7 @@ public class GameContainer {
         chemlab.addInteractableArea("tableWest", new InteractableArea(new int[]{200, 100}, new int[]{100, 250}, 0, "none", null));
         chemlab.addInteractableArea("closetEast", new InteractableArea(new int[]{400, 400}, new int[]{300, 100}, 0, "none", null));
         chemlab.addInteractableArea("tableEast", new InteractableArea(new int[]{600, 150}, new int[]{100, 250}, 0, "none", null));
-        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", "eyewash"));
+        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{700, 300}, new int[]{200, 100}, 50, "emergency", "eyewash"));
 
         //Workshop messages
         workshop.addMessage(-1000, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.");
