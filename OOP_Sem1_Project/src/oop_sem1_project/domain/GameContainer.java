@@ -36,7 +36,7 @@ public class GameContainer {
         Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
         Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
         Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
-        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 8, true);
+        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
@@ -58,7 +58,7 @@ public class GameContainer {
         hall.addMessage(6, "There is a drastic change in noice level from U55 something is definitely wrong.");
         hall.addMessage(7, "You should check U55 somthing is wrong in there, no one is that excitet when having a lecture.");
         hall.addMessage(8, "The smell of smoke is choking and you should definitely do something as you see fire everywhere!");
-        hall.addMessage(9, "Flee you fool!");
+        hall.addMessage(10, "Flee you fool!");
 
         //Hall interactable areas
         hall.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, hallway, true));
