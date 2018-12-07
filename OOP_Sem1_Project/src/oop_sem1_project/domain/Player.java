@@ -45,19 +45,31 @@ public class Player {
      * @param description The player description.
      */
     public Player(String name, int[] initPosition, String image, String description) {
-        //super(name, initPosition);
         this.name = name;
         this.position = initPosition;
     }
-
+    
+    /**
+     * 
+     * @return player name 
+     */
     public String getName() {
         return name;
     }
-
+    
+    /**
+     * 
+     * @return the players position
+     */
     public int[] getPosition() {
         return position;
     }
-
+    
+    /**
+     * Sets the players position
+     * 
+     * @param position player position as x,y
+     */
     public void setPosition(int[] position) {
         this.position = position;
     }
@@ -102,11 +114,20 @@ public class Player {
     public Room getCurrentRoom() {
         return this.currentRoom;
     }
-
+    
+    /**
+     * 
+     * @return the current item of the player
+     */
     public Item getItem() {
         return item;
     }
-
+    
+    /**
+     * Sets the item the player is currently holding
+     * 
+     * @param item 
+     */
     public void setItem(Item item) {
         this.item = item;
     }
