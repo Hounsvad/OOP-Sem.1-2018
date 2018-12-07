@@ -6,7 +6,6 @@
 package oop_sem1_project.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import oop_sem1_project.domain.popups.Popup;
 
@@ -16,15 +15,20 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public class GameContainer {
 
-    private final List<Room> rooms = new ArrayList<>();
     private final List<Item> items = new ArrayList<>();
 
     private Popup popup;
     private Player player;
-
+    
+    /**
+     * Initializes the Player object
+     * 
+     * @param playerName the Name of the player 
+     */
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
-
+        
+        // Initializing all Rooms
         Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
         Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
         Room hallway = new Room(new String[]{"Hall", "Hall", "Hall"}, 0, false);
@@ -144,9 +148,9 @@ public class GameContainer {
         //Rallypoint interactable areas
         rallypoint.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, entrance, true));
 
-        rooms.addAll(Arrays.asList(hall, hallway, robtek, chemlab, workshop, u55, rallypoint));
         this.player.setCurrentRoom(entrance);
-
+        
+        //Add all Items to the item list
         items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\""));
         items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says"));
         items.add(new Item("defibrilator", "AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him"));
@@ -154,18 +158,35 @@ public class GameContainer {
 
     }
 
+    /**
+     * 
+     * @return the current Popup 
+     */
     public Popup getPopup() {
         return this.popup;
     }
-
+    
+    /**
+     * Sets the current Popup
+     * 
+     * @param popup 
+     */
     public void setPopup(Popup popup) {
         this.popup = popup;
     }
-
+    
+    /**
+     * 
+     * @return the player
+     */
     public Player getPlayer() {
         return this.player;
     }
 
+    /**
+     * 
+     * @return a list of items
+     */
     public List<Item> getItems() {
         return items;
     }
