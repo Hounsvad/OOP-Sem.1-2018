@@ -50,8 +50,7 @@ public class Renderer {
         PackeInterpreter dataReader = new PackeInterpreter(dataList);
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 
-        System.out.println(dataReader.getBackground());
-        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + "MainHall" + ".png")), 0, 0);
+        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getBackground() + ".png")), 0, 0);
         this.player.setRotate(dataReader.getPlayerRotation());
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);

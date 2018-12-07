@@ -26,6 +26,7 @@ public class Worldofzuul extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("presentation/WOS.fxml"));
         primaryStage.setTitle("World of Safety");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

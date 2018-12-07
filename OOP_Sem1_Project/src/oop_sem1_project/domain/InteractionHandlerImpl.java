@@ -31,6 +31,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public List<String[]> update(String keyPressed) {
         if (this.gameContainer.getPopup() == null) {
             int movePixels = 50;
+            System.out.println(this.getGameContainer().getPlayer().getProgress()); //test
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
             int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
             int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + horizontal, this.gameContainer.getPlayer().getPosition()[1] + vertical};
@@ -39,17 +40,25 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 return this.dataPacket.constructPacket();
             }
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (interactableArea.isAtboundary(newPos)) {
-                    return this.dataPacket.constructPacket();
-                }
                 if (interactableArea.isWithinRange(newPos)) {
                     if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
+                        canMove = false;
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
+                        break;
+                    } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
+                        Door destination = (Door) interactableArea;
+                        newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
+                        this.dataPacket.setTextField(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
+                        this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
+                        break;
                     }
-                    break;
+                } else if (interactableArea.isAtboundary(newPos)) {
+                    return this.dataPacket.constructPacket();
                 }
             }
-            this.getGameContainer().getPlayer().setPosition(newPos);
+            if (canMove) {
+                this.getGameContainer().getPlayer().setPosition(newPos);
+            }
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();
             this.dataPacket.setBackground(currentRoom.getImage(gameContainer.getPlayer()));
             this.dataPacket.setPopup(gameContainer.getPopup());
@@ -69,7 +78,9 @@ public class InteractionHandlerImpl implements InteractionHandler {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
+                    this.dataPacket.setTextField(this.gameContainer.getPlayer().getItem().getUseMessage());
                     this.gameContainer.getPlayer().setItem(null);
+                    this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer())); //test
                     break;
                 }
             }
@@ -81,7 +92,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
-        this.dataPacket = new DataPacket("RoomTemplate0", this.gameContainer.getPlayer());
+        this.dataPacket = new DataPacket("Entrance", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
 
