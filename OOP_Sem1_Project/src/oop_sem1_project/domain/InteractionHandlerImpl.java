@@ -78,6 +78,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
+                    this.dataPacket.setTextField(this.gameContainer.getPlayer().getItem().getUseMessage());
                     this.gameContainer.getPlayer().setItem(null);
                     this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer())); //test
                     break;
