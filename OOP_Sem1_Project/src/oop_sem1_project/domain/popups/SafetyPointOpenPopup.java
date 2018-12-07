@@ -13,6 +13,12 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  */
 public class SafetyPointOpenPopup extends Popup {
 
+    /**
+     * 
+     * @param interactionHandler an instance of the InteractionHandler
+     * @param name the name od the Popup
+     * @param image the name of the image used to display the Popup
+     */
     public SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
         super(interactionHandler, name, image);
 
@@ -25,6 +31,11 @@ public class SafetyPointOpenPopup extends Popup {
         addClickableAreas("exit2", new int[]{557, 0, 343, 500});
     }
 
+    /**
+     * Does something depending on where you've clicked
+     * 
+     * @param clickedPosition the position the mouseclick happened on 
+     */
     @Override
     public void onClick(int[] clickedPosition) {
         String clickedArea = getClickedArea(clickedPosition);
