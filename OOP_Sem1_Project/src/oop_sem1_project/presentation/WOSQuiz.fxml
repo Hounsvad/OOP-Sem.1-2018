@@ -123,7 +123,7 @@
                   </Separator>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#onSubmit" prefWidth="347.0" text="Submit Score" />
+            <Button mnemonicParsing="false" onAction="#onSubmitEvent" prefWidth="347.0" text="Submit Score" />
          </children>
       </VBox>
    </content>

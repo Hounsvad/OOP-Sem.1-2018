@@ -1,16 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package oop_sem1_project.presentation;
 
 /**
+ * An enum class containing the valid areas a click event can occur in our game.
  *
  * @author Benjamin Staugaard | Benz56
  */
 public enum ClickedNode {
+    /**
+     * A click corresponding to a click on the game/main Canvas.
+     */
     GAME_CANVAS,
+    /**
+     * A click corresponding to a click on the phone Canvas/ImageView.
+     */
     PHONE_CANVAS,
+    /**
+     * A click corresponding to a click on the item Canvas/ImageView.
+     */
     ITEM_CANVAS
 }

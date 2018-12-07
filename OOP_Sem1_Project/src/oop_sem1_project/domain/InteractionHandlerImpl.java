@@ -46,7 +46,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
                         Door destination = (Door) interactableArea;
                         newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
-                        this.dataPacket.setTextField(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
+                        this.dataPacket.setMessage(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("quiz")) {
@@ -83,7 +83,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
-                    this.dataPacket.setTextField(this.gameContainer.getPlayer().getItem().getUseMessage());
+                    this.dataPacket.setMessage(this.gameContainer.getPlayer().getItem().getUseMessage());
                     this.gameContainer.getPlayer().setItem(null);
                     this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
                     break;

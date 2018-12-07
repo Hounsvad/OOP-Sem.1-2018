@@ -21,7 +21,7 @@ public class DataPacket {
     private List<String[]> packet = new ArrayList<>();
     private String background;
     private String playerDirection = "Up";
-    private String textField = "";
+    private String message = "";
     private Popup popup;
     private boolean openQuiz;
 
@@ -42,8 +42,8 @@ public class DataPacket {
         return phoneNumber;
     }
 
-    public void setTextField(String textField) {
-        this.textField = textField;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public void setPopup(Popup popup) {
@@ -60,10 +60,10 @@ public class DataPacket {
         this.packet.add(new String[]{"pl", this.playerDirection, String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});
         this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
         this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
-        this.packet.add(new String[]{"tf", this.textField == null ? "" : this.textField});
-        this.textField = ""; // Clear message.
+        this.packet.add(new String[]{"msg", this.message == null ? "" : this.message});
+        this.message = ""; // Clear message.
         this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
-        this.packet.add(new String[]{"qu", String.valueOf(this.openQuiz)});
+        this.packet.add(new String[]{"oq", String.valueOf(this.openQuiz)});
         return this.packet;
     }
 
