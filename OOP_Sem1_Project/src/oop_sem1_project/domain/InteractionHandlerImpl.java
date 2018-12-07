@@ -20,18 +20,16 @@ import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
  */
 public class InteractionHandlerImpl implements InteractionHandler {
 
-    private final GameContainer gameContainer;
+    private final int interactionRate = 100; //Miliseconds
+    private final GameContainer gameContainer = new GameContainer();
+    private long lastInteraction = System.currentTimeMillis();
     private DataPacket dataPacket;
-
-    public InteractionHandlerImpl() {
-        this.gameContainer = new GameContainer();
-    }
 
     @Override
     public List<String[]> update(String keyPressed) {
-        if (this.gameContainer.getPopup() == null) {
+        if (System.currentTimeMillis() > this.lastInteraction + this.interactionRate && this.gameContainer.getPopup() == null) {
+            this.lastInteraction = System.currentTimeMillis();
             int movePixels = 50;
-            System.out.println(this.getGameContainer().getPlayer().getProgress()); //test
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
             int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
             int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + horizontal, this.gameContainer.getPlayer().getPosition()[1] + vertical};
@@ -50,6 +48,11 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
                         this.dataPacket.setTextField(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
+                        break;
+                    } else if (interactableArea.getRangeType().equalsIgnoreCase("quiz")) {
+                        if (this.gameContainer.getPlayer().getProgress() == 11) {
+                            this.dataPacket.openQuiz(true);
+                        }
                         break;
                     }
                 }
@@ -81,7 +84,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
                     this.dataPacket.setTextField(this.gameContainer.getPlayer().getItem().getUseMessage());
                     this.gameContainer.getPlayer().setItem(null);
-                    this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer())); //test
+                    this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
                     break;
                 }
             }

@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
@@ -20,7 +21,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import oop_sem1_project.presentation.rendering.Renderer;
@@ -104,6 +104,9 @@ public class WOSController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSHighscore.fxml"));
             Stage stage = new Stage();
+            Bounds localToScreen = this.splitPane.localToScreen(this.splitPane.getBoundsInLocal());
+            stage.setX(localToScreen.getMinX() + 350);
+            stage.setY(localToScreen.getMinY() + 33);
             stage.initStyle(StageStyle.UNDECORATED);
             stage.focusedProperty().addListener((observable, oldValue, newValue) -> {
                 if (!newValue) {
@@ -112,6 +115,26 @@ public class WOSController implements Initializable {
             });
             Scene scene = new Scene(loader.load());
             ((WOSHighscoreController) loader.getController()).setScoreList(this.interactionCommunicator.highscoreClicked());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+        }
+    }
+
+    public void openQuiz() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSQuiz.fxml"));
+            Stage stage = new Stage();
+            Bounds localToScreen = this.splitPane.localToScreen(this.splitPane.getBoundsInLocal());
+            stage.setX(localToScreen.getMinX() + 257);
+            stage.setY(localToScreen.getMinY() + 33);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.focusedProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue) {
+                    stage.requestFocus();
+                }
+            });
+            Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

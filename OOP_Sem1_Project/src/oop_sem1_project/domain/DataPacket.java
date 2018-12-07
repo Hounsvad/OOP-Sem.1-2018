@@ -23,6 +23,7 @@ public class DataPacket {
     private String playerDirection = "Up";
     private String textField = "";
     private Popup popup;
+    private boolean openQuiz;
 
     public DataPacket(String background, Player player) {
         this.background = background;
@@ -49,6 +50,10 @@ public class DataPacket {
         this.popup = popup;
     }
 
+    public void openQuiz(boolean openQuiz) {
+        this.openQuiz = openQuiz;
+    }
+
     public List<String[]> constructPacket() {
         this.packet = new ArrayList<>();
         this.packet.add(new String[]{"bg", this.background});
@@ -58,6 +63,8 @@ public class DataPacket {
         this.packet.add(new String[]{"tf", this.textField == null ? "" : this.textField});
         this.textField = ""; // Clear message.
         this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
+        this.packet.add(new String[]{"qu", String.valueOf(this.openQuiz)});
         return this.packet;
     }
+
 }

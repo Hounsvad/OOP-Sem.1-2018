@@ -55,6 +55,11 @@ class PackeInterpreter {
     private String popupImage;
 
     /**
+     * Whether or not to open the quiz.
+     */
+    private boolean openQuiz;
+
+    /**
      * Constructs a new RenderingDataReader.
      *
      * @param dataList The data list to be converted to something
@@ -95,6 +100,9 @@ class PackeInterpreter {
                     break;
                 case "pu":
                     this.popupImage = data[1];
+                    break;
+                case "qu":
+                    this.openQuiz = Boolean.valueOf(data[1]);
             }
         }
     }
@@ -139,20 +147,24 @@ class PackeInterpreter {
      * @return The phone number.
      */
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     /**
      * @return The message.
      */
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     /**
      * @return The current Popup.
      */
     public String getPopupImage() {
-        return popupImage;
+        return this.popupImage;
+    }
+
+    public boolean isOpenQuiz() {
+        return this.openQuiz;
     }
 }

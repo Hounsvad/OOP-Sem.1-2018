@@ -36,7 +36,7 @@
                                 <Insets bottom="20.0" left="375.0" top="170.0" />
                             </VBox.margin>
                         </Button>
-                        <TextField fx:id="nameTextField" alignment="CENTER" prefWidth="100.0" promptText="Name">
+                        <TextField fx:id="nameTextField" alignment="CENTER" maxWidth="150.0" prefWidth="100.0" promptText="Name">
                             <VBox.margin>
                                 <Insets bottom="40.0" left="375.0" right="375.0" />
                             </VBox.margin>
@@ -51,7 +51,7 @@
                                 <Insets left="422.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" focusTraversable="false" prefWidth="100.0" promptText="None">
+                        <TextField fx:id="lastScoreTextField" alignment="CENTER" editable="false" focusTraversable="false" maxWidth="150.0" prefWidth="100.0" promptText="None">
                             <VBox.margin>
                                 <Insets left="375.0" right="375.0" />
                             </VBox.margin>
@@ -75,7 +75,10 @@
                </children>
             </Pane>
             <ImageView fx:id="itemImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+                <TextArea fx:id="textArea" maxHeight="98.0" prefHeight="98.0" prefWidth="686.0" style="-fx-base: rgb(43, 43, 43); -fx-text-fill: white;" wrapText="true">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font></TextArea>
             </items>
         </SplitPane>
     </items>

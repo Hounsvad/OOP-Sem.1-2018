@@ -5,14 +5,20 @@
  */
 package oop_sem1_project.presentation.rendering;
 
+import java.io.IOException;
 import java.util.List;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import oop_sem1_project.presentation.WOSController;
+import oop_sem1_project.presentation.WOSHighscoreController;
 
 /**
  *
@@ -47,26 +53,30 @@ public class Renderer {
     public void requestGraphicalUpdate(List<String[]> dataList) {
         // Main purpose of the PackeInterpreter is to convert the dataList to something more specific
         // than arbritray abbrevations and random array positions. Aids readability.
-        PackeInterpreter dataReader = new PackeInterpreter(dataList);
+        PackeInterpreter packet = new PackeInterpreter(dataList);
         GraphicsContext gameCanvas = this.controller.getGameCanvas().getGraphicsContext2D();
 
-        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getBackground() + ".png")), 0, 0);
-        this.player.setRotate(dataReader.getPlayerRotation());
+        gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + packet.getBackground() + ".png")), 0, 0);
+        this.player.setRotate(packet.getPlayerRotation());
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
-        gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), dataReader.getPlayerX(), dataReader.getPlayerY());
+        gameCanvas.drawImage(this.player.snapshot(snapshotParameters, null), packet.getPlayerX(), packet.getPlayerY());
 
-        if (!dataReader.getCurrentItem().isEmpty()) {
-            this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getCurrentItem() + ".png")));
+        if (!packet.getCurrentItem().isEmpty()) {
+            this.controller.getItemImageView().setImage(new Image(WOSController.class.getResourceAsStream("images/" + packet.getCurrentItem() + ".png")));
+        }
+        
+        this.controller.getTextArea().appendText(packet.getMessage().isEmpty() ? "" : "──────────────────────────────────────────────────────────────────────────────\n" +packet.getMessage() + "\n");
+
+        if (!packet.getPopupImage().isEmpty()) {
+            gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + packet.getPopupImage() + ".png")), 0, 0);
         }
 
-        this.controller.getTextArea().appendText(dataReader.getMessage().isEmpty() ? "" : dataReader.getMessage() + "\n");
-
-        if (!dataReader.getPopupImage().isEmpty()) {
-            gameCanvas.drawImage(new Image(WOSController.class.getResourceAsStream("images/" + dataReader.getPopupImage() + ".png")), 0, 0);
+        this.controller.getPhoneNumberArea().setText(packet.getPhoneNumber());
+        this.controller.getPhoneNumberArea().setVisible(!packet.getPhoneNumber().isEmpty());
+        
+        if (packet.isOpenQuiz()) {
+            this.controller.openQuiz();
         }
-
-        this.controller.getPhoneNumberArea().setText(dataReader.getPhoneNumber());
-        this.controller.getPhoneNumberArea().setVisible(!dataReader.getPhoneNumber().isEmpty());
     }
 }
