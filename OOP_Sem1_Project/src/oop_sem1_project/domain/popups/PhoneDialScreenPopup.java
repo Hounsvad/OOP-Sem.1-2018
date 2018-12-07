@@ -122,12 +122,12 @@ public class PhoneDialScreenPopup extends Popup {
                         break;
                     } else if (pn.toString().equals("65508888")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 9) {
-                        getInteractionHandler().getDataPacket().setTextField("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright");
+                        getInteractionHandler().getDataPacket().setTextField("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
                         getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
                         } else {
                             getInteractionHandler().getDataPacket().setTextField("You should only call 65508888 if there is an actual emergency at SDU!");
+                            }
                         break;
-                        }
                     } else if (pn.toString().equals("88888888")) {
                         getInteractionHandler().getDataPacket().setTextField("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
                         break;

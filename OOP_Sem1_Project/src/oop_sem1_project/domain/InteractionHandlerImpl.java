@@ -31,6 +31,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public List<String[]> update(String keyPressed) {
         if (this.gameContainer.getPopup() == null) {
             int movePixels = 50;
+            System.out.println(this.gameContainer.getPlayer().getProgress());
             System.out.println(this.getGameContainer().getPlayer().getProgress()); //test
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
             int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
