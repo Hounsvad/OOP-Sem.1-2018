@@ -13,6 +13,12 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  */
 public class PhoneDialScreenPopup extends Popup {
 
+    /**
+     * 
+     * @param interactionHandler an instance of the InteractionHandler
+     * @param dialPhone the name of the Popup
+     * @param phoneDialScreen the name of the image used to display the Popup
+     */
     public PhoneDialScreenPopup(InteractionHandlerImpl interactionHandler, String dialPhone, String phoneDialScreen) {
         super(interactionHandler, dialPhone, phoneDialScreen);
         addClickableAreas("home", new int[]{431, 452, 40, 40});
@@ -31,6 +37,11 @@ public class PhoneDialScreenPopup extends Popup {
 
     }
 
+    /**
+     * Does something depending on where you've clicked
+     * 
+     * @param clickedPosition the position the mouseclick happened on 
+     */
     @Override
     public void onClick(int[] clickedPosition) {
         String clickedArea = getClickedArea(clickedPosition);
@@ -174,7 +185,10 @@ public class PhoneDialScreenPopup extends Popup {
             }
         }
     }
-
+    
+    /**
+     * Gives a message when to many digits are dialed
+     */
     private void whoCall() {
         getInteractionHandler().getDataPacket().setTextField("Where are you trying to call with a number larger than 8 digits?");
     }
