@@ -50,7 +50,8 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("quiz")) {
-                        if (this.gameContainer.getPlayer().getProgress() == 11) {
+                        if (this.gameContainer.getPlayer().getProgress() < 11) {
+                            canMove = false;
                             this.dataPacket.openQuiz(true);
                         }
                         break;

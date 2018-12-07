@@ -92,10 +92,7 @@ public class WOSController implements Initializable {
         } else {
             toggleMenu();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
-            this.gameCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
-            this.phoneCanvas.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
-            this.itemImageView.setOnMouseClicked(event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
-            this.splitPane.getScene().getRoot().setOnKeyPressed(event -> this.interactionCommunicator.keyEvent(event.getCode()));
+            setInput(true);
         }
     }
 
@@ -122,6 +119,7 @@ public class WOSController implements Initializable {
     }
 
     public void openQuiz() {
+        setInput(false);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSQuiz.fxml"));
             Stage stage = new Stage();
@@ -129,16 +127,19 @@ public class WOSController implements Initializable {
             stage.setX(localToScreen.getMinX() + 257);
             stage.setY(localToScreen.getMinY() + 33);
             stage.initStyle(StageStyle.UNDECORATED);
-            stage.focusedProperty().addListener((observable, oldValue, newValue) -> {
-                if (!newValue) {
-                    stage.requestFocus();
-                }
-            });
+            stage.setAlwaysOnTop(true);
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
         }
+    }
+
+    public void setInput(boolean input) {
+        this.gameCanvas.setOnMouseClicked(!input ? null : event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.GAME_CANVAS, event));
+        this.phoneCanvas.setOnMouseClicked(!input ? null : event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.PHONE_CANVAS, event));
+        this.itemImageView.setOnMouseClicked(!input ? null : event -> this.interactionCommunicator.mouseClickedEvent(ClickedNode.ITEM_CANVAS, event));
+        this.splitPane.getScene().getRoot().setOnKeyPressed(!input ? null : event -> this.interactionCommunicator.keyEvent(event.getCode()));
     }
 
     public void toggleMenu() {
