@@ -25,14 +25,14 @@ public class GameContainer {
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
 
-        Room entrance = new Room("Entrance", new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
-        Room hall = new Room("Hall", new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
-        Room hallway = new Room("Hallway", new String[]{"Hall", "Hall", "Hall"}, 0, false);
-        Room robtek = new Room("Rob-tek", new String[]{"Robobtek0", "Robobtek1", "Robobtek2"}, 0, true);
-        Room chemlab = new Room("Chem-lab", new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
-        Room workshop = new Room("Workshop", new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
-        Room u55 = new Room("U55", new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
-        Room rallypoint = new Room("Rallypoint", new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 8, true);
+        Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
+        Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
+        Room hallway = new Room(new String[]{"Hall", "Hall", "Hall"}, 0, false);
+        Room robtek = new Room(new String[]{"Robobtek0", "Robobtek1", "Robobtek2"}, 0, true);
+        Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
+        Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
+        Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
+        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 8, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
