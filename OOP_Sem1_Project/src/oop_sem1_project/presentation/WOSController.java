@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import oop_sem1_project.presentation.audio.WOSMediaPlayer;
 import oop_sem1_project.presentation.rendering.Renderer;
 
 /**
@@ -33,6 +34,12 @@ public class WOSController implements Initializable {
      * received from the various listeners in this controller.
      */
     private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(new Renderer(this));
+
+    /**
+     * An instance of our media player. This is used to play game music and
+     * various sounds.
+     */
+    private final WOSMediaPlayer mediaPlayer = new WOSMediaPlayer();
 
     /**
      * The main SplitPane that separates the Game Canvas from the Phone Canvas,
@@ -214,6 +221,13 @@ public class WOSController implements Initializable {
         return interactionCommunicator;
     }
 
+    /**
+     * @return The instance of the WOSMediaPlayer.
+     */
+    public WOSMediaPlayer getWOSMediaPlayer() {
+        return mediaPlayer;
+    }
+    
     /**
      * @return The instance of the last score TextField.
      */

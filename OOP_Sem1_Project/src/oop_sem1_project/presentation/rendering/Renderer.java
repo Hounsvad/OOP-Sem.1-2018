@@ -70,6 +70,10 @@ public class Renderer {
         this.controller.getPhoneNumberArea().setText(packet.getPhoneNumber());
         this.controller.getPhoneNumberArea().setVisible(!packet.getPhoneNumber().isEmpty());
 
+        if (!packet.getSound().isEmpty()) {
+            this.controller.getWOSMediaPlayer().playSound(packet.getSound());
+        }
+
         if (packet.isOpenQuiz()) {
             this.controller.openQuiz();
         }

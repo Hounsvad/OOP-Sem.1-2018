@@ -47,6 +47,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         Door destination = (Door) interactableArea;
                         newPos = destination.recalculatePlayerPosition(this.gameContainer.getPlayer());
                         this.dataPacket.setMessage(destination.getDestination().getMessage(this.gameContainer.getPlayer()));
+                        this.dataPacket.setSound("Footstep");
                         this.gameContainer.getPlayer().setCurrentRoom(destination.getDestination());
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("quiz")) {
@@ -62,6 +63,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 }
             }
             if (canMove) {
+                this.dataPacket.setSound("Footstep");
                 this.getGameContainer().getPlayer().setPosition(newPos);
             }
             Room currentRoom = this.gameContainer.getPlayer().getCurrentRoom();

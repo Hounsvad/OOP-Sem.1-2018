@@ -57,6 +57,11 @@ class PackeInterpreter {
     private String popupImage;
 
     /**
+     *
+     */
+    private String sound;
+
+    /**
      * Whether or not to open the quiz a.k.a. the end of the game.
      */
     private boolean openQuiz;
@@ -103,6 +108,9 @@ class PackeInterpreter {
                     break;
                 case "pu": //Popup
                     this.popupImage = data[1];
+                    break;
+                case "so": //Sound
+                    this.sound = data[1];
                     break;
                 case "oq": //Open Quiz
                     this.openQuiz = Boolean.valueOf(data[1]);
@@ -165,6 +173,13 @@ class PackeInterpreter {
      */
     public String getPopupImage() {
         return this.popupImage;
+    }
+
+    /**
+     * @return The sound to be played if any.
+     */
+    public String getSound() {
+        return this.sound;
     }
 
     /**

@@ -23,6 +23,7 @@ public class DataPacket {
     private String playerDirection = "Up";
     private String message = "";
     private Popup popup;
+    private String sound = "";
     private boolean openQuiz;
 
     public DataPacket(String background, Player player) {
@@ -50,6 +51,10 @@ public class DataPacket {
         this.popup = popup;
     }
 
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
     public void openQuiz(boolean openQuiz) {
         this.openQuiz = openQuiz;
     }
@@ -63,6 +68,8 @@ public class DataPacket {
         this.packet.add(new String[]{"msg", this.message == null ? "" : this.message});
         this.message = ""; // Clear message.
         this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
+        this.packet.add(new String[]{"so", this.sound});
+        this.sound = ""; // Clear sound.
         this.packet.add(new String[]{"oq", String.valueOf(this.openQuiz)});
         return this.packet;
     }
