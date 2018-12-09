@@ -138,6 +138,7 @@ public class WOSController implements Initializable {
             this.splitPane.requestFocus();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
             setInputListeners(true);
+            openQuiz();
         }
     }
 
@@ -197,6 +198,9 @@ public class WOSController implements Initializable {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
+
+            // Make sure that if the main window is closed the quiz is also closed.
+            this.splitPane.getScene().getWindow().setOnHiding(observable -> stage.close());
         } catch (IOException e) {
         }
     }
@@ -227,7 +231,7 @@ public class WOSController implements Initializable {
     public WOSMediaPlayer getWOSMediaPlayer() {
         return mediaPlayer;
     }
-    
+
     /**
      * @return The instance of the last score TextField.
      */

@@ -84,18 +84,18 @@ class PackeInterpreter {
     private void readData() {
         for (String[] data : this.dataList) {
             switch (data[0]) {
-                case "bg": //Background
+                case "bg": // Background
                     this.background = data[1];
                     break;
-                case "pl": //Player
+                case "pl": // Player
                     this.playerRotation = !Arrays.asList("W", "Up").contains(data[1]) ? !Arrays.asList("S", "Down").contains(data[1]) ? !Arrays.asList("A", "Left").contains(data[1]) ? 90 : -90 : 180 : 0;
                     this.playerX = Integer.parseInt(data[2]);
                     this.playerY = Integer.parseInt(data[3]);
                     break;
-                case "ci": //Current Item
+                case "ci": // Current Item
                     this.currentItem = data[1];
                     break;
-                case "pn": //Phone Number
+                case "pn": // Phone Number
                     StringBuilder number = new StringBuilder();
                     //Add a space every 2 characters.
                     for (int i = 0; i < data[1].length(); i++) {
@@ -103,16 +103,16 @@ class PackeInterpreter {
                     }
                     this.phoneNumber = number.toString();
                     break;
-                case "msg": //Message
+                case "msg": // Message
                     this.message = data[1];
                     break;
-                case "pu": //Popup
+                case "pu": // Popup
                     this.popupImage = data[1];
                     break;
-                case "so": //Sound
+                case "so": // Sound
                     this.sound = data[1];
                     break;
-                case "oq": //Open Quiz
+                case "oq": // Open Quiz
                     this.openQuiz = Boolean.valueOf(data[1]);
             }
         }
