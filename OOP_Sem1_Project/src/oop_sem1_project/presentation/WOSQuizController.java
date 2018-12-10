@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * The FXML Controller class for the quiz window.
@@ -29,10 +33,43 @@ public class WOSQuizController implements Initializable {
     private final List<ToggleGroup> toggleGroups = new ArrayList<>();
 
     /**
+     * Instance of the controller used to resetGame the game.
+     */
+    private final WOSController controller;
+
+    /**
+     * The time it took the player to complete the game in milliseconds.
+     */
+    private final long timePassed;
+
+    @FXML
+    private ScrollPane quizNode;
+
+    @FXML
+    private VBox finishedNode;
+
+    /**
      * The 5 ToggleGroups.
      */
     @FXML
     private ToggleGroup question1, question2, question3, question4, question5;
+
+    @FXML
+    private TextField timeField;
+
+    @FXML
+    private TextField quizScoreField;
+
+    @FXML
+    private TextField totalScore;
+
+    @FXML
+    private TextField passedField;
+
+    public WOSQuizController(WOSController controller, long timePassed) {
+        this.controller = controller;
+        this.timePassed = timePassed;
+    }
 
     /**
      * Initializes the controller class and adds all of the ToggleGroups to the
@@ -52,7 +89,7 @@ public class WOSQuizController implements Initializable {
      * Fired when the submit button is clicked.
      */
     @FXML
-    private void onSubmitEvent() {
+    private void onSubmitAction() {
         int correctAnswers = 0;
         for (int i = 0; i < 5; i++) {
             ToggleGroup toggleGroup = this.toggleGroups.get(i);
@@ -60,6 +97,21 @@ public class WOSQuizController implements Initializable {
             correctAnswers += toggleGroup.getSelectedToggle() != null && toggleGroup.getToggles().indexOf(toggleGroup.getSelectedToggle()) == this.correctAnswersIndex[i] ? 1 : 0;
         }
 
-        System.out.println(correctAnswers);
+        this.quizNode.setVisible(false);
+        this.finishedNode.setVisible(true);
+
+        this.timeField.setText("It took you " + this.timePassed / 1000 + " seconds to complete the game.");
+        this.quizScoreField.setText("You answered " + correctAnswers + " out of 5 questions correctly.");
+        int score = this.controller.getInteractionCommunicator().storeHighscore(correctAnswers);
+        this.totalScore.setText("Your total score is " + score + " out of 50 possible");
+        this.controller.getLastScoreTextField().setText(String.valueOf(score));
+        this.passedField.setText("You " + (correctAnswers == 5 ? "passed! :)" : "didn't pass! :("));
+    }
+
+    @FXML
+    private void playAgainAction() {
+        ((Stage) this.quizNode.getScene().getWindow()).close();
+        this.controller.getMenu().setVisible(true);
+        this.controller.getRenderer().drawMainScreen();
     }
 }

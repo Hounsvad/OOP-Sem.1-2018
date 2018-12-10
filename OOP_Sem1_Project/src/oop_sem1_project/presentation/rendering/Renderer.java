@@ -77,5 +77,11 @@ public class Renderer {
         if (packet.isOpenQuiz()) {
             this.controller.openQuiz();
         }
+
+        this.controller.setScore(packet.getScore());
+    }
+
+    public void drawMainScreen() {
+        this.controller.getGameCanvas().getGraphicsContext2D().drawImage(new Image(WOSController.class.getResourceAsStream("images/MainScreen.png")), 0, 0);
     }
 }

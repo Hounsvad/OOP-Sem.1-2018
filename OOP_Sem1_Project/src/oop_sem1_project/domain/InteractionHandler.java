@@ -20,4 +20,6 @@ public interface InteractionHandler {
     List<String[]> update(String keyPressed);
 
     List<String[]> update(String clickedNode, int[] position);
+
+    public int storeHighscore(int correctQuizAnswers);
 }

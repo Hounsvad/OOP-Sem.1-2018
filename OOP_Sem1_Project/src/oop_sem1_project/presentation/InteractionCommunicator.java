@@ -79,4 +79,13 @@ public class InteractionCommunicator {
     public List<String> highscoreClicked() {
         return this.interactionHandler.getStoredHighscores();
     }
+
+    /**
+     * Method for storing the highscore.
+     *
+     * @param correctQuizAnswers The amount of correct answers.
+     */
+    public int storeHighscore(int correctQuizAnswers) {
+        return this.interactionHandler.storeHighscore(correctQuizAnswers);
+    }
 }

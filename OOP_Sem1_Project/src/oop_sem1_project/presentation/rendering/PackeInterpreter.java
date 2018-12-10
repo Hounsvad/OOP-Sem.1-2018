@@ -67,6 +67,11 @@ class PackeInterpreter {
     private boolean openQuiz;
 
     /**
+     * The score in the form of time passed in milliseconds;
+     */
+    private long score;
+
+    /**
      * Constructs a new PackeInterpreter and performs an initial read on the
      * data passed as in the dataList parameter.
      *
@@ -114,6 +119,9 @@ class PackeInterpreter {
                     break;
                 case "oq": // Open Quiz
                     this.openQuiz = Boolean.valueOf(data[1]);
+                    break;
+                case "sc":
+                    this.score = Long.parseLong(data[1]);
             }
         }
     }
@@ -187,5 +195,12 @@ class PackeInterpreter {
      */
     public boolean isOpenQuiz() {
         return this.openQuiz;
+    }
+
+    /**
+     * @return The score.
+     */
+    public long getScore() {
+        return this.score;
     }
 }

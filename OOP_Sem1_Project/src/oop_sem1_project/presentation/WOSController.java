@@ -30,16 +30,26 @@ import oop_sem1_project.presentation.rendering.Renderer;
 public class WOSController implements Initializable {
 
     /**
+     * An instance of the renderer used to draw the game.
+     */
+    private final Renderer renderer = new Renderer(this);
+
+    /**
      * An instance of the InteractionCommunicator used to communicate the events
      * received from the various listeners in this controller.
      */
-    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(new Renderer(this));
+    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this.renderer);
 
     /**
      * An instance of our media player. This is used to play game music and
      * various sounds.
      */
     private final WOSMediaPlayer mediaPlayer = new WOSMediaPlayer();
+
+    /**
+     * The current score.
+     */
+    private long score;
 
     /**
      * The main SplitPane that separates the Game Canvas from the Phone Canvas,
@@ -122,6 +132,7 @@ public class WOSController implements Initializable {
             }
         });
         this.textArea.editableProperty().set(false);
+        this.renderer.drawMainScreen();
     }
 
     /**
@@ -134,6 +145,7 @@ public class WOSController implements Initializable {
         if (this.nameTextField.getText().isEmpty()) {
             this.nameTextField.requestFocus();
         } else {
+            this.nameTextField.setText("");
             this.menu.setVisible(false);
             this.splitPane.requestFocus();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
@@ -176,6 +188,10 @@ public class WOSController implements Initializable {
         }
     }
 
+    public void resetGame() {
+        this.menu.setVisible(true);
+    }
+
     /**
      * Called when the game is finished and the quiz is to be started.
      */
@@ -183,6 +199,7 @@ public class WOSController implements Initializable {
         setInputListeners(false);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSQuiz.fxml"));
+            loader.setControllerFactory(cf -> new WOSQuizController(this, this.score));
             Stage stage = new Stage();
 
             // Makes sure the window is positioned correctly (centered) relative to the current position of the main window.
@@ -239,6 +256,13 @@ public class WOSController implements Initializable {
     }
 
     /**
+     * @return The menu VBox.
+     */
+    public VBox getMenu() {
+        return menu;
+    }
+
+    /**
      * @return The instance of the game Canvas.
      */
     public Canvas getGameCanvas() {
@@ -264,5 +288,18 @@ public class WOSController implements Initializable {
      */
     public Text getPhoneNumberArea() {
         return phoneNumberArea;
+    }
+
+    /**
+     * Set the current score.
+     *
+     * @param score The score.
+     */
+    public void setScore(long score) {
+        this.score = score;
+    }
+
+    public Renderer getRenderer() {
+        return this.renderer;
     }
 }
