@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oop_sem1_project.data_access.StorageImpl;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
 import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
@@ -28,6 +30,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> update(String keyPressed) {
         if (System.currentTimeMillis() > this.lastInteraction + this.interactionRate && this.gameContainer.getPopup() == null) {
+            this.dataPacket.setScore(System.currentTimeMillis() - this.gameContainer.getPlayer().getStartTime());
             this.lastInteraction = System.currentTimeMillis();
             int movePixels = 50;
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
@@ -115,6 +118,16 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return scores;
     }
 
+    @Override
+    public int storeHighscore(int correctQuizAnswers) {
+        try {
+            new StorageImpl("", "storage").save(this.dataPacket.getScore() + " " + this.gameContainer.getPlayer().getName());
+        } catch (IOException ex) {
+        }
+
+        return (int) ((10 - this.dataPacket.getScore() / 60000) * correctQuizAnswers);
+    }
+
     public GameContainer getGameContainer() {
         return this.gameContainer;
     }
@@ -122,5 +135,4 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public DataPacket getDataPacket() {
         return dataPacket;
     }
-
 }

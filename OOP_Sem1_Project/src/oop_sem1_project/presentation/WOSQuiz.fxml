@@ -120,7 +120,7 @@
                            </toggleGroup>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="Pass out because blood is not your thing…" toggleGroup="$question5" />
-                        <RadioButton mnemonicParsing="false" text="Look the other way and hope the student figures something out." toggleGroup="$question5" />
+                        <RadioButton mnemonicParsing="false" text="Look the other way and hope the student figures something out." toggleGroup="$question5" wrapText="true" />
                         <RadioButton mnemonicParsing="false" text="Clean up the blood. Someone could slip and fall." toggleGroup="$question5" />
                         <Separator prefWidth="200.0">
                            <VBox.margin>

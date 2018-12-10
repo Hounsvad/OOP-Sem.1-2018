@@ -30,17 +30,22 @@ import oop_sem1_project.presentation.rendering.Renderer;
 public class WOSController implements Initializable {
 
     /**
+     * An instance of the renderer used to draw the game.
+     */
+    private final Renderer renderer = new Renderer(this);
+
+    /**
      * An instance of the InteractionCommunicator used to communicate the events
      * received from the various listeners in this controller.
      */
-    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(new Renderer(this));
+    private final InteractionCommunicator interactionCommunicator = new InteractionCommunicator(this.renderer);
 
     /**
      * An instance of our media player. This is used to play game music and
      * various sounds.
      */
     private final WOSMediaPlayer mediaPlayer = new WOSMediaPlayer();
-    
+
     /**
      * The current score.
      */
@@ -127,6 +132,7 @@ public class WOSController implements Initializable {
             }
         });
         this.textArea.editableProperty().set(false);
+        this.renderer.drawMainScreen();
     }
 
     /**
@@ -255,7 +261,7 @@ public class WOSController implements Initializable {
     public VBox getMenu() {
         return menu;
     }
-    
+
     /**
      * @return The instance of the game Canvas.
      */
@@ -291,5 +297,9 @@ public class WOSController implements Initializable {
      */
     public void setScore(long score) {
         this.score = score;
+    }
+
+    public Renderer getRenderer() {
+        return this.renderer;
     }
 }

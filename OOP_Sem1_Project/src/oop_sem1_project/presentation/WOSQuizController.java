@@ -102,8 +102,9 @@ public class WOSQuizController implements Initializable {
 
         this.timeField.setText("It took you " + this.timePassed / 1000 + " seconds to complete the game.");
         this.quizScoreField.setText("You answered " + correctAnswers + " out of 5 questions correctly.");
-        this.totalScore.setText("Your total score is " + (((this.timePassed / 60000) - 10) * correctAnswers) + " out of 50 possible");
-        this.controller.getLastScoreTextField().setText(String.valueOf(((this.timePassed / 60000) - 10) * correctAnswers));
+        int score = this.controller.getInteractionCommunicator().storeHighscore(correctAnswers);
+        this.totalScore.setText("Your total score is " + score + " out of 50 possible");
+        this.controller.getLastScoreTextField().setText(String.valueOf(score));
         this.passedField.setText("You " + (correctAnswers == 5 ? "passed! :)" : "didn't pass! :("));
     }
 
@@ -111,5 +112,6 @@ public class WOSQuizController implements Initializable {
     private void playAgainAction() {
         ((Stage) this.quizNode.getScene().getWindow()).close();
         this.controller.getMenu().setVisible(true);
+        this.controller.getRenderer().drawMainScreen();
     }
 }

@@ -16,7 +16,7 @@ public class Player {
     /**
      * Game start time.
      */
-    private final Date startTime = new Date();
+    private final long startTime = System.currentTimeMillis();
 
     /**
      * Index zero is the task and index is progress in the task.
@@ -77,7 +77,7 @@ public class Player {
     /**
      * @return The start time.
      */
-    public Date getStartTime() {
+    public long getStartTime() {
         return this.startTime;
     }
 

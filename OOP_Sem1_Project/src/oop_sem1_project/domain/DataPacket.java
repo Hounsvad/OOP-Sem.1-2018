@@ -60,6 +60,10 @@ public class DataPacket {
         this.openQuiz = openQuiz;
     }
 
+    public long getScore() {
+        return this.score;
+    }
+
     public void setScore(long score) {
         this.score = score;
     }
@@ -79,5 +83,4 @@ public class DataPacket {
         this.packet.add(new String[]{"sc", String.valueOf(score)});
         return this.packet;
     }
-
 }
