@@ -29,14 +29,14 @@ public class GameContainer {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
         
         // Initializing all Rooms
-        Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
-        Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
+        Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance", "EntranceFire"}, 0, false);
+        Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall", "MainHallFire"}, 0, false);
         Room hallway = new Room(new String[]{"Hall", "Hall", "Hall"}, 0, false);
         Room robtek = new Room(new String[]{"Robobtek0", "Robobtek1", "Robobtek2"}, 0, true);
         Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
         Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
         Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
-        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 10, true);
+        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint", "RallypointFire"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
