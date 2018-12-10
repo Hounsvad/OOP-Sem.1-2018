@@ -29,13 +29,12 @@ public class StorageImpl implements Storage {
      * Constructs a new Storage Implementation Object. This constructor ensures
      * that the File is created if non-existent.
      *
-     * @param path The path of the File.
      * @param fileName The name of the storage File.
      * @throws IOException This is thrown if the file couldn't be created or if
      * the File is a directory.
      */
-    public StorageImpl(String path, String fileName) throws IOException {
-        this.file = new File(path, fileName + ".csv");
+    public StorageImpl(String fileName) throws IOException {
+        this.file = new File("", fileName + ".csv");
         if (!this.file.exists()) {
             this.file.createNewFile();
         } else if (this.file.isDirectory()) {
