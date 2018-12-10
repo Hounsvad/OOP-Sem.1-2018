@@ -138,7 +138,6 @@ public class WOSController implements Initializable {
             this.splitPane.requestFocus();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
             setInputListeners(true);
-            openQuiz();
         }
     }
 
