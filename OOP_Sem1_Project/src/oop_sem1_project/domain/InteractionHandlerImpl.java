@@ -30,6 +30,8 @@ public class InteractionHandlerImpl implements InteractionHandler {
         if (System.currentTimeMillis() > this.lastInteraction + this.interactionRate && this.gameContainer.getPopup() == null) {
             this.lastInteraction = System.currentTimeMillis();
             int movePixels = 50;
+            System.out.println(this.gameContainer.getPlayer().getProgress());
+            System.out.println(this.getGameContainer().getPlayer().getProgress()); //test
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
             int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
             int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + horizontal, this.gameContainer.getPlayer().getPosition()[1] + vertical};

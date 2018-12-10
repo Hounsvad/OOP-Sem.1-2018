@@ -21,28 +21,58 @@ public abstract class Popup {
     private final String image;
     private final Map<String, int[]> clickableAreas = new HashMap<>();
 
+    /**
+     * 
+     * @param interactionHandler an instance of the InteractionHandler
+     * @param name the name of the Popup
+     * @param image the image used to display the Popup
+     */
     public Popup(InteractionHandlerImpl interactionHandler, String name, String image) {
         this.interactionHandler = interactionHandler;
         this.name = name;
         this.image = image;
     }
-
+    
+    /**
+     * 
+     * @return the name of the Popup 
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * 
+     * @return the name of the image used to display the Popup
+     */
     public String getImage() {
         return this.image;
     }
 
+    /**
+     * Adds a ClickableArea to a map of ClickableAreas
+     * 
+     * @param identifier a unique identifier
+     * @param area the area
+     */
     public final void addClickableAreas(String identifier, int[] area) {
         this.clickableAreas.put(identifier, area);
     }
 
+    /**
+     * 
+     * @return a map of all ClickableAreas
+     */
     public Map<String, int[]> getClickableAreas() {
         return this.clickableAreas;
     }
 
+    /**
+     * Compares the position of the mouseclick to every ClickableArea 
+     * 
+     * @param clickedPosition the position the mouseclick happened on
+     * @return return the identifier of the ClickableArea which got clicked on
+     */
     public String getClickedArea(int[] clickedPosition) {
         for (Map.Entry<String, int[]> clickableArea : this.clickableAreas.entrySet()) {
             //if the clicks position from the argument is within a clickable area form the clickable areas map
@@ -58,6 +88,10 @@ public abstract class Popup {
         return null;
     }
 
+    /**
+     * 
+     * @return the InteractionHandler
+     */
     public InteractionHandlerImpl getInteractionHandler() {
         return this.interactionHandler;
     }
