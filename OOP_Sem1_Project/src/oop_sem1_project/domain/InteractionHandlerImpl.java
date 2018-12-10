@@ -31,7 +31,6 @@ public class InteractionHandlerImpl implements InteractionHandler {
         try {
             this.dataAccess = new StorageImpl("storage");
         } catch (IOException ex) {
-            ex.printStackTrace();
         }
     }
 
@@ -55,7 +54,11 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
-                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(((Door) interactableArea).getName().equalsIgnoreCase("doorSouth"))) {
+                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(Arrays.asList("doorsouth", "dooreast55").contains(((Door) interactableArea).getName().toLowerCase()))) {
+                            break;
+                        }
+                        if (this.gameContainer.getPlayer().getProgress() >= 8 && this.gameContainer.getPlayer().getProgress() != 10 && !((Door) interactableArea).getName().equalsIgnoreCase("doorEast55")) {
+                            this.dataPacket.setMessage("You should most definitely call someone before leaving. Take a look in the Safety Point if you can't remember the numbers!");
                             break;
                         }
                         Door destination = (Door) interactableArea;
@@ -117,6 +120,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
+        this.gameContainer.getPlayer().setProgress(7);
         this.dataPacket = new DataPacket("Entrance", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }

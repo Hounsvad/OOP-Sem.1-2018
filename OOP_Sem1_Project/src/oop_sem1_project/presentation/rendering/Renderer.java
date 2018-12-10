@@ -82,6 +82,7 @@ public class Renderer {
     }
 
     public void drawMainScreen() {
+        this.controller.getItemImageView().setImage(null);
         this.controller.getGameCanvas().getGraphicsContext2D().drawImage(new Image(WOSController.class.getResourceAsStream("images/MainScreen.png")), 0, 0);
     }
 }

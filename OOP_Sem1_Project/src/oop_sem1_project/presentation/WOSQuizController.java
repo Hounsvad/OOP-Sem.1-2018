@@ -113,5 +113,6 @@ public class WOSQuizController implements Initializable {
         ((Stage) this.quizNode.getScene().getWindow()).close();
         this.controller.getMenu().setVisible(true);
         this.controller.getRenderer().drawMainScreen();
+        this.controller.getTextArea().setText("");
     }
 }
