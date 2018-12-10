@@ -125,18 +125,18 @@ public class PhoneDialScreenPopup extends Popup {
                 case "dial":
                     if (pn.toString().equals("112")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8){
-                            getInteractionHandler().getDataPacket().setTextField("You call 112 and state your name, emergency and the current address");
+                            getInteractionHandler().getDataPacket().setMessage("You call 112 and state your name, emergency and the current address");
                             getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
                         } else {
-                             getInteractionHandler().getDataPacket().setTextField("If there isn't any serious emergency, you shouldn't call 112");
+                             getInteractionHandler().getDataPacket().setMessage("If there isn't any serious emergency, you shouldn't call 112");
                              }
                         break;
                     } else if (pn.toString().equals("65508888")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 9) {
-                        getInteractionHandler().getDataPacket().setTextField("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
+                        getInteractionHandler().getDataPacket().setMessage("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
                         getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
                         } else {
-                            getInteractionHandler().getDataPacket().setTextField("You should only call 65508888 if there is an actual emergency at SDU!");
+                            getInteractionHandler().getDataPacket().setMessage("You should only call 65508888 if there is an actual emergency at SDU!");
                             }
                         break;
                     } else if (pn.toString().equals("88888888")) {
