@@ -107,7 +107,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public List<String> getStoredHighscores() {
         List<String> scores = new ArrayList<>();
         try {
-            scores = new StorageImpl(System.getProperty("user.home") + "/Desktop", "storage").load(); //Temp Dir.
+            scores = new StorageImpl("storage").load(); //Temp Dir.
         } catch (IOException ex) {
             return scores;
         }
