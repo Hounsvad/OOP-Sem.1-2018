@@ -175,6 +175,7 @@ public class PhoneDialScreenPopup extends Popup {
                         + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
                     };
                     getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
+                    pn.setLength(0);
                     break;
                 case "delete":
                     if (pn.length() != 0) {

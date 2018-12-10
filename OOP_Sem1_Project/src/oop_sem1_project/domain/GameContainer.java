@@ -36,7 +36,7 @@ public class GameContainer {
         Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2","ChemLab2"}, 2, true);
         Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2", "Workshop2"}, 4, true);
         Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2", "Lecture2"}, 6, true);
-        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint", "RallypointFire"}, 10, true);
+        Room rallypoint = new Room(new String[]{"Rallypoint", "RallypointFire", "RallypointFire", "RallypointFire"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
@@ -130,7 +130,7 @@ public class GameContainer {
         u55.addMessage(2, "Everyone seems to have calmed down already, some students even fell asleep...");
 
         //U55 interactable areas
-        u55.addInteractableArea("doorEast", new Door("doorSouth", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, hall, false));
+        u55.addInteractableArea("doorEast", new Door("doorEast55", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, hall, false));
         u55.addInteractableArea("tabelNorth1", new InteractableArea(new int[]{150, 0}, new int[]{50, 200}, 0, "none", null));
         u55.addInteractableArea("tableNorth2", new InteractableArea(new int[]{250, 0}, new int[]{50, 200}, 0, "none", null));
         u55.addInteractableArea("tableNorth3", new InteractableArea(new int[]{350, 0}, new int[]{50, 200}, 0, "none", null));
