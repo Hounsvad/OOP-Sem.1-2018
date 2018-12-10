@@ -13,6 +13,7 @@ public class Door extends InteractableArea {
 
     private final Room destination;
     private final boolean vertical;
+    private final String name;
     
     /**
      * 
@@ -27,6 +28,7 @@ public class Door extends InteractableArea {
      */
     public Door(String name, int[] position, int[] size, int range, String rangeType, String requiredItemName, Room destination, boolean vertical) {
         super(position, size, range, rangeType, requiredItemName);
+        this.name = name;
         this.destination = destination;
         this.vertical = vertical;
     }
@@ -36,7 +38,15 @@ public class Door extends InteractableArea {
      * @return the destination  
      */
     public Room getDestination() {
-        return destination;
+        return this.destination;
+    }
+    
+    /**
+     *
+     * @return the name
+     */
+    public String getName() {
+        return this.name;
     }
 
     /**

@@ -136,6 +136,8 @@ public class Room {
             return image[0];
         } else if (roomProgress == 0 || roomProgress == 1) {
             return image[1];
+        } else if (player.getProgress() >= 8) {
+            return image[3];
         }
         return image[2];
 
