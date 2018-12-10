@@ -140,7 +140,7 @@ public class PhoneDialScreenPopup extends Popup {
                             }
                         break;
                     } else if (pn.toString().equals("88888888")) {
-                        getInteractionHandler().getDataPacket().setTextField("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
+                        getInteractionHandler().getDataPacket().setMessage("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
                         break;
                     }
                     String[] randomCall = {
@@ -174,7 +174,7 @@ public class PhoneDialScreenPopup extends Popup {
                         + "Never gonna say goodbye\n"
                         + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
                     };
-                    getInteractionHandler().getDataPacket().setTextField(randomCall[(int) (Math.random() * randomCall.length)]);
+                    getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
                     break;
                 case "delete":
                     if (pn.length() != 0) {
@@ -190,7 +190,7 @@ public class PhoneDialScreenPopup extends Popup {
      * Gives a message when to many digits are dialed
      */
     private void whoCall() {
-        getInteractionHandler().getDataPacket().setTextField("Where are you trying to call with a number larger than 8 digits?");
+        getInteractionHandler().getDataPacket().setMessage("Where are you trying to call with a number larger than 8 digits?");
     }
 
 }

@@ -147,7 +147,10 @@ public class GameContainer {
 
         //Rallypoint interactable areas
         rallypoint.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, entrance, true));
-
+        rallypoint.addInteractableArea("quiz", new InteractableArea(new int[]{400, 300}, new int[]{100, 100}, 50, "quiz", null));
+        
+        
+        rooms.addAll(Arrays.asList(hall, hallway, robtek, chemlab, workshop, u55, rallypoint));
         this.player.setCurrentRoom(entrance);
         
         //Add all Items to the item list

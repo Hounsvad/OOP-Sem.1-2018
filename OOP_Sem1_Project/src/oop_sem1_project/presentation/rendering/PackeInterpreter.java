@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package oop_sem1_project.presentation.rendering;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
+ * The purpose of this class is to read/translate/interpret the List of String
+ * arrays returned from either a click- or keypress event. Furthermore, this
+ * class has been introduced as a means of improving the readability of the data
+ * received from the domain layer. E.g. "pl" on its own doesn't make much sense,
+ * however, the values in the data array are assigned to variables with
+ * saying/meaningful names showing the intent/use of what at first-hand looks
+ * like arbitrary data.
  *
  * @author Benjamin Staugaard | Benz56
  */
@@ -40,24 +42,35 @@ class PackeInterpreter {
     private String currentItem;
 
     /**
-     * The current displayed phone number.
+     * The current inputted phone number.
      */
     private String phoneNumber;
 
     /**
-     * The message to be appended to the text flow.
+     * The message to be appended to the TextArea.
      */
     private String message;
 
     /**
-     * The current Popup to be displayed.
+     * The current popup image to be displayed.
      */
     private String popupImage;
 
     /**
-     * Constructs a new RenderingDataReader.
      *
-     * @param dataList The data list to be converted to something
+     */
+    private String sound;
+
+    /**
+     * Whether or not to open the quiz a.k.a. the end of the game.
+     */
+    private boolean openQuiz;
+
+    /**
+     * Constructs a new PackeInterpreter and performs an initial read on the
+     * data passed as in the dataList parameter.
+     *
+     * @param dataList The initial data list to be converted to something
      * understandable.
      */
     public PackeInterpreter(List<String[]> dataList) {
@@ -66,35 +79,41 @@ class PackeInterpreter {
     }
 
     /**
-     * Reads the data and assigns the correct values to the above attributes.
+     * Reads the data and assigns the values to the appropriate attributes.
      */
     private void readData() {
         for (String[] data : this.dataList) {
             switch (data[0]) {
-                case "bg":
+                case "bg": // Background
                     this.background = data[1];
                     break;
-                case "pl":
+                case "pl": // Player
                     this.playerRotation = !Arrays.asList("W", "Up").contains(data[1]) ? !Arrays.asList("S", "Down").contains(data[1]) ? !Arrays.asList("A", "Left").contains(data[1]) ? 90 : -90 : 180 : 0;
                     this.playerX = Integer.parseInt(data[2]);
                     this.playerY = Integer.parseInt(data[3]);
                     break;
-                case "ci":
+                case "ci": // Current Item
                     this.currentItem = data[1];
                     break;
-                case "pn":
+                case "pn": // Phone Number
                     StringBuilder number = new StringBuilder();
-                    //Add a space every 2 chars.
+                    //Add a space every 2 characters.
                     for (int i = 0; i < data[1].length(); i++) {
                         number.append(i != 0 && i % 2 == 0 ? " " : "").append(String.valueOf(data[1].charAt(i)));
                     }
                     this.phoneNumber = number.toString();
                     break;
-                case "tf":
+                case "msg": // Message
                     this.message = data[1];
                     break;
-                case "pu":
+                case "pu": // Popup
                     this.popupImage = data[1];
+                    break;
+                case "so": // Sound
+                    this.sound = data[1];
+                    break;
+                case "oq": // Open Quiz
+                    this.openQuiz = Boolean.valueOf(data[1]);
             }
         }
     }
@@ -129,7 +148,7 @@ class PackeInterpreter {
     }
 
     /**
-     * @return The current item the Player has.
+     * @return The current item the player has.
      */
     public String getCurrentItem() {
         return this.currentItem;
@@ -139,20 +158,34 @@ class PackeInterpreter {
      * @return The phone number.
      */
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     /**
      * @return The message.
      */
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     /**
      * @return The current Popup.
      */
     public String getPopupImage() {
-        return popupImage;
+        return this.popupImage;
+    }
+
+    /**
+     * @return The sound to be played if any.
+     */
+    public String getSound() {
+        return this.sound;
+    }
+
+    /**
+     * @return Whether to open the quiz or not.
+     */
+    public boolean isOpenQuiz() {
+        return this.openQuiz;
     }
 }
