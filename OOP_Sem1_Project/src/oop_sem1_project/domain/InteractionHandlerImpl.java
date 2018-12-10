@@ -83,12 +83,16 @@ public class InteractionHandlerImpl implements InteractionHandler {
             this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneHomeScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
-                if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition()) && interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
+                if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition())) {
+                    if (interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                     this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
                     this.dataPacket.setMessage(this.gameContainer.getPlayer().getItem().getUseMessage());
                     this.gameContainer.getPlayer().setItem(null);
                     this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
                     break;
+                    } else {
+                            this.dataPacket.setMessage("This doesn't help at all");
+                           }
                 }
             }
         }
