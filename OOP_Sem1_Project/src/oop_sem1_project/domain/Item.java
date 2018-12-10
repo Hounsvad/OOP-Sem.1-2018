@@ -24,7 +24,7 @@ public class Item {
      * @param image The path to its image
      * @param description The items description
      * @param desiredProgress The items desired progress.
-     * @param useMessage
+     * @param useMessage The message displayed when the item gets used
      */
     public Item(String name, String image, String description, int desiredProgress, String useMessage) {
         this.name = name;
@@ -33,23 +33,39 @@ public class Item {
         this.description = description;
         this.useMessage = useMessage;
     }
-
+    /**
+     * 
+     * @param progress
+     * @return true if the desiredProgress equals the parameter
+     */
     public boolean isDesiredProgress(int progress) {
         return this.desiredProgress == progress;
     }
-
+    /**
+     * 
+     * @return The items name
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * 
+     * @return The items image name
+     */
     public String getImage() {
         return image;
     }
-
+    /**
+     * 
+     * @return The items description
+     */
     public String getDescription() {
         return description;
     }
-    
+    /**
+     * 
+     * @return The message that gets displayed  
+     */
     public String getUseMessage() {
         return this.useMessage;
     }

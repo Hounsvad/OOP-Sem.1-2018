@@ -13,6 +13,12 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
  */
 public class PhoneMainScreenPopup extends Popup {
 
+    /**
+     * 
+     * @param interactionHandler an instance of the InteractionHandler
+     * @param phone the name of the Popup
+     * @param phoneMainScreen the name of the image used to display the Popup
+     */
     public PhoneMainScreenPopup(InteractionHandlerImpl interactionHandler, String phone, String phoneMainScreen) {
         super(interactionHandler, phone, phoneMainScreen);
         addClickableAreas("map", new int[]{390, 391, 41, 41});
@@ -21,6 +27,11 @@ public class PhoneMainScreenPopup extends Popup {
         addClickableAreas("exit2", new int[]{577,0,900,500});
     }
 
+    /**
+     * Does something depending on where you've clicked
+     * 
+     * @param clickedPosition the position the mouseclick happened on 
+     */
     @Override
     public void onClick(int[] clickedPosition) {
         String clickedArea = getClickedArea(clickedPosition);

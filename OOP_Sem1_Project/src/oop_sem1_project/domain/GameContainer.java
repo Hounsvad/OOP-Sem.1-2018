@@ -6,7 +6,6 @@
 package oop_sem1_project.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import oop_sem1_project.domain.popups.Popup;
 
@@ -16,23 +15,28 @@ import oop_sem1_project.domain.popups.Popup;
  */
 public class GameContainer {
 
-    private final List<Room> rooms = new ArrayList<>();
     private final List<Item> items = new ArrayList<>();
 
     private Popup popup;
     private Player player;
-
+    
+    /**
+     * Initializes the Player object
+     * 
+     * @param playerName the Name of the player 
+     */
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
-
-        Room entrance = new Room("Entrance", new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
-        Room hall = new Room("Hall", new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
-        Room hallway = new Room("Hallway", new String[]{"Hall", "Hall", "Hall"}, 0, false);
-        Room robtek = new Room("Rob-tek", new String[]{"Robobtek0", "Robobtek1", "Robobtek2"}, 0, true);
-        Room chemlab = new Room("Chem-lab", new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
-        Room workshop = new Room("Workshop", new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
-        Room u55 = new Room("U55", new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
-        Room rallypoint = new Room("Rallypoint", new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 8, true);
+        
+        // Initializing all Rooms
+        Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
+        Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
+        Room hallway = new Room(new String[]{"Hall", "Hall", "Hall"}, 0, false);
+        Room robtek = new Room(new String[]{"Robobtek0", "Robobtek1", "Robobtek2"}, 0, true);
+        Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2"}, 2, true);
+        Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2"}, 4, true);
+        Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2"}, 6, true);
+        Room rallypoint = new Room(new String[]{"Rallypoint", "Rallypoint", "Rallypoint"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
@@ -54,7 +58,7 @@ public class GameContainer {
         hall.addMessage(6, "There is a drastic change in noice level from U55 something is definitely wrong.");
         hall.addMessage(7, "You should check U55 somthing is wrong in there, no one is that excitet when having a lecture.");
         hall.addMessage(8, "The smell of smoke is choking and you should definitely do something as you see fire everywhere!");
-        hall.addMessage(9, "Flee you fool!");
+        hall.addMessage(10, "Flee you fool!");
 
         //Hall interactable areas
         hall.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, hallway, true));
@@ -98,7 +102,7 @@ public class GameContainer {
         chemlab.addInteractableArea("tableWest", new InteractableArea(new int[]{200, 100}, new int[]{100, 250}, 0, "none", null));
         chemlab.addInteractableArea("closetEast", new InteractableArea(new int[]{400, 400}, new int[]{300, 100}, 0, "none", null));
         chemlab.addInteractableArea("tableEast", new InteractableArea(new int[]{600, 150}, new int[]{100, 250}, 0, "none", null));
-        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{650, 300}, new int[]{50, 100}, 50, "emergency", "eyewash"));
+        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{700, 300}, new int[]{200, 100}, 50, "emergency", "eyewash"));
 
         //Workshop messages
         workshop.addMessage(-1000, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.");
@@ -144,9 +148,9 @@ public class GameContainer {
         //Rallypoint interactable areas
         rallypoint.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, entrance, true));
 
-        rooms.addAll(Arrays.asList(hall, hallway, robtek, chemlab, workshop, u55, rallypoint));
         this.player.setCurrentRoom(entrance);
-
+        
+        //Add all Items to the item list
         items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\""));
         items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says"));
         items.add(new Item("defibrilator", "AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him"));
@@ -154,18 +158,35 @@ public class GameContainer {
 
     }
 
+    /**
+     * 
+     * @return the current Popup 
+     */
     public Popup getPopup() {
         return this.popup;
     }
-
+    
+    /**
+     * Sets the current Popup
+     * 
+     * @param popup 
+     */
     public void setPopup(Popup popup) {
         this.popup = popup;
     }
-
+    
+    /**
+     * 
+     * @return the player
+     */
     public Player getPlayer() {
         return this.player;
     }
 
+    /**
+     * 
+     * @return a list of items
+     */
     public List<Item> getItems() {
         return items;
     }

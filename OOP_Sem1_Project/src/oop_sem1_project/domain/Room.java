@@ -19,10 +19,14 @@ public class Room {
     private final Map<Integer, String> messages = new HashMap<>();
     private final boolean increasesProgress;
     private final String[] image;
-    private final String name;
-
-    public Room(String name, String[] image, int desiredProgress, boolean increasesProgress) {
-        this.name = name;
+    
+    /**
+     * 
+     * @param image A String array of images being used to display the room
+     * @param desiredProgress The progress the room desires
+     * @param increasesProgress true if the progress should be increased inside the room
+     */
+    public Room(String[] image, int desiredProgress, boolean increasesProgress) {
         this.image = image;
         this.desiredProgress = desiredProgress;
         this.increasesProgress = increasesProgress;
@@ -102,15 +106,30 @@ public class Room {
         }
         return this.messages.get(firstSmaller);
     }
-
+    
+    /**
+     * 
+     * @return a map of all interactableAreas in the room
+     */
     public Map<String, InteractableArea> getInteractableObjects() {
         return this.interactableObjects;
     }
-
+    
+    /**
+     * 
+     * @return the desired progress the room expects you to have
+     */
     public int getDesiredProgress() {
         return this.desiredProgress;
     }
-
+    
+    /**
+     * Returns the image of the room, depending on if your progress is equal, 
+     * higher or lower than the desired progress. 
+     * 
+     * @param player
+     * @return the image used to display the current room
+     */
     public String getImage(Player player) {
         int roomProgress = player.getProgress() - this.desiredProgress;
         if (roomProgress < 0) {

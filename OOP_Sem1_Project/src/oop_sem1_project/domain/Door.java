@@ -13,17 +13,37 @@ public class Door extends InteractableArea {
 
     private final Room destination;
     private final boolean vertical;
-
+    
+    /**
+     * 
+     * @param name the name of the door
+     * @param position the postion of the door
+     * @param size the size of the door
+     * @param range the range of the door
+     * @param rangeType the type of range
+     * @param requiredItemName the item the door requires
+     * @param destination the destination the door leads to 
+     * @param vertical true if the door is located on a vertical wall
+     */
     public Door(String name, int[] position, int[] size, int range, String rangeType, String requiredItemName, Room destination, boolean vertical) {
         super(position, size, range, rangeType, requiredItemName);
         this.destination = destination;
         this.vertical = vertical;
     }
-
+    
+    /**
+     * 
+     * @return the destination  
+     */
     public Room getDestination() {
         return destination;
     }
 
+    /**
+     * 
+     * @param player the player
+     * @return the postion the player is going to be after entering the door
+     */
     public int[] recalculatePlayerPosition(Player player) {
         int[] location = player.getPosition();
         if (vertical) {
