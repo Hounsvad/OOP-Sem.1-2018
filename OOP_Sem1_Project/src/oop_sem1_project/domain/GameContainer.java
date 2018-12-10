@@ -27,7 +27,7 @@ public class GameContainer {
      */
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
-        
+        player.setProgress(7);
         // Initializing all Rooms
         Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
         Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
