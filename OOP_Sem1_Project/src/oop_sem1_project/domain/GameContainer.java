@@ -41,6 +41,9 @@ public class GameContainer {
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
         entrance.addMessage(1, "Still the same, old, boring entrance");
+        entrance.addMessage(8, "You should Probably call someone about this Fire!");
+        entrance.addMessage(9, "Should't the university administration know that this happened?");
+        entrance.addMessage(10, "Hurry to the RallyPoint or else it could have fatal consequences!");
 
         //Entrance interactable areas
         entrance.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, hall, true));
@@ -144,6 +147,8 @@ public class GameContainer {
         //Rallypoint messages
         rallypoint.addMessage(-1000, "Why would you leave already? The day isn't over");
         rallypoint.addMessage(0, "Everyone gasps at the sight of the TEK building burning to ashes. \nAt least all the students are safe \n\"Wait! Has anyone seen the Rob-tek students?\"");
+        rallypoint.addMessage(-2, "Call the goddamn Fire-department!");
+        rallypoint.addMessage(-1, "You should call the SDU administration aswell");
 
         //Rallypoint interactable areas
         rallypoint.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, entrance, true));
