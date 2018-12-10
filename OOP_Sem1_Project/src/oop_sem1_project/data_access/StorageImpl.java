@@ -34,7 +34,7 @@ public class StorageImpl implements Storage {
      * the File is a directory.
      */
     public StorageImpl(String fileName) throws IOException {
-        this.file = new File("", fileName + ".csv");
+        this.file = new File("./", fileName + ".csv");
         if (!this.file.exists()) {
             this.file.createNewFile();
         } else if (this.file.isDirectory()) {
@@ -54,6 +54,7 @@ public class StorageImpl implements Storage {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.file, true))) {
             writer.write((this.file.length() == 0 ? "" : "\n") + result);
         }
+
     }
 
     /**

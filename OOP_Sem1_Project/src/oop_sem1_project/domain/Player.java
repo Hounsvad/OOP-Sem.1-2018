@@ -54,7 +54,7 @@ public class Player {
      * @return player name 
      */
     public String getName() {
-        return name;
+        return this.name;
     }
     
     /**
@@ -62,7 +62,7 @@ public class Player {
      * @return the players position
      */
     public int[] getPosition() {
-        return position;
+        return this.position;
     }
     
     /**
