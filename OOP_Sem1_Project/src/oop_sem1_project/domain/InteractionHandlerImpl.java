@@ -44,7 +44,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
-                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(((Door)interactableArea).getName().equalsIgnoreCase("doorSouth"))
+                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(((Door)interactableArea).getName().equalsIgnoreCase("doorSouth")))
                         {
                             break;
                         }
