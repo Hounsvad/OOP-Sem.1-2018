@@ -145,10 +145,10 @@ public class WOSController implements Initializable {
         if (this.nameTextField.getText().isEmpty()) {
             this.nameTextField.requestFocus();
         } else {
-            this.nameTextField.setText("");
             this.menu.setVisible(false);
             this.splitPane.requestFocus();
             this.interactionCommunicator.startClicked(this.nameTextField.getText());
+            this.nameTextField.setText("");
             setInputListeners(true);
         }
     }

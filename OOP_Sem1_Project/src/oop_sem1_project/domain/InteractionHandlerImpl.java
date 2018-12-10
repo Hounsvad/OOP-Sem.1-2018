@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import oop_sem1_project.data_access.Storage;
 import oop_sem1_project.data_access.StorageImpl;
 import oop_sem1_project.domain.popups.PhoneMainScreenPopup;
 import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
@@ -25,7 +24,16 @@ public class InteractionHandlerImpl implements InteractionHandler {
     private final int interactionRate = 100; //Miliseconds
     private final GameContainer gameContainer = new GameContainer();
     private long lastInteraction = System.currentTimeMillis();
+    private Storage dataAccess;
     private DataPacket dataPacket;
+
+    public InteractionHandlerImpl() {
+        try {
+            this.dataAccess = new StorageImpl("storage");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @Override
     public List<String[]> update(String keyPressed) {
@@ -47,8 +55,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
-                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(((Door)interactableArea).getName().equalsIgnoreCase("doorSouth")))
-                        {
+                        if (this.gameContainer.getPlayer().getProgress() >= 8 && !(((Door) interactableArea).getName().equalsIgnoreCase("doorSouth"))) {
                             break;
                         }
                         Door destination = (Door) interactableArea;
@@ -92,14 +99,14 @@ public class InteractionHandlerImpl implements InteractionHandler {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition())) {
                     if (interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
-                    this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
-                    this.dataPacket.setMessage(this.gameContainer.getPlayer().getItem().getUseMessage());
-                    this.gameContainer.getPlayer().setItem(null);
-                    this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
-                    break;
+                        this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
+                        this.dataPacket.setMessage(this.gameContainer.getPlayer().getItem().getUseMessage());
+                        this.gameContainer.getPlayer().setItem(null);
+                        this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
+                        break;
                     } else {
-                            this.dataPacket.setMessage("This doesn't help at all");
-                           }
+                        this.dataPacket.setMessage("This doesn't help at all");
+                    }
                 }
             }
         }
@@ -118,7 +125,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
     public List<String> getStoredHighscores() {
         List<String> scores = new ArrayList<>();
         try {
-            scores = new StorageImpl("storage").load(); //Temp Dir.
+            scores = this.dataAccess.load(); //Temp Dir.
         } catch (IOException ex) {
             return scores;
         }
@@ -128,12 +135,13 @@ public class InteractionHandlerImpl implements InteractionHandler {
 
     @Override
     public int storeHighscore(int correctQuizAnswers) {
+        int score = (int) ((10 - this.dataPacket.getScore() / 60000) * correctQuizAnswers);
         try {
-            new StorageImpl("", "storage").save(this.dataPacket.getScore() + " " + this.gameContainer.getPlayer().getName());
+            this.dataAccess.save(score + " " + this.gameContainer.getPlayer().getName());
         } catch (IOException ex) {
         }
 
-        return (int) ((10 - this.dataPacket.getScore() / 60000) * correctQuizAnswers);
+        return score;
     }
 
     public GameContainer getGameContainer() {
