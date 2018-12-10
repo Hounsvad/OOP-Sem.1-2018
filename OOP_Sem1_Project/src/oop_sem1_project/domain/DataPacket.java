@@ -25,6 +25,7 @@ public class DataPacket {
     private Popup popup;
     private String sound = "";
     private boolean openQuiz;
+    private long score;
 
     public DataPacket(String background, Player player) {
         this.background = background;
@@ -59,6 +60,10 @@ public class DataPacket {
         this.openQuiz = openQuiz;
     }
 
+    public void setScore(long score) {
+        this.score = score;
+    }
+
     public List<String[]> constructPacket() {
         this.packet = new ArrayList<>();
         this.packet.add(new String[]{"bg", this.background});
@@ -71,6 +76,7 @@ public class DataPacket {
         this.packet.add(new String[]{"so", this.sound});
         this.sound = ""; // Clear sound.
         this.packet.add(new String[]{"oq", String.valueOf(this.openQuiz)});
+        this.packet.add(new String[]{"sc", String.valueOf(score)});
         return this.packet;
     }
 

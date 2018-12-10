@@ -77,5 +77,7 @@ public class Renderer {
         if (packet.isOpenQuiz()) {
             this.controller.openQuiz();
         }
+        
+        this.controller.setScore(packet.getScore());
     }
 }

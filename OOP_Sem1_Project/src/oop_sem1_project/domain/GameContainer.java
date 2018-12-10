@@ -19,15 +19,15 @@ public class GameContainer {
 
     private Popup popup;
     private Player player;
-    
+
     /**
      * Initializes the Player object
-     * 
-     * @param playerName the Name of the player 
+     *
+     * @param playerName the Name of the player
      */
     public void inititalize(String playerName) {
         this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
-        
+
         // Initializing all Rooms
         Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance"}, 0, false);
         Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall"}, 0, false);
@@ -102,7 +102,7 @@ public class GameContainer {
         chemlab.addInteractableArea("tableWest", new InteractableArea(new int[]{200, 100}, new int[]{100, 250}, 0, "none", null));
         chemlab.addInteractableArea("closetEast", new InteractableArea(new int[]{400, 400}, new int[]{300, 100}, 0, "none", null));
         chemlab.addInteractableArea("tableEast", new InteractableArea(new int[]{600, 150}, new int[]{100, 250}, 0, "none", null));
-        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{700, 300}, new int[]{200, 100}, 50, "emergency", "eyewash"));
+        chemlab.addInteractableArea("chemStudent", new InteractableArea(new int[]{750, 350}, new int[]{100, 50}, 51, "emergency", "eyewash"));
 
         //Workshop messages
         workshop.addMessage(-1000, "You enter the workshop \n The air is filled with sawdust \n There is nothing to see here.");
@@ -148,10 +148,9 @@ public class GameContainer {
         //Rallypoint interactable areas
         rallypoint.addInteractableArea("doorNorth", new Door("doorNorth", new int[]{400, 0}, new int[]{50, 0}, 50, "door", null, entrance, true));
         rallypoint.addInteractableArea("quiz", new InteractableArea(new int[]{400, 300}, new int[]{100, 100}, 50, "quiz", null));
-        
-        
+
         this.player.setCurrentRoom(entrance);
-        
+
         //Add all Items to the item list
         items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\""));
         items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says"));
@@ -161,24 +160,24 @@ public class GameContainer {
     }
 
     /**
-     * 
-     * @return the current Popup 
+     *
+     * @return the current Popup
      */
     public Popup getPopup() {
         return this.popup;
     }
-    
+
     /**
      * Sets the current Popup
-     * 
-     * @param popup 
+     *
+     * @param popup
      */
     public void setPopup(Popup popup) {
         this.popup = popup;
     }
-    
+
     /**
-     * 
+     *
      * @return the player
      */
     public Player getPlayer() {
@@ -186,7 +185,7 @@ public class GameContainer {
     }
 
     /**
-     * 
+     *
      * @return a list of items
      */
     public List<Item> getItems() {
