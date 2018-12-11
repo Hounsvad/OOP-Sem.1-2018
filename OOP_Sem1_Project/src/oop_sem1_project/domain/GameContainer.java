@@ -157,10 +157,10 @@ public class GameContainer {
         this.player.setCurrentRoom(entrance);
 
         //Add all Items to the item list
-        items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\""));
-        items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says"));
-        items.add(new Item("defibrilator", "AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him"));
-        items.add(new Item("first-aid", "Firstaid", "A bag of old socks from lost and found", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\""));
+        items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\"", "Extinguisher"));
+        items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says", null));
+        items.add(new Item("defibrilator", "AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him", "Defibrilator"));
+        items.add(new Item("first-aid", "Firstaid", "A bag of old socks from lost and found", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\"", null));
 
     }
 

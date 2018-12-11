@@ -16,6 +16,7 @@ public class Item {
     private final String image;
     private final String description;
     private final String useMessage;
+    private final String sound;
 
     /**
      * Creates a new Item
@@ -25,13 +26,15 @@ public class Item {
      * @param description The items description
      * @param desiredProgress The items desired progress.
      * @param useMessage The message displayed when the item gets used
+     * @param sound
      */
-    public Item(String name, String image, String description, int desiredProgress, String useMessage) {
+    public Item(String name, String image, String description, int desiredProgress, String useMessage, String sound) {
         this.name = name;
         this.desiredProgress = desiredProgress;
         this.image = image;
         this.description = description;
         this.useMessage = useMessage;
+        this.sound = sound;
     }
     /**
      * 
@@ -68,6 +71,10 @@ public class Item {
      */
     public String getUseMessage() {
         return this.useMessage;
+    }
+    
+    public String getSound() {
+        return this.sound;
     }
 
 }

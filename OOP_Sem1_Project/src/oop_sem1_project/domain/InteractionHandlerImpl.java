@@ -104,6 +104,9 @@ public class InteractionHandlerImpl implements InteractionHandler {
                     if (interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                         this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);
                         this.dataPacket.setMessage(this.gameContainer.getPlayer().getItem().getUseMessage());
+                        if (this.gameContainer.getPlayer().getItem().getSound() != null) {
+                            this.dataPacket.setSound(this.gameContainer.getPlayer().getItem().getSound());
+                        }
                         this.gameContainer.getPlayer().setItem(null);
                         this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(gameContainer.getPlayer()));
                         break;
@@ -120,7 +123,6 @@ public class InteractionHandlerImpl implements InteractionHandler {
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
-        this.gameContainer.getPlayer().setProgress(7);
         this.dataPacket = new DataPacket("Entrance", this.gameContainer.getPlayer());
         return this.dataPacket.constructPacket();
     }
