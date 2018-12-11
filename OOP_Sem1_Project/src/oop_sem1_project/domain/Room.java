@@ -14,20 +14,22 @@ import java.util.Map;
  */
 public class Room {
 
-    private final Map<String, InteractableArea> interactableObjects = new HashMap<>();
+    private final Map<String, InteractableArea> interactableAreas = new HashMap<>();
     private final int desiredProgress;
     private final Map<Integer, String> messages = new HashMap<>();
     private final boolean increasesProgress;
-    private final String[] image;
-    
+    private final String[] images;
+
     /**
-     * 
-     * @param image A String array of images being used to display the room
-     * @param desiredProgress The progress the room desires
-     * @param increasesProgress true if the progress should be increased inside the room
+     *
+     * @param image             A String array of images being used to display
+     *                          the room
+     * @param desiredProgress   The progress the room desires
+     * @param increasesProgress true if the progress should be increased inside
+     *                          the room
      */
     public Room(String[] image, int desiredProgress, boolean increasesProgress) {
-        this.image = image;
+        this.images = image;
         this.desiredProgress = desiredProgress;
         this.increasesProgress = increasesProgress;
     }
@@ -35,7 +37,7 @@ public class Room {
     /**
      * Adds a message to the message list
      *
-     * @param index minimum progress for the message
+     * @param index   minimum progress for the message
      * @param message the message
      */
     public void addMessage(int index, String message) {
@@ -45,24 +47,15 @@ public class Room {
     }
 
     /**
-     * Adds an object to the object list
+     * Adds an object to the Area list
      *
-     * @param key a as a string to identify the object
-     * @param object as an interactableObject in the room
+     * @param key    a as a string to identify the Area
+     * @param object as an interactableArea in the room
      */
     public void addInteractableArea(String key, InteractableArea object) {
-        if (this.interactableObjects.put(key, object) != null) {
-            throw new IllegalArgumentException("Message index already exists");
+        if (this.interactableAreas.put(key, object) != null) {
+            throw new IllegalArgumentException("Area name already exists");
         }
-    }
-
-    /**
-     * removes an InteractableObject from the room
-     *
-     * @param key
-     */
-    public void removeInteractableObject(String key) {
-        this.interactableObjects.remove(key);
     }
 
     /**
@@ -74,11 +67,9 @@ public class Room {
     public String getMessage(Player player) {
         int roomProgress = player.getProgress() - this.desiredProgress;
 
-        if (roomProgress == 0 && this.increasesProgress == true) {
+        if (roomProgress == 0 && this.increasesProgress) {
             player.setProgress(player.getProgress() + 1);
-
         }
-
         return getMessageSmaller(roomProgress);
     }
 
@@ -92,54 +83,51 @@ public class Room {
      */
     private String getMessageSmaller(int input) {
         int firstSmaller = -1000;
-        for (Map.Entry<Integer, String> e : messages.entrySet()) {
-            int key = e.getKey();
+        for (Map.Entry<Integer, String> message : this.messages.entrySet()) {
+            int key = message.getKey();
             if (key == input) {
-                return e.getValue();
+                return message.getValue();
             }
             if (key < input && key > firstSmaller) {
                 firstSmaller = key;
             }
         }
-        if (firstSmaller != -1000) {
-            return this.messages.get(firstSmaller);
-        }
         return this.messages.get(firstSmaller);
     }
-    
+
     /**
-     * 
+     *
      * @return a map of all interactableAreas in the room
      */
-    public Map<String, InteractableArea> getInteractableObjects() {
-        return this.interactableObjects;
+    public Map<String, InteractableArea> getInteractableAreas() {
+        return this.interactableAreas;
     }
-    
+
     /**
-     * 
+     *
      * @return the desired progress the room expects you to have
      */
     public int getDesiredProgress() {
         return this.desiredProgress;
     }
-    
+
     /**
-     * Returns the image of the room, depending on if your progress is equal, 
-     * higher or lower than the desired progress. 
-     * 
+     * Returns the images of the room, depending on if your progress is equal,
+     * higher or lower than the desired progress.
+     *
      * @param player
-     * @return the image used to display the current room
+     * @return the images used to display the current room
      */
     public String getImage(Player player) {
         int roomProgress = player.getProgress() - this.desiredProgress;
-        if (roomProgress < 0) {
-            return image[0];
-        } else if (roomProgress == 0 || roomProgress == 1) {
-            return image[1];
-        } else if (player.getProgress() >= 8) {
-            return image[3];
-        }
-        return image[2];
 
+        if (roomProgress < 0) {
+            return this.images[0];//Pre Traumatic
+        } else if (roomProgress == 0 || roomProgress == 1) {
+            return this.images[1];//Traumatic
+        } else if (player.getProgress() >= 8) {
+            return this.images[3];//Fire image
+        }
+        return this.images[2];//Post traumatic image
     }
 }

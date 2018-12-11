@@ -5,8 +5,6 @@
  */
 package oop_sem1_project.domain;
 
-import java.util.Date;
-
 /**
  *
  * @author Benjamin Staugaard | Benz56
@@ -39,35 +37,33 @@ public class Player {
     /**
      * Constructs a player object with the given name and position.
      *
-     * @param name The name of the player.
+     * @param name         The name of the player.
      * @param initPosition The initial position of the Player.
-     * @param image The image location as a String.
-     * @param description The player description.
      */
-    public Player(String name, int[] initPosition, String image, String description) {
+    public Player(String name, int[] initPosition) {
         this.name = name;
         this.position = initPosition;
     }
-    
+
     /**
-     * 
-     * @return player name 
+     *
+     * @return player name
      */
     public String getName() {
         return this.name;
     }
-    
+
     /**
-     * 
+     *
      * @return the players position
      */
     public int[] getPosition() {
         return this.position;
     }
-    
+
     /**
      * Sets the players position
-     * 
+     *
      * @param position player position as x,y
      */
     public void setPosition(int[] position) {
@@ -114,23 +110,21 @@ public class Player {
     public Room getCurrentRoom() {
         return this.currentRoom;
     }
-    
+
     /**
-     * 
+     *
      * @return the current item of the player
      */
     public Item getItem() {
-        return item;
+        return this.item;
     }
-    
+
     /**
      * Sets the item the player is currently holding
-     * 
-     * @param item 
+     *
+     * @param item
      */
     public void setItem(Item item) {
         this.item = item;
     }
-    
-    
 }
