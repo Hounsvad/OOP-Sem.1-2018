@@ -9,14 +9,14 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
- * 
+ *
  */
 public class PhoneDialScreenPopup extends Popup {
 
     /**
      *
      * @param interactionHandler an instance of the InteractionHandler
-     * @param phoneDialScreen    the name of the image used to display the Popup
+     * @param phoneDialScreen the name of the image used to display the Popup
      */
     public PhoneDialScreenPopup(InteractionHandlerImpl interactionHandler, String phoneDialScreen) {
         super(interactionHandler, phoneDialScreen);
@@ -122,7 +122,6 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "dial":
-                    
                     if (pn.toString().equals("112")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8) {
                             getInteractionHandler().getDataPacket().setMessage("You call 112 and state your name, emergency and the current address");
@@ -130,8 +129,6 @@ public class PhoneDialScreenPopup extends Popup {
                         } else {
                             getInteractionHandler().getDataPacket().setMessage("If there isn't any serious emergency, you shouldn't call 112");
                         }
-                        pn.setLength(0);
-                        break;
                     } else if (pn.toString().equals("65508888")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 9) {
                             getInteractionHandler().getDataPacket().setMessage("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
@@ -139,45 +136,42 @@ public class PhoneDialScreenPopup extends Popup {
                         } else {
                             getInteractionHandler().getDataPacket().setMessage("You should only call 65508888 if there is an actual emergency at SDU!");
                         }
-                        pn.setLength(0);
-                        break;
                     } else if (pn.toString().equals("88888888")) {
                         getInteractionHandler().getDataPacket().setMessage("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
-                        pn.setLength(0);
-                        break;
+                    } else {
+                        String[] randomCall = {
+                            "'Hello, you have called the Donald Trump Donation line. Thank you for your donation of 100$, which will be used for the wall' \nYou put the phone down and end the call. This is not the time for such activities.",
+                            "'Mission is a go. Eliminate the target within 2 hours for a bonus. We won't speak again.' \nThe other side hangs up and you are left confused and a bit scared.",
+                            "'Olleh t'is Erik. What can I do you for?' \nYou apologize and end the call. Why bother such a nice man",
+                            "The phone is picked up and you hear somebody pacing back and forth. \nThe person on the other end start speaking a weird mix of some nordic language and english programming terms. \nThis makes no sense and you hang up.",
+                            "'Duuuuuuuuuuuuuuuuuuuuuuun\n"
+                            + "Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun\n"
+                            + "BOOM\n"
+                            + "Dundun dundun dundun\n"
+                            + "BEEP\n"
+                            + "Dun dun dun dun dun\n"
+                            + "Dun dun\n"
+                            + "BEEP BEEP BEEP BEEP\n"
+                            + "BEEEP BEEP BEEP BEEP\n"
+                            + "BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BOOM\n"
+                            + "Daddaddadadsadadadadadadadadadaddadadadadadaddadadaddadadadadadadadadadadadaddadddadaddadadadd dadadadaddaddada\n"
+                            + "D\n"
+                            + "Dadadddaddadaddadadadddadadada'... That was a very rude sandstorm. You hang up.",
+                            "'We're no strangers to love\n"
+                            + "You know the rules and so do I\n"
+                            + "A full commitment's what I'm thinking of\n"
+                            + "You wouldn't get this from any other guy\n"
+                            + "I just wanna tell you how I'm feeling\n"
+                            + "Gotta make you understand\n"
+                            + "Never gonna give you up\n"
+                            + "Never gonna let you down\n"
+                            + "Never gonna run around and desert you\n"
+                            + "Never gonna make you cry\n"
+                            + "Never gonna say goodbye\n"
+                            + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
+                        };
+                        getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
                     }
-                    String[] randomCall = {
-                        "'Hello, you have called the Donald Trump Donation line. Thank you for your donation of 100$, which will be used for the wall' \nYou put the phone down and end the call. This is not the time for such activities.",
-                        "'Mission is a go. Eliminate the target within 2 hours for a bonus. We won't speak again.' \nThe other side hangs up and you are left confused and a bit scared.",
-                        "'Olleh t'is Erik. What can I do you for?' \nYou apologize and end the call. Why bother such a nice man",
-                        "The phone is picked up and you hear somebody pacing back and forth. \nThe person on the other end start speaking a weird mix of some nordic language and english programming terms. \nThis makes no sense and you hang up.",
-                        "'Duuuuuuuuuuuuuuuuuuuuuuun\n"
-                        + "Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun\n"
-                        + "BOOM\n"
-                        + "Dundun dundun dundun\n"
-                        + "BEEP\n"
-                        + "Dun dun dun dun dun\n"
-                        + "Dun dun\n"
-                        + "BEEP BEEP BEEP BEEP\n"
-                        + "BEEEP BEEP BEEP BEEP\n"
-                        + "BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BOOM\n"
-                        + "Daddaddadadsadadadadadadadadadaddadadadadadaddadadaddadadadadadadadadadadadaddadddadaddadadadd dadadadaddaddada\n"
-                        + "D\n"
-                        + "Dadadddaddadaddadadadddadadada'... That was a very rude sandstorm. You hang up.",
-                        "'We're no strangers to love\n"
-                        + "You know the rules and so do I\n"
-                        + "A full commitment's what I'm thinking of\n"
-                        + "You wouldn't get this from any other guy\n"
-                        + "I just wanna tell you how I'm feeling\n"
-                        + "Gotta make you understand\n"
-                        + "Never gonna give you up\n"
-                        + "Never gonna let you down\n"
-                        + "Never gonna run around and desert you\n"
-                        + "Never gonna make you cry\n"
-                        + "Never gonna say goodbye\n"
-                        + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
-                    };
-                    getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
                     pn.setLength(0);
                     break;
                 case "delete":
