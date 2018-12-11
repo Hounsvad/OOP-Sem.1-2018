@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * 
  */
 public interface InteractionHandler {
 
