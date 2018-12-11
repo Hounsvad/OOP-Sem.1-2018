@@ -11,17 +11,29 @@ import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * A Container for values and instances 
+ * 
  */
 public class GameContainer {
 
+    /**
+     * A list of items 
+     */
     private final List<Item> items = new ArrayList<>();
 
+    /**
+     * The current popup
+     */
     private Popup popup;
+    
+    /**
+     * The current instance of the player
+     */
     private Player player;
 
     /**
      * Initializes the Player object
+     * Initializes all rooms, areas and items
      *
      * @param playerName the Name of the player
      */

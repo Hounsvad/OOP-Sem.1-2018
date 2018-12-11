@@ -7,12 +7,24 @@ package oop_sem1_project.domain;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * A door object
+ * 
  */
 public class Door extends InteractableArea {
 
+    /**
+     * Container for the room to switch to upon passing the door
+     */
     private final Room destination;
+    
+    /**
+     * Determining value for the door orientation
+     */
     private final boolean vertical;
+    
+    /**
+     * Name of the door
+     */
     private final String name;
 
     /**

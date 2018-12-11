@@ -21,12 +21,34 @@ import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
  */
 public class InteractionHandlerImpl implements InteractionHandler {
 
+    /**
+     * Constant for how far the player should move at a time
+     */
     private static final int MOVE_PIXEL = 50;
 
+    /**
+     * The rate of interaction to stop spam
+     */
     private final int interactionRate = 100; //Miliseconds
+    
+    /**
+     * The gameContainer containing the instances of the game
+     */
     private final GameContainer gameContainer = new GameContainer();
+    
+    /**
+     * The last time an interaction was made
+     */
     private long lastInteractionTime = System.currentTimeMillis();
+    
+    /**
+     * The storage class
+     */
     private Storage dataAccess;
+    
+    /**
+     * The dataPacket to send information up to the presentation layer
+     */
     private DataPacket dataPacket;
 
     /**
@@ -39,6 +61,11 @@ public class InteractionHandlerImpl implements InteractionHandler {
         }
     }
 
+    /**
+     * Updates the game based on a key press
+     * @param keyPressed as string
+     * @return dataPacket as list of string arrays
+     */
     @Override
     public List<String[]> update(String keyPressed) {
         if (System.currentTimeMillis() > this.lastInteractionTime + this.interactionRate && this.gameContainer.getPopup() == null) {
@@ -101,6 +128,12 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return this.dataPacket.constructPacket();
     }
 
+    /**
+     * Updates the game based on a click
+     * @param clickedNode the visual node clicked
+     * @param position the clicked position
+     * @return dataPacket as list of string arrays
+     */
     @Override
     public List<String[]> update(String clickedNode, int[] position) {
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
@@ -128,6 +161,11 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return this.dataPacket.constructPacket();
     }
 
+    /**
+     * Initializes the game
+     * @param playerName as string to represent the name of the player
+     * @return dataPacket as list of string arrays
+     */
     @Override
     public List<String[]> start(String playerName) {
         this.gameContainer.inititalize(playerName);
@@ -135,6 +173,10 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return this.dataPacket.constructPacket();
     }
 
+    /**
+     * gets the list of highscores
+     * @return list of string representing highscores
+     */
     @Override
     public List<String> getStoredHighscores() {
         List<String> scores = new ArrayList<>();
@@ -147,6 +189,11 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return scores;
     }
 
+    /**
+     * Stores a score
+     * @param correctQuizAnswers number of correct answeres 
+     * @return the score
+     */
     @Override
     public int storeHighscore(int correctQuizAnswers) {
         int score = (int) ((10 - this.dataPacket.getScore() / 60000) * correctQuizAnswers);
@@ -158,10 +205,18 @@ public class InteractionHandlerImpl implements InteractionHandler {
         return score;
     }
 
+    /**
+     * 
+     * @return the instance of the gameContainer
+     */
     public GameContainer getGameContainer() {
         return this.gameContainer;
     }
 
+    /**
+     * returns the current data packet
+     * @return 
+     */
     public DataPacket getDataPacket() {
         return this.dataPacket;
     }

@@ -7,14 +7,34 @@ package oop_sem1_project.domain;
 
 /**
  *
+ * Class contining logic for items
  * 
  */
 public class Item {
 
+    /**
+     * The progress needed to use the item
+     */
     private final int desiredProgress;
+    
+    /**
+     * The name of the item
+     */
     private final String name;
+    
+    /**
+     * The name of the image file
+     */
     private final String image;
+    
+    /**
+     * Message displayed upon use of the item
+     */
     private final String useMessage;
+    
+    /**
+     * The sound played upon use
+     */
     private final String sound;
 
     /**
