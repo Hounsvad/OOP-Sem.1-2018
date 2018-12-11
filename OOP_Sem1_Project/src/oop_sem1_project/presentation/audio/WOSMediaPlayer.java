@@ -28,10 +28,10 @@ public class WOSMediaPlayer {
      * loop.
      */
     public WOSMediaPlayer() {
-        mainTrackMediaPlayer = new MediaPlayer(new Media(new File(MEDIA_LOCATION + "MainTrack.mp3").toURI().toString()));
-        mainTrackMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mainTrackMediaPlayer.setVolume(0.1);
-        mainTrackMediaPlayer.play();
+        this.mainTrackMediaPlayer = new MediaPlayer(new Media(new File(MEDIA_LOCATION + "MainTrack.mp3").toURI().toString()));
+        this.mainTrackMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        this.mainTrackMediaPlayer.setVolume(0.1);
+        this.mainTrackMediaPlayer.play();
     }
 
     /**
