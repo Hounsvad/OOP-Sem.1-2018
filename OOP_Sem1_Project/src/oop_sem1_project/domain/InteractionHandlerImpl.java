@@ -47,7 +47,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             if (!canMove) {
                 return this.dataPacket.constructPacket();
             }
-            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableAreas().values()) {
                 if (interactableArea.isWithinRange(newPos)) {
                     if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
                         canMove = false;
@@ -99,7 +99,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
         } else if (clickedNode.equals("PHONE_CANVAS")) {
             this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneHomeScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
-            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableObjects().values()) {
+            for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableAreas().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition())) {
                     if (interactableArea.isRequiredItem(this.gameContainer.getPlayer().getItem())) {
                         this.gameContainer.getPlayer().setProgress(this.gameContainer.getPlayer().getProgress() + 1);

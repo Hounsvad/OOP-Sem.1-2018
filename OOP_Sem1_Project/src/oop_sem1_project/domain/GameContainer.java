@@ -26,7 +26,7 @@ public class GameContainer {
      * @param playerName the Name of the player
      */
     public void inititalize(String playerName) {
-        this.player = new Player(playerName, new int[]{400, 400}, "player", "I am a Player");
+        this.player = new Player(playerName, new int[]{400, 400});
 
         // Initializing all Rooms
         Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance", "EntranceFire"}, 0, false);
