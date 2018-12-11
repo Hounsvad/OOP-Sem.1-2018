@@ -43,7 +43,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
             int vertical = Arrays.asList("Up", "W").contains(keyPressed) ? -movePixels : Arrays.asList("Down", "S").contains(keyPressed) ? movePixels : 0;
             int horizontal = Arrays.asList("Left", "A").contains(keyPressed) ? -movePixels : Arrays.asList("Right", "D").contains(keyPressed) ? movePixels : 0;
             int[] newPos = {this.gameContainer.getPlayer().getPosition()[0] + horizontal, this.gameContainer.getPlayer().getPosition()[1] + vertical};
-            boolean canMove = newPos[0] > -1 && newPos[0] < 851 && newPos[1] > -1 && newPos[1] < 451;
+            boolean canMove = newPos[0] >= 0 && newPos[0] <= 850 && newPos[1] >= 0 && newPos[1] <= 450;
             if (!canMove) {
                 return this.dataPacket.constructPacket();
             }

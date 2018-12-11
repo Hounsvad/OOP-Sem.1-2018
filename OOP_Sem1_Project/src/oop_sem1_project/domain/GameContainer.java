@@ -68,7 +68,7 @@ public class GameContainer {
         hall.addInteractableArea("doorEast", new Door("doorEast", new int[]{850, 200}, new int[]{50, 50}, 50, "door", null, workshop, false));
         hall.addInteractableArea("doorSouth", new Door("doorSouth", new int[]{400, 450}, new int[]{50, 50}, 50, "door", null, entrance, true));
         hall.addInteractableArea("doorWest", new Door("doorWest", new int[]{0, 200}, new int[]{0, 50}, 50, "door", null, u55, false));
-        hall.addInteractableArea("safetyPoint", new InteractableArea(new int[]{650, 450}, new int[]{100, 50}, 50, "safetypoint", null));
+        hall.addInteractableArea("safetyPoint", new InteractableArea(new int[]{650, 450}, new int[]{50, 0}, 50, "safetypoint", null));
 
         //Hallway messages
         hallway.addMessage(-1000, "As you walk along the empty hallway, the smell of burnt electronics gets stronger.");
