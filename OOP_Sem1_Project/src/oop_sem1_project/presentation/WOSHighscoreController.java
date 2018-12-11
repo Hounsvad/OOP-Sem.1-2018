@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 /**
  * The FXML Controller class for the high score list window.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public class WOSHighscoreController implements Initializable {
 
@@ -26,10 +25,10 @@ public class WOSHighscoreController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param location The location used to resolve relative paths for the root
-     * object, or null if the location is not known.
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
-     * if the root object was not localized.
+     *                  if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,7 +38,7 @@ public class WOSHighscoreController implements Initializable {
      * Fired when the close button is clicked.
      *
      * @param event The ActionEvent used to get the Stage on which the button is
-     * located.
+     *              located.
      */
     @FXML
     private void closeButtonClicked(ActionEvent event) {

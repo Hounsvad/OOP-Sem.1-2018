@@ -3,7 +3,6 @@ package oop_sem1_project.presentation;
 /**
  * An enum class containing the valid areas a click event can occur in our game.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public enum ClickedNode {
     /**

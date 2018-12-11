@@ -25,7 +25,6 @@ import oop_sem1_project.presentation.rendering.Renderer;
  * The main World of Safety FXML Controller class. This class initializes all of
  * the nodes on the scene, the event listeners, and the InteractionCommunicator.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public class WOSController implements Initializable {
 
@@ -111,10 +110,10 @@ public class WOSController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param location The location used to resolve relative paths for the root
-     * object, or null if the location is not known.
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
-     * if the root object was not localized.
+     *                  if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -238,14 +237,14 @@ public class WOSController implements Initializable {
      * @return The instance of the InteractionCommunicator.
      */
     public InteractionCommunicator getInteractionCommunicator() {
-        return interactionCommunicator;
+        return this.interactionCommunicator;
     }
 
     /**
      * @return The instance of the WOSMediaPlayer.
      */
     public WOSMediaPlayer getWOSMediaPlayer() {
-        return mediaPlayer;
+        return this.mediaPlayer;
     }
 
     /**
@@ -259,7 +258,7 @@ public class WOSController implements Initializable {
      * @return The menu VBox.
      */
     public VBox getMenu() {
-        return menu;
+        return this.menu;
     }
 
     /**
@@ -287,7 +286,7 @@ public class WOSController implements Initializable {
      * @return The instance of the phone number Text node.
      */
     public Text getPhoneNumberArea() {
-        return phoneNumberArea;
+        return this.phoneNumberArea;
     }
 
     /**
