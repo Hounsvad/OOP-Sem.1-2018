@@ -74,7 +74,7 @@
                </children>
             </Pane>
             <ImageView fx:id="itemImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                <TextArea fx:id="textArea" maxHeight="98.0" prefHeight="98.0" prefWidth="686.0" style="-fx-base: rgb(43, 43, 43); -fx-text-fill: white;" wrapText="true">
+                <TextArea fx:id="textArea" editable="false" maxHeight="98.0" prefHeight="98.0" prefWidth="686.0" style="-fx-base: rgb(43, 43, 43); -fx-text-fill: white;" wrapText="true">
                <font>
                   <Font name="Courier New Bold" size="14.0" />
                </font></TextArea>

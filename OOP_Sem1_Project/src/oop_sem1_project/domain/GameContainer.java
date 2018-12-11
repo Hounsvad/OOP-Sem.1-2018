@@ -36,7 +36,7 @@ public class GameContainer {
         Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2", "ChemLab2"}, 2, true);
         Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2", "Workshop2"}, 4, true);
         Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2", "Lecture2"}, 6, true);
-        Room rallypoint = new Room(new String[]{"RallyPoint", "RallypointFire", "RallypointFire", "RallypointFire"}, 10, true);
+        Room rallypoint = new Room(new String[]{"RallyPoint", "RallyPointFire", "RallyPointFire", "RallyPointFire"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
