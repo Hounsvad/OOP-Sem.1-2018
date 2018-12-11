@@ -13,7 +13,6 @@ import oop_sem1_project.presentation.rendering.Renderer;
  * domain layer. This is the only class that accesses the domain layer which
  * results in a clear separation of our layers.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public class InteractionCommunicator {
 
@@ -32,7 +31,7 @@ public class InteractionCommunicator {
      * Constructs a new InteractionCommunicator.
      *
      * @param renderer An instance of the renderer to be able to update the
-     * visual appearance based on the interactions communicated.
+     *                 visual appearance based on the interactions communicated.
      */
     public InteractionCommunicator(Renderer renderer) {
         this.renderer = renderer;
@@ -56,7 +55,7 @@ public class InteractionCommunicator {
      * with our three layer architecture design.
      *
      * @param clickedNode The clicked canvas.
-     * @param mouseEvent The MouseEvent.
+     * @param mouseEvent  The MouseEvent.
      */
     public void mouseClickedEvent(ClickedNode clickedNode, MouseEvent mouseEvent) {
         this.renderer.requestGraphicalUpdate(this.interactionHandler.update(clickedNode.toString(), new int[]{(int) mouseEvent.getSceneX(), (int) mouseEvent.getSceneY()}));
@@ -84,6 +83,7 @@ public class InteractionCommunicator {
      * Method for storing the highscore.
      *
      * @param correctQuizAnswers The amount of correct answers.
+     * @return 
      */
     public int storeHighscore(int correctQuizAnswers) {
         return this.interactionHandler.storeHighscore(correctQuizAnswers);

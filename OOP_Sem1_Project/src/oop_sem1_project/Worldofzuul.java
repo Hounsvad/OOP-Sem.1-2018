@@ -12,8 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Benjamin Staugaard | Benz56
+ * 
  */
 public class Worldofzuul extends Application {
 

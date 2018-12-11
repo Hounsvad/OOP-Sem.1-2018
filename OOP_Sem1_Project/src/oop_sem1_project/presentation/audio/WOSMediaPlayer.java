@@ -1,6 +1,6 @@
 package oop_sem1_project.presentation.audio;
 
-import java.io.File;
+import java.net.URISyntaxException;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -12,26 +12,24 @@ import javafx.scene.media.MediaPlayer;
 public class WOSMediaPlayer {
 
     /**
-     * A constant defining the location of the media/audio files.
-     */
-    private final static String MEDIA_LOCATION = "src/oop_sem1_project/presentation/audio/";
-
-    /**
      * If the MediaPlayer instance is declared locally it is garbage collected
      * and the music is stopped. Declaring it as an instance variable prevents
      * it from being garbage collected. The variable is not used again.
      */
-    private final MediaPlayer mainTrackMediaPlayer;
+    private MediaPlayer mainTrackMediaPlayer;
 
     /**
      * Constructs a new WOSMediaPlayer and starts the game music in an infinite
      * loop.
      */
     public WOSMediaPlayer() {
-        mainTrackMediaPlayer = new MediaPlayer(new Media(new File(MEDIA_LOCATION + "MainTrack.mp3").toURI().toString()));
-        mainTrackMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mainTrackMediaPlayer.setVolume(0.1);
-        mainTrackMediaPlayer.play();
+        try {
+            this.mainTrackMediaPlayer = new MediaPlayer(new Media(getClass().getResource("MainTrack.mp3").toURI().toString()));
+            this.mainTrackMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            this.mainTrackMediaPlayer.setVolume(0.1);
+            this.mainTrackMediaPlayer.play();
+        } catch (URISyntaxException ex) {
+        }
     }
 
     /**
@@ -40,6 +38,9 @@ public class WOSMediaPlayer {
      * @param sound The name of the sound to be played.
      */
     public void playSound(String sound) {
-        new MediaPlayer(new Media(new File(MEDIA_LOCATION + sound + ".mp3").toURI().toString())).play();
+        try {
+            new MediaPlayer(new Media(getClass().getResource(sound + ".mp3").toURI().toString())).play();
+        } catch (URISyntaxException ex) {
+        }
     }
 }

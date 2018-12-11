@@ -14,13 +14,12 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 public class SafetyPointOpenPopup extends Popup {
 
     /**
-     * 
+     *
      * @param interactionHandler an instance of the InteractionHandler
-     * @param name the name od the Popup
-     * @param image the name of the image used to display the Popup
+     * @param image              the name of the image used to display the Popup
      */
-    public SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
-        super(interactionHandler, name, image);
+    public SafetyPointOpenPopup(InteractionHandlerImpl interactionHandler, String image) {
+        super(interactionHandler, image);
 
         addClickableAreas("zoom", new int[]{366, 117, 163, 97});
         addClickableAreas("fire-extinguisher", new int[]{363, 318, 68, 153});
@@ -33,8 +32,8 @@ public class SafetyPointOpenPopup extends Popup {
 
     /**
      * Does something depending on where you've clicked
-     * 
-     * @param clickedPosition the position the mouseclick happened on 
+     *
+     * @param clickedPosition the position the mouseclick happened on
      */
     @Override
     public void onClick(int[] clickedPosition) {
@@ -42,7 +41,7 @@ public class SafetyPointOpenPopup extends Popup {
         if (clickedArea != null) {
             switch (clickedArea) {
                 case "zoom":
-                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointOverlay"));
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "SafetyPointOverlay"));
                     break;
                 case "fire-extinguisher":
                     getInteractionHandler().getGameContainer().getPlayer().setItem(getInteractionHandler().getGameContainer().getItems().get(0));

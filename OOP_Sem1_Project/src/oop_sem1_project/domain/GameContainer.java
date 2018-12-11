@@ -31,12 +31,12 @@ public class GameContainer {
         // Initializing all Rooms
         Room entrance = new Room(new String[]{"Entrance", "Entrance", "Entrance", "EntranceFire"}, 0, false);
         Room hall = new Room(new String[]{"MainHall", "MainHall", "MainHall", "MainHallFire"}, 0, false);
-        Room hallway = new Room(new String[]{"Hall", "Hall", "Hall",  "Hall"}, 0, false);
+        Room hallway = new Room(new String[]{"Hall", "Hall", "Hall", "Hall"}, 0, false);
         Room robtek = new Room(new String[]{"Robobtek0", "Robobtek1", "Robobtek2", "Robobtek2"}, 0, true);
-        Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2","ChemLab2"}, 2, true);
+        Room chemlab = new Room(new String[]{"ChemLab0", "ChemLab1", "ChemLab2", "ChemLab2"}, 2, true);
         Room workshop = new Room(new String[]{"Workshop0", "Workshop1", "Workshop2", "Workshop2"}, 4, true);
         Room u55 = new Room(new String[]{"Lecture0", "Lecture1", "Lecture2", "Lecture2"}, 6, true);
-        Room rallypoint = new Room(new String[]{"Rallypoint", "RallypointFire", "RallypointFire", "RallypointFire"}, 10, true);
+        Room rallypoint = new Room(new String[]{"RallyPoint", "RallyPointFire", "RallyPointFire", "RallyPointFire"}, 10, true);
 
         //Entrance messages
         entrance.addMessage(0, "You decide to wander around a bit");
@@ -50,8 +50,8 @@ public class GameContainer {
         entrance.addInteractableArea("doorSouth", new Door("doorSouth", new int[]{400, 450}, new int[]{50, 50}, 50, "door", null, rallypoint, true));
         entrance.addInteractableArea("flower1", new InteractableArea(new int[]{550, 350}, new int[]{50, 100}, 0, "none", null));
         entrance.addInteractableArea("flower2", new InteractableArea(new int[]{300, 350}, new int[]{50, 100}, 0, "none", null));
-        entrance.addInteractableArea("buildingLeft", new InteractableArea(new int[]{0, 0}, new int[]{400, 300}, 0, "none", null));
-        entrance.addInteractableArea("BuildingRight", new InteractableArea(new int[]{500, 0}, new int[]{400, 300}, 0, "none", null));
+        entrance.addInteractableArea("wallLeft", new InteractableArea(new int[]{0, 0}, new int[]{400, 300}, 0, "none", null));
+        entrance.addInteractableArea("wallRight", new InteractableArea(new int[]{500, 0}, new int[]{400, 300}, 0, "none", null));
 
         //Hall messages
         hall.addMessage(0, "You notice a \"Safety Point\" in the corner. You should probably check it out.\nYou also notice a faint smell of burning electronics...");
@@ -157,10 +157,10 @@ public class GameContainer {
         this.player.setCurrentRoom(entrance);
 
         //Add all Items to the item list
-        items.add(new Item("fire-extinguisher", "Fireextinguisher", "A CO2 filled vessel with a release handle", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\"", "Extinguisher"));
-        items.add(new Item("eyewash", "Eyewash", "A ciplock bag full of murky sea water", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says", null));
-        items.add(new Item("defibrilator", "AED", "A medicaly approved arc-reactor-powered tazer in red and gold colour scheme", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him", "Defibrilator"));
-        items.add(new Item("first-aid", "Firstaid", "A bag of old socks from lost and found", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\"", null));
+        this.items.add(new Item("fire-extinguisher", "Fireextinguisher", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\"", "Extinguisher"));
+        this.items.add(new Item("eyewash", "Eyewash", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says", null));
+        this.items.add(new Item("defibrilator", "AED", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him", "Defibrilator"));
+        this.items.add(new Item("first-aid", "Firstaid", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\"", null));
 
     }
 
@@ -194,6 +194,6 @@ public class GameContainer {
      * @return a list of items
      */
     public List<Item> getItems() {
-        return items;
+        return this.items;
     }
 }

@@ -12,7 +12,6 @@ import java.util.List;
  * saying/meaningful names showing the intent/use of what at first-hand looks
  * like arbitrary data.
  *
- * @author Benjamin Staugaard | Benz56
  */
 class PackeInterpreter {
 
@@ -76,7 +75,7 @@ class PackeInterpreter {
      * data passed as in the dataList parameter.
      *
      * @param dataList The initial data list to be converted to something
-     * understandable.
+     *                 understandable.
      */
     public PackeInterpreter(List<String[]> dataList) {
         this.dataList = dataList;
@@ -149,7 +148,7 @@ class PackeInterpreter {
 
     /**
      * @return The rotation of the player based on the direction. (Left, Right,
-     * Up, or Down)
+     *         Up, or Down)
      */
     public int getPlayerRotation() {
         return this.playerRotation;

@@ -18,7 +18,7 @@ public class DataPacket {
     private final Player player;
     private final StringBuilder phoneNumber = new StringBuilder();
 
-    private List<String[]> packet = new ArrayList<>();
+    private List<String[]> packet;
     private String background;
     private String playerDirection = "Up";
     private String message = "";
@@ -70,17 +70,17 @@ public class DataPacket {
 
     public List<String[]> constructPacket() {
         this.packet = new ArrayList<>();
-        this.packet.add(new String[]{"bg", this.background});
-        this.packet.add(new String[]{"pl", this.playerDirection, String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});
-        this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});
-        this.packet.add(new String[]{"pn", this.phoneNumber.toString()});
-        this.packet.add(new String[]{"msg", this.message == null ? "" : this.message});
+        this.packet.add(new String[]{"bg", this.background});//background
+        this.packet.add(new String[]{"pl", this.playerDirection, String.valueOf(this.player.getPosition()[0]), String.valueOf(this.player.getPosition()[1])});//player
+        this.packet.add(new String[]{"ci", this.player.getItem() == null ? "" : this.player.getItem().getImage()});//current item
+        this.packet.add(new String[]{"pn", this.phoneNumber.toString()});//phone number
+        this.packet.add(new String[]{"msg", this.message == null ? "" : this.message});//message
         this.message = ""; // Clear message.
-        this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});
-        this.packet.add(new String[]{"so", this.sound});
+        this.packet.add(new String[]{"pu", this.popup == null ? "" : this.popup.getImage()});//popup
+        this.packet.add(new String[]{"so", this.sound});//sound
         this.sound = ""; // Clear sound.
-        this.packet.add(new String[]{"oq", String.valueOf(this.openQuiz)});
-        this.packet.add(new String[]{"sc", String.valueOf(score)});
+        this.packet.add(new String[]{"oq", String.valueOf(this.openQuiz)});//open quiz
+        this.packet.add(new String[]{"sc", String.valueOf(this.score)});//score
         return this.packet;
     }
 }

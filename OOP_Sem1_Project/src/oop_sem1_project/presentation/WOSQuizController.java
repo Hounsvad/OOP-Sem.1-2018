@@ -15,8 +15,7 @@ import javafx.stage.Stage;
 
 /**
  * The FXML Controller class for the quiz window.
- *
- * @author Benjamin Staugaard | Benz56
+ * 
  */
 public class WOSQuizController implements Initializable {
 
@@ -75,10 +74,10 @@ public class WOSQuizController implements Initializable {
      * Initializes the controller class and adds all of the ToggleGroups to the
      * list of ToggleGroups.
      *
-     * @param location The location used to resolve relative paths for the root
-     * object, or null if the location is not known.
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
-     * if the root object was not localized.
+     *                  if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
