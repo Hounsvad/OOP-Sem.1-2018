@@ -196,7 +196,6 @@ public class WOSController implements Initializable {
     public void openQuiz() {
         setInputListeners(false);
         try {
-            System.out.println("sdg");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WOSQuiz.fxml"));
             loader.setControllerFactory(cf -> new WOSQuizController(this, this.score));
             Stage stage = new Stage();
