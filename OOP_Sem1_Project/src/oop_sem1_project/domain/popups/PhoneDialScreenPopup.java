@@ -9,18 +9,17 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * 
  */
 public class PhoneDialScreenPopup extends Popup {
 
     /**
-     * 
+     *
      * @param interactionHandler an instance of the InteractionHandler
-     * @param dialPhone the name of the Popup
-     * @param phoneDialScreen the name of the image used to display the Popup
+     * @param phoneDialScreen    the name of the image used to display the Popup
      */
-    public PhoneDialScreenPopup(InteractionHandlerImpl interactionHandler, String dialPhone, String phoneDialScreen) {
-        super(interactionHandler, dialPhone, phoneDialScreen);
+    public PhoneDialScreenPopup(InteractionHandlerImpl interactionHandler, String phoneDialScreen) {
+        super(interactionHandler, phoneDialScreen);
         addClickableAreas("home", new int[]{431, 452, 40, 40});
         addClickableAreas("b1", new int[]{343, 222, 79, 40});
         addClickableAreas("b2", new int[]{422, 222, 56, 40});
@@ -39,8 +38,8 @@ public class PhoneDialScreenPopup extends Popup {
 
     /**
      * Does something depending on where you've clicked
-     * 
-     * @param clickedPosition the position the mouseclick happened on 
+     *
+     * @param clickedPosition the position the mouseclick happened on
      */
     @Override
     public void onClick(int[] clickedPosition) {
@@ -50,7 +49,7 @@ public class PhoneDialScreenPopup extends Popup {
             switch (clickedArea) {
                 case "home":
                     pn.setLength(0);
-                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "Phone", "PhoneHomeScreen"));
+                    getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "PhoneHomeScreen"));
                     break;
                 case "b1":
                     if (pn.length() < 8) {
@@ -124,20 +123,20 @@ public class PhoneDialScreenPopup extends Popup {
                     break;
                 case "dial":
                     if (pn.toString().equals("112")) {
-                        if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8){
+                        if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8) {
                             getInteractionHandler().getDataPacket().setMessage("You call 112 and state your name, emergency and the current address");
                             getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
                         } else {
-                             getInteractionHandler().getDataPacket().setMessage("If there isn't any serious emergency, you shouldn't call 112");
-                             }
+                            getInteractionHandler().getDataPacket().setMessage("If there isn't any serious emergency, you shouldn't call 112");
+                        }
                         break;
                     } else if (pn.toString().equals("65508888")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 9) {
-                        getInteractionHandler().getDataPacket().setMessage("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
-                        getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
+                            getInteractionHandler().getDataPacket().setMessage("You call 65508888, the SDU emergency hotline \nYou state your Name and what happened \nThe friendly voice assures you its gonna be alright, but you should probably evacuate to the rallypoint");
+                            getInteractionHandler().getGameContainer().getPlayer().setProgress(getInteractionHandler().getGameContainer().getPlayer().getProgress() + 1);
                         } else {
                             getInteractionHandler().getDataPacket().setMessage("You should only call 65508888 if there is an actual emergency at SDU!");
-                            }
+                        }
                         break;
                     } else if (pn.toString().equals("88888888")) {
                         getInteractionHandler().getDataPacket().setMessage("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
@@ -186,12 +185,11 @@ public class PhoneDialScreenPopup extends Popup {
             }
         }
     }
-    
+
     /**
      * Gives a message when to many digits are dialed
      */
     private void whoCall() {
         getInteractionHandler().getDataPacket().setMessage("Where are you trying to call with a number larger than 8 digits?");
     }
-
 }

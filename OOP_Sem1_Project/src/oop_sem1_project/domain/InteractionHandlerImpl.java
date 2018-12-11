@@ -60,7 +60,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                 if (interactableArea.isWithinRange(newPos)) {
                     if (interactableArea.getRangeType().equalsIgnoreCase("safetypoint")) {
                         canMove = false;
-                        this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "Safety Point", "SafetyPointClosed"));
+                        this.gameContainer.setPopup(new SafetyPointClosedPopup(this, "SafetyPointClosed"));
                         break;
                     } else if (interactableArea.getRangeType().equalsIgnoreCase("door")) {
                         Door destination = (Door) interactableArea;
@@ -106,7 +106,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
         if (clickedNode.equals("GAME_CANVAS") && this.gameContainer.getPopup() != null) {
             this.gameContainer.getPopup().onClick(position);
         } else if (clickedNode.equals("PHONE_CANVAS")) {
-            this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "Phone", "PhoneHomeScreen"));
+            this.gameContainer.setPopup(new PhoneMainScreenPopup(this, "PhoneHomeScreen"));
         } else if (clickedNode.equals("ITEM_CANVAS")) {
             for (InteractableArea interactableArea : this.gameContainer.getPlayer().getCurrentRoom().getInteractableAreas().values()) {
                 if (!interactableArea.getRangeType().equalsIgnoreCase("none") && interactableArea.isWithinRange(this.gameContainer.getPlayer().getPosition())) {

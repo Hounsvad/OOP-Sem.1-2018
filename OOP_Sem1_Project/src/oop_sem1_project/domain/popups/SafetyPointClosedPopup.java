@@ -14,13 +14,12 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 public class SafetyPointClosedPopup extends Popup {
 
     /**
-     * 
+     *
      * @param interactionHandler
-     * @param name the name of the Popup
-     * @param image the name of the image
+     * @param image              the name of the image
      */
-    public SafetyPointClosedPopup(InteractionHandlerImpl interactionHandler, String name, String image) {
-        super(interactionHandler, name, image);
+    public SafetyPointClosedPopup(InteractionHandlerImpl interactionHandler, String image) {
+        super(interactionHandler, image);
         addClickableAreas("zoom", new int[]{366, 117, 163, 97});
         addClickableAreas("open", new int[]{476, 291, 79, 80});
         addClickableAreas("exit1", new int[]{0, 0, 343, 500});
@@ -29,8 +28,8 @@ public class SafetyPointClosedPopup extends Popup {
 
     /**
      * Does something depending on where you've clicked
-     * 
-     * @param clickedPosition the position the mouseclick happened on 
+     *
+     * @param clickedPosition the position the mouseclick happened on
      */
     @Override
     public void onClick(int[] clickedPosition) {
@@ -38,15 +37,14 @@ public class SafetyPointClosedPopup extends Popup {
         if (clickedArea != null) {
             switch (clickedArea) {
                 case "zoom":
-                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "ZoomMap", "SafetyPointOverlay"));
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointZoomPopup(getInteractionHandler(), "SafetyPointOverlay"));
                     break;
                 case "open":
-                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointOpenPopup(getInteractionHandler(), "SafetyPointOpen", "SafetyPointOpen"));
+                    getInteractionHandler().getGameContainer().setPopup(new SafetyPointOpenPopup(getInteractionHandler(), "SafetyPointOpen"));
                     break;
                 case "exit1":
                 case "exit2":
                     getInteractionHandler().getGameContainer().setPopup(null);
-                    break;
             }
         }
     }
