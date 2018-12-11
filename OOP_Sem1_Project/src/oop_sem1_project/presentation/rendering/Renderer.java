@@ -14,7 +14,6 @@ import oop_sem1_project.presentation.WOSController;
  * interpreted by the PacketInterpreter to the corresponding currently desired
  * visual appearance of the game.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public class Renderer {
 
@@ -43,7 +42,7 @@ public class Renderer {
      * Updates the Scene in correspondence to the received dataList.
      *
      * @param dataList The list containing the desired visual appearance of the
-     * Scene.
+     *                 Scene.
      */
     public void requestGraphicalUpdate(List<String[]> dataList) {
         // Main purpose of the PackeInterpreter is to convert the dataList to something more specific
