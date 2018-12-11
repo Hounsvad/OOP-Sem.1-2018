@@ -9,6 +9,7 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
+ * A class for the functionality of the phone map screen popup
  * 
  */
 public class PhoneMapScreenPopup extends Popup {

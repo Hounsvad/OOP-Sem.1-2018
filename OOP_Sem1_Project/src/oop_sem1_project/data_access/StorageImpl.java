@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 /**
  *
+ * A class to store and load strings delimited by '\n'
  * 
  */
 public class StorageImpl implements Storage {

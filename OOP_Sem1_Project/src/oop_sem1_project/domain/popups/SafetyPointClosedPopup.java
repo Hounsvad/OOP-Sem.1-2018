@@ -9,7 +9,8 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
- * @author Patrick
+ * A class for the functionality of the safetypoint when it is "closed"
+ * 
  */
 public class SafetyPointClosedPopup extends Popup {
 

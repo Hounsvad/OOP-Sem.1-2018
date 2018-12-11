@@ -9,7 +9,7 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
- * @author Patrick
+ * A class for the functionality of the safetypoint when it is "open"
  */
 public class SafetyPointOpenPopup extends Popup {
 

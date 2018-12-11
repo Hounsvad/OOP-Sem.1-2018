@@ -9,6 +9,7 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
+ * A class for the functionality of the phone main screen popup
  * 
  */
 public class PhoneMainScreenPopup extends Popup {

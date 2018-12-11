@@ -11,12 +11,24 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
+ * A class for the functionality of the popups in the game
  * 
  */
 public abstract class Popup {
 
+    /**
+     * A container variable for the pointer to the current instance of the interactionHandler
+     */
     private final InteractionHandlerImpl interactionHandler;
+    
+    /**
+     * A string to contain the name of the image file for the popup
+     */
     private final String image;
+    
+    /**
+     * A map of clickable areas
+     */
     private final Map<String, int[]> clickableAreas = new HashMap<>();
 
     /**

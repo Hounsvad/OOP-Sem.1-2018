@@ -11,7 +11,8 @@ import java.util.List;
 
 /**
  *
- *
+ * An interface to contract the methods for storing the highscore
+ * 
  */
 public interface Storage {
 
