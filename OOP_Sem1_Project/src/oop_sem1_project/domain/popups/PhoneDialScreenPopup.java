@@ -122,6 +122,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "dial":
+                    pn.setLength(0);
                     if (pn.toString().equals("112")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8) {
                             getInteractionHandler().getDataPacket().setMessage("You call 112 and state your name, emergency and the current address");
@@ -174,7 +175,6 @@ public class PhoneDialScreenPopup extends Popup {
                         + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
                     };
                     getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
-                    pn.setLength(0);
                     break;
                 case "delete":
                     if (pn.length() != 0) {
