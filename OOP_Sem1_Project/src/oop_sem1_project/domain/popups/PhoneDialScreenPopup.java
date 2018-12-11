@@ -122,7 +122,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "dial":
-                    pn.setLength(0);
+                    
                     if (pn.toString().equals("112")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 8) {
                             getInteractionHandler().getDataPacket().setMessage("You call 112 and state your name, emergency and the current address");
@@ -130,6 +130,7 @@ public class PhoneDialScreenPopup extends Popup {
                         } else {
                             getInteractionHandler().getDataPacket().setMessage("If there isn't any serious emergency, you shouldn't call 112");
                         }
+                        pn.setLength(0);
                         break;
                     } else if (pn.toString().equals("65508888")) {
                         if (getInteractionHandler().getGameContainer().getPlayer().getProgress() == 9) {
@@ -138,9 +139,11 @@ public class PhoneDialScreenPopup extends Popup {
                         } else {
                             getInteractionHandler().getDataPacket().setMessage("You should only call 65508888 if there is an actual emergency at SDU!");
                         }
+                        pn.setLength(0);
                         break;
                     } else if (pn.toString().equals("88888888")) {
                         getInteractionHandler().getDataPacket().setMessage("'Hello, this is leasy. How may I help you?' \nYou end the call. Why would you do that at such a time?");
+                        pn.setLength(0);
                         break;
                     }
                     String[] randomCall = {
@@ -175,6 +178,7 @@ public class PhoneDialScreenPopup extends Popup {
                         + "Never gonna tell a lie and hurt you', It seems like you just got rick rolled"
                     };
                     getInteractionHandler().getDataPacket().setMessage(randomCall[(int) (Math.random() * randomCall.length)]);
+                    pn.setLength(0);
                     break;
                 case "delete":
                     if (pn.length() != 0) {
