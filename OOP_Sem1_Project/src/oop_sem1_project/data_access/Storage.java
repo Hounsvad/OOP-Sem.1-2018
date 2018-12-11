@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ *
  */
 public interface Storage {
 
@@ -20,8 +20,8 @@ public interface Storage {
      *
      * @param result The playthrough result in the form of "Score PlayerName".
      * @throws FileNotFoundException Exception is thrown if it wasn't possible
-     * to save the result.
-     * @throws IOException Thrown if the file can't be opened.
+     *                               to save the result.
+     * @throws IOException           Thrown if the file can't be opened.
      */
     void save(String result) throws FileNotFoundException, IOException;
 
@@ -30,7 +30,7 @@ public interface Storage {
      *
      * @return A list of all stored results.
      * @throws FileNotFoundException Exception is thrown if it wasn't possible
-     * to read the stored results.
+     *                               to read the stored results.
      */
     List<String> load() throws FileNotFoundException;
 }

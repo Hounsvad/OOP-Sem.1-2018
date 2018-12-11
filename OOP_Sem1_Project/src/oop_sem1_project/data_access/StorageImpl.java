@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * 
  */
 public class StorageImpl implements Storage {
 
@@ -31,7 +31,7 @@ public class StorageImpl implements Storage {
      *
      * @param fileName The name of the storage File.
      * @throws IOException This is thrown if the file couldn't be created or if
-     * the File is a directory.
+     *                     the File is a directory.
      */
     public StorageImpl(String fileName) throws IOException {
         this.file = new File("./", fileName + ".csv");
@@ -47,14 +47,13 @@ public class StorageImpl implements Storage {
      *
      * @param result The result String.
      * @throws FileNotFoundException Thrown if the File wasn't found.
-     * @throws IOException Thrown if the file can't be opened.
+     * @throws IOException           Thrown if the file can't be opened.
      */
     @Override
     public void save(String result) throws FileNotFoundException, IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.file, true))) {
             writer.write((this.file.length() == 0 ? "" : "\n") + result);
         }
-
     }
 
     /**
