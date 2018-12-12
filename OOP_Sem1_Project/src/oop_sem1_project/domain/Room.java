@@ -10,14 +10,34 @@ import java.util.Map;
 
 /**
  *
- * @author Pinnacle F
+ * Container for all information about a room
+ * 
  */
 public class Room {
 
+    /**
+     * Areas in a room with special properties
+     */
     private final Map<String, InteractableArea> interactableAreas = new HashMap<>();
+    
+    /**
+     * The minimum progress to interact with the room
+     */
     private final int desiredProgress;
+    
+    /**
+     * Map of messages with a progress indicator
+     */
     private final Map<Integer, String> messages = new HashMap<>();
+    
+    /**
+     * Whether or not the room can increase the players progress upon entering
+     */
     private final boolean increasesProgress;
+    
+    /**
+     * The images the background can have
+     */
     private final String[] images;
 
     /**

@@ -79,7 +79,10 @@ public class Renderer {
 
         this.controller.setScore(packet.getScore());
     }
-
+    
+    /**
+     * Draws the main screen
+     */
     public void drawMainScreen() {
         this.controller.getItemImageView().setImage(null);
         this.controller.getGameCanvas().getGraphicsContext2D().drawImage(new Image(WOSController.class.getResourceAsStream("images/MainScreen.png")), 0, 0);

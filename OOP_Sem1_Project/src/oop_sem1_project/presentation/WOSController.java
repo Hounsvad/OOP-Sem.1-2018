@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package oop_sem1_project.presentation;
 
 import java.io.IOException;
@@ -186,6 +191,9 @@ public class WOSController implements Initializable {
         }
     }
 
+    /**
+     * Shows the menu which allows for the restart of the game
+     */
     public void resetGame() {
         this.menu.setVisible(true);
     }
@@ -297,6 +305,10 @@ public class WOSController implements Initializable {
         this.score = score;
     }
 
+    /**
+     * 
+     * @return The active renderer instance
+     */
     public Renderer getRenderer() {
         return this.renderer;
     }

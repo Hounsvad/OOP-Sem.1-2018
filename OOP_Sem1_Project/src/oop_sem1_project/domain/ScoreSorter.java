@@ -9,7 +9,8 @@ import java.util.Comparator;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * Sorter to sort scores
+ * 
  */
 public class ScoreSorter implements Comparator<String> {
 
