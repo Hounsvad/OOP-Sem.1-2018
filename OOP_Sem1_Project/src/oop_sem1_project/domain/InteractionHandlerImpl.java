@@ -17,7 +17,8 @@ import oop_sem1_project.domain.popups.SafetyPointClosedPopup;
 
 /**
  *
- *
+ * A handler for the domain layer of world of safety
+ * 
  */
 public class InteractionHandlerImpl implements InteractionHandler {
 

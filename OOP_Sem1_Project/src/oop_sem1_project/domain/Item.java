@@ -7,7 +7,7 @@ package oop_sem1_project.domain;
 
 /**
  *
- * Class contining logic for items
+ * Class containing logic for items
  * 
  */
 public class Item {

@@ -7,7 +7,8 @@ package oop_sem1_project.domain;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * A Player object to represent data about the player
+ * 
  */
 public class Player {
 
@@ -31,7 +32,14 @@ public class Player {
      */
     private Item item;
 
+    /**
+     * The name of the player
+     */
     private final String name;
+    
+    /**
+     * The coordinates of the player
+     */
     private int[] position;
 
     /**
