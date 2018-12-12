@@ -158,9 +158,9 @@ public class GameContainer {
 
         //Add all Items to the item list
         this.items.add(new Item("fire-extinguisher", "Fireextinguisher", 0, "*SPWOOOOOOSH!* Goes the fire-extinguisher \n\"Thank you, we would have been screwed without your help, now go\"", "Extinguisher"));
-        this.items.add(new Item("eyewash", "Eyewash", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says", null));
+        this.items.add(new Item("eyewash", "Eyewash", 0, "*SPLASH* Goes the eyewash \nThe Student sighs in relief. \"Not worth the risk of staying here, i'll better go home and rest a couple of days\" he says", "Splaash"));
         this.items.add(new Item("defibrilator", "AED", 2, "*BZZZZZT* Goes the fancy tazer \n The student began to open his eyes again and the ambulance is on the way to the hospital with him", "Defibrilator"));
-        this.items.add(new Item("first-aid", "Firstaid", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\"", null));
+        this.items.add(new Item("first-aid", "Firstaid", 3, "As the socks are stuffed into the wound the student clenches his teeth  \n\"Thanks, i could have just waited for it to stop bleeding, but i guess now i can get back to work faster\"", "Ooof"));
 
     }
 

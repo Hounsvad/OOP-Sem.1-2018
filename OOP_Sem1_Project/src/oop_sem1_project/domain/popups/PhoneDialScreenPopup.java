@@ -43,6 +43,7 @@ public class PhoneDialScreenPopup extends Popup {
      */
     @Override
     public void onClick(int[] clickedPosition) {
+        String[] randomSound = {"beep1", "beep2", "beep3", "beep4", "beep5"};
         String clickedArea = getClickedArea(clickedPosition);
         if (clickedArea != null) {
             StringBuilder pn = getInteractionHandler().getDataPacket().getPhoneNumber();
@@ -52,6 +53,7 @@ public class PhoneDialScreenPopup extends Popup {
                     getInteractionHandler().getGameContainer().setPopup(new PhoneMainScreenPopup(this.getInteractionHandler(), "PhoneHomeScreen"));
                     break;
                 case "b1":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('1');
                         break;
@@ -59,6 +61,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b2":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('2');
                         break;
@@ -66,6 +69,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b3":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('3');
                         break;
@@ -73,6 +77,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b4":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('4');
                         break;
@@ -80,6 +85,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b5":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('5');
                         break;
@@ -87,6 +93,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b6":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('6');
                         break;
@@ -94,6 +101,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b7":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('7');
                         break;
@@ -101,6 +109,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b8":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('8');
                         break;
@@ -108,6 +117,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b9":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('9');
                         break;
@@ -115,6 +125,7 @@ public class PhoneDialScreenPopup extends Popup {
                     whoCall();
                     break;
                 case "b0":
+                    getInteractionHandler().getDataPacket().setSound(randomSound[(int) (Math.random() * randomSound.length)]);
                     if (pn.length() < 8) {
                         pn.append('0');
                         break;
