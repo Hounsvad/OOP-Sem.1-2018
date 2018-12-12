@@ -41,9 +41,15 @@ public class WOSQuizController implements Initializable {
      */
     private final long timePassed;
 
+    /**
+     * Quiz window
+     */
     @FXML
     private ScrollPane quizNode;
 
+    /**
+     * Done window
+     */
     @FXML
     private VBox finishedNode;
 
@@ -53,18 +59,35 @@ public class WOSQuizController implements Initializable {
     @FXML
     private ToggleGroup question1, question2, question3, question4, question5;
 
+    /**
+     * Shows the time spent
+     */
     @FXML
     private TextField timeField;
 
+    /**
+     * Shows the quiz score
+     */
     @FXML
     private TextField quizScoreField;
 
+    /**
+     * Shows the total score
+     */
     @FXML
     private TextField totalScore;
 
+    /**
+     * Shows if you pass
+     */
     @FXML
     private TextField passedField;
 
+    /**
+     * 
+     * @param controller is the controller for the base game
+     * @param timePassed the time passed since the player started in milliseconds
+     */
     public WOSQuizController(WOSController controller, long timePassed) {
         this.controller = controller;
         this.timePassed = timePassed;
@@ -107,6 +130,9 @@ public class WOSQuizController implements Initializable {
         this.passedField.setText("You " + (correctAnswers == 5 ? "passed! :)" : "didn't pass! :("));
     }
 
+    /**
+     * upon closing the quiz it opens the menu
+     */
     @FXML
     private void playAgainAction() {
         ((Stage) this.quizNode.getScene().getWindow()).close();

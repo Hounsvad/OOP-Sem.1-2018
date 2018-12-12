@@ -7,7 +7,6 @@ import javafx.scene.media.MediaPlayer;
 /**
  * This class is in charge of playing game music and individual sounds.
  *
- * @author Benjamin Staugaard | Benz56
  */
 public class WOSMediaPlayer {
 
