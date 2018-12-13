@@ -1,3 +1,8 @@
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
+ */
 package oop_sem1_project.presentation;
 
 import java.net.URL;
