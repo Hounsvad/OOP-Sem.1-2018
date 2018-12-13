@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
  */
 package oop_sem1_project.domain.popups;
 
@@ -9,7 +9,8 @@ import oop_sem1_project.domain.InteractionHandlerImpl;
 
 /**
  *
- * @author Patrick
+ * A class for the functionality of the safetypoint when it is "closed"
+ * 
  */
 public class SafetyPointClosedPopup extends Popup {
 

@@ -1,20 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
  */
 package oop_sem1_project.domain;
 
 /**
  *
+ * Class containing logic for items
  * 
  */
 public class Item {
 
+    /**
+     * The progress needed to use the item
+     */
     private final int desiredProgress;
+    
+    /**
+     * The name of the item
+     */
     private final String name;
+    
+    /**
+     * The name of the image file
+     */
     private final String image;
+    
+    /**
+     * Message displayed upon use of the item
+     */
     private final String useMessage;
+    
+    /**
+     * The sound played upon use
+     */
     private final String sound;
 
     /**
