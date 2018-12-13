@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
  */
 package oop_sem1_project.domain;
 
@@ -11,17 +11,29 @@ import oop_sem1_project.domain.popups.Popup;
 
 /**
  *
- * @author Benjamin Staugaard | Benz56
+ * A Container for values and instances 
+ * 
  */
 public class GameContainer {
 
+    /**
+     * A list of items 
+     */
     private final List<Item> items = new ArrayList<>();
 
+    /**
+     * The current popup
+     */
     private Popup popup;
+    
+    /**
+     * The current instance of the player
+     */
     private Player player;
 
     /**
      * Initializes the Player object
+     * Initializes all rooms, areas and items
      *
      * @param playerName the Name of the player
      */

@@ -1,20 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
  */
 package oop_sem1_project.domain;
 
 /**
  *
+ * An area that can be interactable in a few ways:
+ * The area has a size and this area is impassable
+ * The area potentially has a range which can have a type enabeling the game
+ * mechanics based on this
+ * The area can have a required item enabling the use of items based on the area
  *
  */
 public class InteractableArea {
 
+    /**
+     * The size as with and height
+     */
     private final int[] size;
+
+    /**
+     * The range radius
+     */
     private final int range;
+
+    /**
+     * The type of range
+     */
     private final String rangeType;
+
+    /**
+     * The x and y coordinates for the position
+     */
     private final int[] position;
+
+    /**
+     * The required item
+     */
     private final String requiredItemName;
 
     /**

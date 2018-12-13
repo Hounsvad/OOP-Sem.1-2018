@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
  */
 package oop_sem1_project.domain;
 
@@ -10,14 +10,34 @@ import java.util.Map;
 
 /**
  *
- * @author Pinnacle F
+ * Container for all information about a room
+ * 
  */
 public class Room {
 
+    /**
+     * Areas in a room with special properties
+     */
     private final Map<String, InteractableArea> interactableAreas = new HashMap<>();
+    
+    /**
+     * The minimum progress to interact with the room
+     */
     private final int desiredProgress;
+    
+    /**
+     * Map of messages with a progress indicator
+     */
     private final Map<Integer, String> messages = new HashMap<>();
+    
+    /**
+     * Whether or not the room can increase the players progress upon entering
+     */
     private final boolean increasesProgress;
+    
+    /**
+     * The images the background can have
+     */
     private final String[] images;
 
     /**

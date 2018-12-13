@@ -1,3 +1,8 @@
+/* 
+ * Developed by SDU OOP E18 SE/ST grp 21
+ * Frederik Alexander Hounsvad, Andreas Kaer Lauritzen,  Patrick Nielsen, Oliver Lind Nordestgaard, Benjamin Eichler Staugaard
+ * The use of this work is limited to educational purposes
+ */
 package oop_sem1_project.presentation.rendering;
 
 import java.util.List;
@@ -79,7 +84,10 @@ public class Renderer {
 
         this.controller.setScore(packet.getScore());
     }
-
+    
+    /**
+     * Draws the main screen
+     */
     public void drawMainScreen() {
         this.controller.getItemImageView().setImage(null);
         this.controller.getGameCanvas().getGraphicsContext2D().drawImage(new Image(WOSController.class.getResourceAsStream("images/MainScreen.png")), 0, 0);
