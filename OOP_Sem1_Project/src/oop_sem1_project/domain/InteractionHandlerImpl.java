@@ -150,6 +150,7 @@ public class InteractionHandlerImpl implements InteractionHandler {
                         if (this.gameContainer.getPlayer().getItem().getSound() != null) {
                             this.dataPacket.setSound(this.gameContainer.getPlayer().getItem().getSound());
                         }
+                        this.gameContainer.getPlayer().setItem(null);
                         this.dataPacket.setBackground(this.gameContainer.getPlayer().getCurrentRoom().getImage(this.gameContainer.getPlayer()));
                         break;
                     } else {
